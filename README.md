@@ -1,4 +1,5 @@
-==Dynamic-clamp-2018==
+Dynamic-clamp-2018
+==================
 
 This repo contains all supplementary materials for the paper Busch Khakhalin 2018 "", including:
 
@@ -9,6 +10,6 @@ This repo contains all supplementary materials for the paper Busch Khakhalin 201
 
 The workflow we used for the project is described below.
 
-=Workflow=
+# Workflow
 
 _to be continued_
