@@ -6,10 +6,10 @@ This repo contains all supplementary materials for the paper Busch Khakhalin 201
 * [LaTeX version of the paper](main.tex)
 * Matlab code used to analyze the data
 * R code used to analyse the data
-* CSV tables of the data. While raw recordings cannot be hosted here, we tried to post as much data as we could.
+* TSV tables of the data. While raw recordings cannot be hosted here, we tried to post as much data as we could.
 
 The workflow we used for the project is described below.
 
 ## Workflow
 
-_to be continued_
+_to be described_
