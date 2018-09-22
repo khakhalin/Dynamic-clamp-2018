@@ -1,7 +1,8 @@
 Dynamic-clamp-2018
 ==================
 
-This repo contains all supplementary materials for the paper Busch Khakhalin 2018 "", including:
+This repo contains all supplementary materials for the paper Busch Khakhalin 2018 
+"Intrinsic temporal tuning of neurons in the optic tectum is shaped by multisensory experience", including:
 
 * [LaTeX version of the paper](main.tex)
 * Matlab code used to analyze the data
