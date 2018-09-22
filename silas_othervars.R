@@ -16,7 +16,7 @@ require(viridis)
 rm(list = ls())  # Clear workspace
 
 # ----- Read the data ----
-d = read.table("C:/Users/Arseny/Documents/5_Dynamic clamp/mainInput 20180119.txt",header=T)
+d = read.table("data_mainInput.txt",header=T)
 d = mutate(d,group = reorder(group, groupid))
 # d_full = d                # Save a copy just in case
 
