@@ -7,7 +7,7 @@ library(lmerTest)
 rm(list = ls())  # Clear workspace
 
 # ----- Read and prepare spike data ----
-d = read.table("C:/Users/Arseny/Documents/5_Dynamic clamp/out 20171025.txt",header=T)
+d = read.table("data_outDataset.txt",header=T)
 d = subset(d,is.element(Group,c(0,1,2,3,4,5))) # Remove slow and naive
 d = mutate(d,Group = recode_factor(Group,"0"="Control","2"="Flash","1"="Looming",
                 "3"="Sound","4"="Sync","5"="Async","6"="Slowc","7"="Slowf","8"="Naive"))
