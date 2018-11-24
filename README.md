@@ -5,7 +5,7 @@ This repository contains all supplementary materials for the paper Busch Khakhal
 "Intrinsic temporal tuning of neurons in the optic tectum is shaped by multisensory experience", including:
 
 * [LaTeX version of the paper](main.tex)
-* [Full description of the workflow and data](Pipeline.md)
+* [Full description of the workflow, and data stored here](Pipeline.md)
 * Matlab code used to analyze the data
 * R code used to analyse the data
 * Data, as TSV and CSV tables. While raw recordings cannot be hosted on GitHub, we tried to post here as much data as we could.
