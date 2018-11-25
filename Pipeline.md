@@ -5,7 +5,7 @@ This document describes the workflow for the Busch Khakhalin 2018 project on dyn
 
 # Stimulation programs
 
-TODO
+TODO -----------
 
 # Data files
 
@@ -28,8 +28,8 @@ Experiment design:
   3. Sound: sound clicks + gray background
   4. Sync: visual flashes, paired with sound clicks
   5. Async: visual flashes (provided without sound), and clicks provided exactly in-between two flashes
-  6. SlowC: Crashes, but delivered less frequently TODO
-  7. SlowF: Flashes, but delivered less frequently TODO
+  6. SlowC: Crashes, but delivered less frequently TODO -----------
+  7. SlowF: Flashes, but delivered less frequently TODO -----------
   8. Naive: cells that went through no conditioning; essentially, an incorrect control group; not included in final analysis
 * stage - tadpole stage. 48 for stage 48; 49 for young stage 49; 50 for older, larger stage 49 (even though they would still be classified as stage 50, according to Nieuwkoop and Faber, 1994)
 
@@ -37,9 +37,9 @@ Cell basic properties:
 * ra - access resistance
 * rm - membrane resistance
 * cm - membrane capacicty
-* ihold	- current required to bring the cell to TODO
-* rostral - how rostral the cell was, relative to the end of the tectum, TODO **Units?**
-* medial - how medial the cell was, relative to the midline, TODO
+* ihold	- current required to bring the cell to TODO -----------
+* rostral - how rostral the cell was, relative to the end of the tectum, TODO ----------- **Units?**
+* medial - how medial the cell was, relative to the midline, TODO -----------
 
 IV block:
 * nav - activation potential for Na currents, mV
@@ -55,7 +55,7 @@ Dynamic block:
 * sbend	- temporal tuning: quadratic regression coefficient linking input duration to the number of spikes, in dynamic clamp experiments
 
 Synaptic block:
-* mono_m - mean monosynaptic current, pA **TODO - Is it true?**
+* mono_m - mean monosynaptic current, pA **TODO ----------- Is it true?**
 * mono_s - trial-to-trial standard deviation of monosynaptic current, pA
 * poly_m - mean late, polysynaptic current, pA
 * poly_s - standard deviation for late, polysynaptic current, pA
@@ -73,7 +73,7 @@ Consensus total number of spikes generated in each sweep, for each cell, in the 
 
 ### data_spikeShapes.txt	
 
-# Programs
+# Analysis Programs
 
 ## R
 
@@ -124,6 +124,6 @@ A technical tool to transform spiking data from Excel that we originally used to
 
 Some common functions used by more than one utility here:
 
-* dispf - a custom mix between disp() and fprintf() that arranges outputs as a table, easy to copy
+* dispf - a custom mix between disp() and fprintf() that arranges outputs as a table, easy to copy ----------- TODO -----------
 
 
