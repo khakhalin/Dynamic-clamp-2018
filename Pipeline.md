@@ -32,6 +32,7 @@ Experiment design:
   7. SlowF: Flashes, but delivered less frequently TODO
   8. Naive: cells that went through no conditioning; essentially, an incorrect control group; not included in final analysis
 * stage - tadpole stage. 48 for stage 48; 49 for young stage 49; 50 for older, larger stage 49 (even though they would still be classified as stage 50, according to Nieuwkoop and Faber, 1994)
+
 Cell basic properties:
 * ra - access resistance
 * rm - membrane resistance
@@ -39,6 +40,7 @@ Cell basic properties:
 * ihold	- current required to bring the cell to TODO
 * rostral - how rostral the cell was, relative to the end of the tectum, TODO **Units?**
 * medial - how medial the cell was, relative to the midline, TODO
+
 IV block:
 * nav - activation potential for Na currents, mV
 * nai - amplitude of Na channels current, pA
@@ -46,10 +48,12 @@ IV block:
 * kti - amplitude of transient K currents, pA
 * ksv - activation potential for stable K currents, mV
 * ksi - amplitude of stable K currents, pA
+
 Dynamic block:
 * smean	- mean number of spikes in dynamic clamp experiments
 * samp - amplitude tuning: regression coefficient linking current amplitude to the number of spikes, in dynamic clamp experiments
 * sbend	- temporal tuning: quadratic regression coefficient linking input duration to the number of spikes, in dynamic clamp experiments
+
 Synaptic block:
 * mono_m - mean monosynaptic current, pA **TODO - Is it true?**
 * mono_s - trial-to-trial standard deviation of monosynaptic current, pA
@@ -57,6 +61,7 @@ Synaptic block:
 * poly_s - standard deviation for late, polysynaptic current, pA
 * lat_m	- mean latency, ms
 * lat_s - trial-to-trial standard deviation of resonse latency, ms
+
 Current step injections:
 * stepspike - number of spikes in response to current step injections
 
