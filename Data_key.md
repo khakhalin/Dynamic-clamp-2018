@@ -18,15 +18,15 @@ Experiment design:
 * animal - animal id: first a date in ISO format (YYYYMMDD), then underscore, then the # of an animal used that day
 * groupid - id of a group. See next column `group` for an explanation
 * group	- treatment group. This includes:
-  0) Control: proper control group (spent 3 hours on a gray background)
-  1) Crash: gradual reversals of the grid (see "Methods")
-  2) Flash: instantaneous reversals of the grid
-  3) Sound: sound clicks + gray background
-  4) Sync: visual flashes, paired with sound clicks
-  5) Async: visual flashes (provided without sound), and clicks provided exactly in-between two flashes
-  6) SlowC: Crashes, but delivered less frequently TODO -----------
-  7) SlowF: Flashes, but delivered less frequently TODO -----------
-  8) Naive: cells that went through no conditioning; essentially, an incorrect control group; not included in final analysis
+  * 0\. Control: proper control group (spent 3 hours on a gray background)
+  * 1\. Crash: gradual reversals of the grid (see "Methods")
+  * 2\. Flash: instantaneous reversals of the grid
+  * 3\. Sound: sound clicks + gray background
+  * 4\. Sync: visual flashes, paired with sound clicks
+  * 5\. Async: visual flashes (provided without sound), and clicks provided exactly in-between two flashes
+  * 6\. SlowC: Crashes, but delivered less frequently TODO -----------
+  * 7\. SlowF: Flashes, but delivered less frequently TODO -----------
+  * 8\. Naive: cells that went through no conditioning; essentially, an incorrect control group; not included in final analysis
 * stage - tadpole stage. 48 for stage 48; 49 for young stage 49; 50 for older, larger stage 49 (even though they would still be classified as stage 50, according to Nieuwkoop and Faber, 1994)
 
 Cell basic properties:
