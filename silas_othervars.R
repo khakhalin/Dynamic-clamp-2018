@@ -26,13 +26,13 @@ d = mutate(d, group = recode_factor(group,'Control'='Control','Flash'='Flash','C
                                     'Sound'='Sound','Sync'='Sync','Async'='Async'))
 
 # Estimations from the tectal photo and drawing:
-# Lower lip is about rostral of 325 (actually it's more like caudal)
-# Rostral end of tectum is rostral of about 0
-# Tectum edge is medial of about 375 (actually it's more like lateral )
-# Tectum midline is medial of about -25
+# Lower lip is has "rostral" of about 325 (which means that original numbers should have been called "caudal")
+# Rostral end of tectum has "rostral" of about 0
+# Tectum edge has "medial" of about 375 (which means that it shold have been called "medial")
+# Tectum midline has "medial" of about -25
 
-d$rostral = 1 - d$rostral/325
-d$medial = 1 - (d$medial + 25)/375
+d$rostral = 1 - d$rostral/325        # Move to true "rostral", and from screen units to %
+d$medial = 1 - (d$medial + 25)/375   # Move to true "medial"
 
 # Now qplot(medial,rostral) will look like left tectum
 # "medial" is indeed how medial everything is

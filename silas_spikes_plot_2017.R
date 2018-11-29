@@ -1,5 +1,6 @@
-# Silas spiking data analyzer
+# Dynamic Clamp spiking data analyzer
 # version Oct 30 2017
+
 require(ggplot2)
 require(dplyr)
 require(reshape2)
@@ -38,7 +39,7 @@ head(d1)
 # Sence-check if mean term is different than simple mean
 ggplot() + theme_bw() + geom_point(data=d1,aes(ms,ms2)) # Basically the same, doesn't matter
 
-# Testbed for these strange lm formulas
+# Testbed for quadratic lm formulas we use:
 t = c(1,2,3,4)-1
 y = c(0,1,2,3); lm(y~t + I(t^2)) # 0 (linear)
 y = c(0,1,1,1); lm(y~t + I(t^2)) # -0.25 (plato)
@@ -86,7 +87,7 @@ ggplot(mutate(d2,ssgroup=floor(ss*5))) + theme_bw() +
 #   geom_point(alpha=0.2,size=3) +
 #   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank());
 
-### Summary at treatment level (very aggregated)
+### Summary at a treatment level (very aggregated)
 # Summary plot with CI error bars (aka "main plot of the poster")
 d_sum = summarize(group_by(d,Group,Amp,Shape),
             sn = ShapeName[1],
