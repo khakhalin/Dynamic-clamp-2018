@@ -24,9 +24,9 @@ Experiment design:
   * 3\. Sound: sound clicks + gray background
   * 4\. Sync: visual flashes, paired with sound clicks
   * 5\. Async: visual flashes (provided without sound), and clicks provided exactly in-between two flashes
-  * 6\. SlowC: Crashes, but delivered less frequently ----------- TODO, CHECK THIS
-  * 7\. SlowF: Flashes, but delivered less frequently ----------- TODO, CHECK THIS
-  * 8\. Naive: cells that went through no conditioning; essentially, an incorrect control group; not included in final analysis
+  * 6\. SlowC: Crashes, but delivered NOT once every second, as in groups 1-5, but once every 3 seconds. These cells were not included in the final analysis.
+  * 7\. SlowF: Flashes, but delivered NOT once every second, as in gropu 2, but once every 3 seconds. These cells were not included in the final analysis.
+  * 8\. Naive: cells that went through no conditioning; essentially, an incorrect control group. These cells were not included in the final analysis.
 * stage - tadpole stage. 48 for stage 48; 49 for young stage 49; 50 for older, larger stage 49 (even though they would still be classified as stage 50, according to Nieuwkoop and Faber, 1994)
 
 Cell basic properties:
