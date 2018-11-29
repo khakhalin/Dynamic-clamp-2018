@@ -5,7 +5,9 @@ This document describes all scripts used in the Busch Khakhalin 2018 project.
 
 # Stimulation
 
-TODO -----------
+### checker_flash_ding.html
+
+Stimulation program, used for sensory conditioning. A working version [can be found here](http://faculty.bard.edu/~akhakhal/checker_flash_ding.html). The copy in this repo will not be updated, to stay true to the paper, but updated versions may be posted to the [home depisotory for JS-based experimental protocols](https://github.com/khakhalin/js-experiments).
 
 # Analysis
 

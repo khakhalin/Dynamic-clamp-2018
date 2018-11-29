@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="../p5/p5.js"></script>
+		<script src="../p5/addons/p5.dom.js"></script>		
+		<script src="../p5/addons/p5.sound.js"></script>
+		<META name="author" content="Arseny Khakhalin">
+		<META name="contact" content="khakhalin@bard.edu">
+		<meta name="description" content="Test for opto-motor response with grain size of different sizes.">
+	</head>
+	<body>
+		<div id="left" style="float:left; width:200px">
+		<p>Number of grids:<br/>
+		<input type="text" id="my_ngrid" value = "11"/></p>
+		<p>Period, ms:<br/>
+		<input type="text" id="my_period" value = "1000"/></p>
+		<p>Transition phase, ms:<br/>
+		<input type="text" id="my_transition" value = "0"/></p>
+		<p>Make sound?
+		<input type="checkbox" id="my_sound"/></p>
+		<p>In sync?
+		<input type="checkbox" id="my_sync" checked/></p>
+		<p>Frequency, Hz:<br/>
+		<input type="text" id="my_freq" value = "100"/></p>
+		<p>Target sound length, ms:<br/>
+		<input type="text" id="my_soundLength" value = "5"/></p>
+		<div id="fps"></div>
+		<div id="console"></div>
+	</div>
+	<div id="viz5">
+	<script type="text/javascript">
+
+	var my = {"cSize": 600,
+			"period": 1000,
+			"ngrid": 11,
+			"transition": 0,
+			"sound": 0,
+			"sync": 1,
+			"freq": 100,
+			"soundLength": 5,
+			"counter": 0,
+			"counterOld": -1,
+			"secondsPassed": 0,
+			"frameStart": 0,
+			"oscTic": 0,
+			"oscPlaying": 0,
+			"oscStartFlag": 0,
+			"oscCanStartFlag": 0};
+
+	function setup() {
+		nTiles = 11;
+		timeGap = 1000; // Delay in ms
+		timePeriod = 1000; // How frequently
+
+		myCanvas = createCanvas(my.cSize, my.cSize);
+		myCanvas.parent('viz5');
+		//myCanvas.position(300, 50);
+
+		elx = 50;
+		ely = 50;
+		elr = 40
+		stroke(255);
+		
+		osc = new p5.Oscillator(); 	osc.setType('sawtooth');  osc.start();  osc.freq(my.freq);  osc.amp(0); osc.pan(1); osc.phase(0.25); 
+		osc2 = new p5.Oscillator(); osc2.setType('sawtooth'); osc2.start(); osc2.freq(my.freq); osc2.amp(0); osc2.pan(-1); osc2.phase(0.75); 
+
+		my.counter = 0; // Seconds holder
+		my.counterOld = 0; // Second-change trigger
+	}
+
+	
+	function draw() {
+			/*"period": 1000,
+			"ngrid": 11,
+			"transition": 0,
+			"sound": 0,
+			"sync": 1,
+			"freq": 100,
+			"soundLength": 5,*/
+		// Read the form
+		my.period = parseInt(document.getElementById('my_period').value);
+		if(my.period<=0) my.period = 1000; 		if(isNaN(my.period)) my.period = 1000;
+		my.ngrid = parseInt(document.getElementById('my_ngrid').value);
+		if(my.ngrid<=0) my.ngrid = 11; 		if(isNaN(my.ngrid)) my.ngrid = 11;
+		my.transition = parseInt(document.getElementById('my_transition').value);
+		if(my.transition<0) my.transition = 100; 		if(isNaN(my.transition)) my.transition = 100;		
+		my.freq = parseInt(document.getElementById('my_freq').value);
+		if(my.freq<=0) my.freq = 100; 		if(isNaN(my.freq)) my.freq = 100;
+		my.soundLength = parseInt(document.getElementById('my_soundLength').value);
+		if(my.soundLength<=0) my.soundLength = 5; 		if(isNaN(my.soundLength)) my.soundLength = 5;
+		if(document.getElementById('my_sound').checked)	my.sound = 1; else my.sound = 0;
+		if(document.getElementById('my_sync').checked)	my.sync = 1; else my.sync = 0;
+		
+		// FPS counter
+		if(floor(millis()/1000) > my.secondsPassed) {
+			my.secondsPassed++;
+			htmlSet('fps',"FPS: " + String(frameCount-my.frameStart) + "<br>" + my.secondsPassed);
+			my.frameStart = frameCount;
+		}
+
+		// Check if full period has finished and it's time to do something
+		my.counter = floor(millis()/my.period);
+		if(my.counter>my.counterOld) { // Full period finished
+			//htmlAdd('console',"New period")
+			my.counterOld = my.counter;
+			my.oscCanStartFlag = 1; // You could now play the sound if you wish	
+		}
+		
+		if(my.sound) { // Sound could be played
+			if(my.sync & my.oscCanStartFlag & (millis()-my.counter*my.period)>=0) {
+				my.oscCanStartFlag = 0;
+				my.oscStartFlag = 1;
+				}
+			if(!my.sync & my.oscCanStartFlag & (millis()-my.counter*my.period)>=my.period/2) {
+				my.oscCanStartFlag = 0;
+				my.oscStartFlag = 1;
+			}
+			if(my.oscStartFlag) { // It seems that a sound needs to be started				
+				//htmlAdd('console',"Start sound: ");			
+				my.oscStartFlag = 0;			
+				osc.freq(my.freq);		osc2.freq(my.freq);		// Reset frequency just in case			
+				my.oscPlaying = 1;
+				my.oscTic = millis();
+				osc.amp(1); osc2.amp(1);
+				}
+			if(my.oscPlaying) { // Already playing - may need to stop		
+				if(millis()-my.oscTic>=my.soundLength){
+					//htmlAdd('console',"Stop sound");				
+					osc.amp(0);				osc2.amp(0);
+					my.oscPlaying = 0;
+					htmlSet('console',"Actual sound length, ms: " + round(millis()-my.oscTic));
+					}
+				}
+			}
+
+		if(my.transition>0) // Transitions
+			timeRelative = max(millis() - (my.counter+1)*my.period + my.transition,0)/(my.transition);
+		else
+			timeRelative = 0;		
+		w = 600/my.ngrid;
+		for(i=0 ; i<=my.ngrid; i += 1)
+			for(j=0; j<=my.ngrid; j+=1){
+				thisColor = ((i+j + my.counter)%2)*255;
+				fill(thisColor);
+				ww = w*timeRelative/2;
+				if(ww==0) {
+					rect((i-1)*w,(j-1)*w,w,w);
+					}
+				else {
+					if(thisColor>0) {
+						fill(255);
+						rect((i-1)*w,(j-1)*w,w,w);
+						fill(0);
+						rect((i-0.5)*w-ww,(j-0.5)*w-ww,2*ww,2*ww);
+						}
+					else {
+						fill(255);
+						rect((i-1)*w,(j-1)*w,w,w);
+						fill(thisColor);
+						rect((i-1)*w+ww,(j-1)*w+ww,w-2*ww,w-2*ww);
+						}
+					}
+				}
+	}
+
+
+	function htmlSet(name,s) {
+		document.getElementById(name).innerHTML = s;
+	}
+	
+	function htmlAdd(name,s) {
+		var theDiv = document.getElementById(name);
+		var content = document.createTextNode(s);
+		theDiv.appendChild(content);
+		theDiv.appendChild(document.createElement("br"));
+	}
+
+    </script>
+    </div>
+
+	</body>
+</html>
