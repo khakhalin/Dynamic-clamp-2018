@@ -24,8 +24,8 @@ Experiment design:
   * 3\. Sound: sound clicks + gray background
   * 4\. Sync: visual flashes, paired with sound clicks
   * 5\. Async: visual flashes (provided without sound), and clicks provided exactly in-between two flashes
-  * 6\. SlowC: Crashes, but delivered less frequently TODO -----------
-  * 7\. SlowF: Flashes, but delivered less frequently TODO -----------
+  * 6\. SlowC: Crashes, but delivered less frequently ----------- TODO, CHECK THIS
+  * 7\. SlowF: Flashes, but delivered less frequently ----------- TODO, CHECK THIS
   * 8\. Naive: cells that went through no conditioning; essentially, an incorrect control group; not included in final analysis
 * stage - tadpole stage. 48 for stage 48; 49 for young stage 49; 50 for older, larger stage 49 (even though they would still be classified as stage 50, according to Nieuwkoop and Faber, 1994)
 
@@ -33,9 +33,9 @@ Cell basic properties:
 * ra - access resistance
 * rm - membrane resistance
 * cm - membrane capacicty
-* ihold	- current required to bring the cell to TODO -----------
-* rostral - how rostral the cell was, relative to the end of the tectum, TODO ----------- **Units?**
-* medial - how medial the cell was, relative to the midline, TODO -----------
+* ihold	- current required to bring the cell to -60 mV
+* rostral - how caudal the cell was, in arbitrary "screen units". In the script 'silas_othervars.R' this value is then recalcualted to true "rostral", and measured in percent. The reason for this weird way of measurement is an unfortuante suboptimal choice that was made early, and then maintained during the whole data collection period.
+* medial - how lateral the cell was, measured in relative units. Similarly, is adjusted (reveresed, and changed to percent) in the processing script.
 
 IV block:
 * nav - activation potential for Na currents, mV
@@ -51,7 +51,7 @@ Dynamic block:
 * sbend	- temporal tuning: quadratic regression coefficient linking input duration to the number of spikes, in dynamic clamp experiments
 
 Synaptic block:
-* mono_m - mean monosynaptic current, pA **TODO ----------- Is it true?**
+* mono_m - mean monosynaptic current, pA
 * mono_s - trial-to-trial standard deviation of monosynaptic current, pA
 * poly_m - mean late, polysynaptic current, pA
 * poly_s - standard deviation for late, polysynaptic current, pA
@@ -63,8 +63,12 @@ Current step injections:
 
 ### data_manualCounting.txt	
 
-Consensus total number of spikes generated in each sweep, for each cell, in the dynamic clamp protocol. Arranged in a simple 3-column manner: Cell_id, Sweep#, Number of spikes. Produced manually by the **dynamic_dynamic_reader.m** (below).
+Results of manual counting of spikes via Matlab GUI interface **dynamic_dynamic_reader.m**. Can be used to verify consensus data at **data_outDataset.txt**.
 
 ### data_outDataset.txt	
 
+Consensus total number of spikes generated in each sweep, for each cell, in the dynamic clamp protocol. Arranged in a simple 3-column manner: Cell_id, Sweep#, Number of spikes. 
+
 ### data_spikeShapes.txt
+
+For each cell, quantifies average spiking, amplitude tuning, and temporal tuning of spikiness in the dynamic clamp experiments. Produced by **silas_spikes_plot_2017.R**, based on the data from **data_outDataset**. These numbers were latere integrated into the **data_mainInput.txt** summary table.
