@@ -6,6 +6,7 @@ This repository contains all supplementary materials for the paper (as of Dec 20
 Some important files:
 
 * [LaTeX version of the paper](main.tex)
+* [Authors' responses to reviews and comments](reviews%20and%20responses.md)
 * [Description of data files](Data_key.md)
 * [Full list of scripts used in this study](Workflow.md)
 
