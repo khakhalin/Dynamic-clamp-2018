@@ -1,7 +1,7 @@
 Reviews and Author's Responses for (Busch Khakhalin 2018)
 ======================
 
-This is a collection of reviews and feedbacks, both official and unofficial, for different working copies of this paper. Reviews are split into paragraphs, and Author's responses and comments are shown after each paragraph, as indented text. Reviews, and responses to these revivews, are given in reverese chronological order.
+This is a collection of reviews and feedbacks, both official and unofficial, for different working copies of this paper. Reviews are split into paragraphs, and Author's responses and comments are shown after each paragraph. Reviews, and responses to these revivews, are given in reverese chronological order.
 
 # J Neurosci (rejection), 2018 Nov 01
 
@@ -122,31 +122,31 @@ Page 13, lines 18 - 24: the authors refer to the questions they asked in the int
 
 # eLife (rejection), 2018 Aug 17
 
-...While both BRE members found much to like about the manuscript, they found it dense going. But they both felt this paper belongs in a more specialized journal. A comment from one of them: 
+> ...While both BRE members found much to like about the manuscript, they found it dense going. But they both felt this paper belongs in a more specialized journal. A comment from one of them: 
 The authors pose two questions in the introduction: 1. Is intrinsic plasticity limited to changes in excitability? 2. Whether intrinsic plasticity is a response to synaptic activation? There are data in other systems that make these questions "straw men". We know from the STG that intrinsic plasticity is not limited to change in spikiness alone and that there are several other parameters such as bursts, rebounds, spike widths etc which can and do get altered in the short and long term. There are also plenty of examples where one ion channel expression is co-regulated with another type of ion channel, or by slow action of growth factors, hormones and other neuromodulators. These are examples of intrinsic plasticity not governed by fast synaptic transmission alone.
 
-  This is of course true, but while many types of intricate effects of intrinsic plasticity are described in small networks, and especially in oscillatory networks, such as the STG, it is less common to consider these non-trivial effects in large feed-forward excitatory networks, such as networks in the cortex, or superior colliculus. It is natural for researchers to limit the complexity of their conceptual and computational models, and it is probably fair to say that as the number of neurons involved in a model increases, researchers typically shift their attention from intrinsic mechanisms to connectomic approaches, approximating neural networks as a collection of nodes, linked with synapses of different strengths (e.g: Cline 2008; Kirby 2013). Even realistic biophysical models that represent neurons as multi compartment systems with active dendritic currents often don't assume that these active currents may be modulated in response to activation (Moldwin 2018). When machine learning approaches are used as a model for brain development, intrinsic excitability is reflected in these models, as a change in activation function of each artificial neuron (Marblestone 2016). This type of modeling implicitly assumes, however, that outside of obviously oscillatory networks (spinal cord, thalamus, etc.), intrisic excitability in biological networks is largely confined to overall changes in neuronal "resonsiveness".
-  
-  Here we show that even for large-scale feed-forward networks that do not seem to rely on oscillations, changes in intrinsic excitability go well beyond variations in "spikness". We think that it is an interesting observation, that may have far-reaching effects on network computations, and network development. We also predict that similar effects of temporal tuning may be observed in other systems, such as mammalian cortex.
-  
-  References:
-  
-  Cline, H., & Haas, K. (2008). The regulation of dendritic arbor development and plasticity by glutamatergic synaptic input: a review of the synaptotrophic hypothesis. The Journal of physiology, 586(6), 1509-1517.
-  
-  Kirkby, L. A., Sack, G. S., Firl, A., & Feller, M. B. (2013). A role for correlated spontaneous activity in the assembly of neural circuits. Neuron, 80(5), 1129-1144.
-  
-  Marblestone, A. H., Wayne, G., & Kording, K. P. (2016). Toward an integration of deep learning and neuroscience. Frontiers in computational neuroscience, 10, 94.
-  
-  Moldwin, T., & Segev, I. (2018). Perceptron learning and classification in a modeled cortical pyramidal cell. bioRxiv, 464826
+This is of course true, but while many types of intricate effects of intrinsic plasticity are described in small networks, and especially in oscillatory networks, such as the STG, it is less common to consider these non-trivial effects in large feed-forward excitatory networks, such as networks in the cortex, or superior colliculus. It is natural for researchers to limit the complexity of their conceptual and computational models, and it is probably fair to say that as the number of neurons involved in a model increases, researchers typically shift their attention from intrinsic mechanisms to connectomic approaches, approximating neural networks as a collection of nodes, linked with synapses of different strengths (e.g: Cline 2008; Kirby 2013). Even realistic biophysical models that represent neurons as multi compartment systems with active dendritic currents often don't assume that these active currents may be modulated in response to activation (Moldwin 2018). When machine learning approaches are used as a model for brain development, intrinsic excitability is reflected in these models, as a change in activation function of each artificial neuron (Marblestone 2016). This type of modeling implicitly assumes, however, that outside of obviously oscillatory networks (spinal cord, thalamus, etc.), intrisic excitability in biological networks is largely confined to overall changes in neuronal "resonsiveness".
 
-That aside, the authors make a big deal out of 'temporal tuning' but to me from fig 1 this looks like non-preference towards syn duration more than preference for any temporal window, as argued by the authors (compare fig 1E panels). 
+Here we show that even for large-scale feed-forward networks that do not seem to rely on oscillations, changes in intrinsic excitability go well beyond variations in "spikness". We think that it is an interesting observation, that may have far-reaching effects on network computations, and network development. We also predict that similar effects of temporal tuning may be observed in other systems, such as mammalian cortex.
 
-  We think that a preference or non-preference for a certain synaptic duration can be described as a change in temporal selectivity. In the optic tectum, this temporal tuning is not as obvious as it would have been for an oscillatory network, as tectal neurons don't seem to express typical ionic currents associated with oscillatory networks (such as the h-current). Still, one can argue that it only makes our discovery more interesting: we show that neurons can change their temporal properties, even though they don't seem to be equipped with currents most researchers associate with temporal selectivity.
+References:
 
-There are other methodological issues as well: Did they randomize the order of injections? 
+Cline, H., & Haas, K. (2008). The regulation of dendritic arbor development and plasticity by glutamatergic synaptic input: a review of the synaptotrophic hypothesis. The Journal of physiology, 586(6), 1509-1517.
 
-  No, the order of injections was always the same; it is now decribed in the "Methods".
+Kirkby, L. A., Sack, G. S., Firl, A., & Feller, M. B. (2013). A role for correlated spontaneous activity in the assembly of neural circuits. Neuron, 80(5), 1129-1144.
 
-Is a syn current that is more than 250 ms long 'monosynaptic' ?
+Marblestone, A. H., Wayne, G., & Kording, K. P. (2016). Toward an integration of deep learning and neuroscience. Frontiers in computational neuroscience, 10, 94.
 
-  We did not quite understand the question, but generally, for this model, monosynaptic component peaks at about 5-20 ms, and is over by 50-100 ms, as described in the "Methods" section.
+Moldwin, T., & Segev, I. (2018). Perceptron learning and classification in a modeled cortical pyramidal cell. bioRxiv, 464826
+
+> That aside, the authors make a big deal out of 'temporal tuning' but to me from fig 1 this looks like non-preference towards syn duration more than preference for any temporal window, as argued by the authors (compare fig 1E panels). 
+
+We think that a preference or non-preference for a certain synaptic duration can be described as a change in temporal selectivity. In the optic tectum, this temporal tuning is not as obvious as it would have been for an oscillatory network, as tectal neurons don't seem to express typical ionic currents associated with oscillatory networks (such as the h-current). Still, one can argue that it only makes our discovery more interesting: we show that neurons can change their temporal properties, even though they don't seem to be equipped with currents most researchers associate with temporal selectivity.
+
+> There are other methodological issues as well: Did they randomize the order of injections? 
+
+No, the order of injections was always the same; it is now decribed in the "Methods".
+
+> Is a syn current that is more than 250 ms long 'monosynaptic' ?
+
+We did not quite understand the question, but generally, for this model, monosynaptic component peaks at about 5-20 ms, and is over by 50-100 ms, as described in the "Methods" section.
