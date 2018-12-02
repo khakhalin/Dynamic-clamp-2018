@@ -27,13 +27,22 @@ In this, updated version of the paper, we are trying to be more explicit about p
 
 > 1.	Page 2, Line 29 the word "thorough" is not appropriate here. If the search had been thorough, an answer would have been found. Instead "extensive" may be more appropriate.
 
-Fixed.
+Replaced.
 
 2.	Page 2-3, The dynamic clamp is not very commonly used. It would be useful to provide more detail about how it differs from simple step injections of current and why this might matter.
 
-3.	Page 3 line 18, "when tadpoles were exposed to" -> "in tadpoles that had been exposed to"
+> 3.	Page 3 line 18, "when tadpoles were exposed to" -> "in tadpoles that had been exposed to"
 
-4.	The statistical tests applied throughout the paper are unclear and need more explanation. The number of degrees of freedom (e.g, 667) seems far too high, suggesting that multiple recordings from the same cell under different conditions are being treated as independent N. However recordings from the same cell under different temporal or amplitude conditions are far from independent measurements. It seems that a two-way or even three-way ANOVA might be the best approach for examining the variables of conditioning stimulus and response property. 
+Replaced.
+
+> 4.	The statistical tests applied throughout the paper are unclear and need more explanation. The number of degrees of freedom (e.g, 667) seems far too high, suggesting that multiple recordings from the same cell under different conditions are being treated as independent N. However recordings from the same cell under different temporal or amplitude conditions are far from independent measurements. It seems that a two-way or even three-way ANOVA might be the best approach for examining the variables of conditioning stimulus and response property. 
+
+The number of degrees of freedom in question comes from a full linear model, and does mean that we treated different conditions as independent. Typically, to compare the numer of spikes in two conditions we used a 3-way ANCOVA (injection amplitude and duration as ordinal variables; group id as a nominal variable) with interactions, and repeated measures (wieh cell id included as a nominal variable). For example, for a comparison of "Control" group to "Sound" group we used the following R code (see **dynamic_spikes_plot.R** for the full code):
+
+ds = subset(d,is.element(Group,c("Control","Sound")))
+summary(aov(data=ds,Spikes~Shape*Amp + Shape*Group + Amp*Group + Cell*Shape*Amp))
+
+We now included several brief descriptions of our models in the "Results" section; improved the description in the "Methods" section; and included several references to the "Methods" section in the "Results" section, to hint that the reader may find full information there.
 
 5.	Page 5 line 19 "This suggests that unlike the change in overall intrinsic excitability, the average temporal retuning was "adaptive" rather than "homeostatic", as neurons exposed to shorter stimuli (flashes) became more equipped to process shorter activation patterns." While it is appealing to give a name to this form of plasticity, the looming stimulus, which can be thought of as slower than the flash nonetheless caused a similar type of shift in response preference in the neurons, which runs counter the notion that there exists a meaningful dichotomy of adaptive vs. homeostatic change here.
 
