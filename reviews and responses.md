@@ -25,7 +25,9 @@ In this, updated version of the paper, we are trying to be more explicit about p
 
 ### Specific points:
 
-1.	Page 2, Line 29 the word "thorough" is not appropriate here. If the search had been thorough, an answer would have been found. Instead "extensive" may be more appropriate.
+> 1.	Page 2, Line 29 the word "thorough" is not appropriate here. If the search had been thorough, an answer would have been found. Instead "extensive" may be more appropriate.
+
+Fixed.
 
 2.	Page 2-3, The dynamic clamp is not very commonly used. It would be useful to provide more detail about how it differs from simple step injections of current and why this might matter.
 
