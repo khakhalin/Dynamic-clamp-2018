@@ -71,4 +71,4 @@ Consensus total number of spikes generated in each sweep, for each cell, in the 
 
 ### data_spikeShapes.txt
 
-For each cell, quantifies average spiking, amplitude tuning, and temporal tuning of spikiness in the dynamic clamp experiments. Produced by **dynamic_spikes_plot_2017.R**, based on the data from **data_outDataset**. These numbers were latere integrated into the **data_mainInput.txt** summary table.
+For each cell, quantifies average spiking, amplitude tuning, and temporal tuning of spikiness in the dynamic clamp experiments. Produced by **dynamic_spikes_plot.R**, based on the data from **data_outDataset**. These numbers were latere integrated into the **data_mainInput.txt** summary table.

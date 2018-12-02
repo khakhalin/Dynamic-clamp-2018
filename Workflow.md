@@ -17,7 +17,7 @@ Stimulation program, used for sensory conditioning. A working version [can be fo
 
 Main analysis file that compares tuning properties of each cell, as measured via the dynamic clamp protocol, to all other properties of every cell. Exclusively relies on the summary table **data_mainInput.txt**.
 
-### dynamic_spikes_plot_2017.R
+### dynamic_spikes_plot.R
 
 Analyses everyting about dynamic data. Loads **data_outDataset.txt** data file, processes it, outputs to **spike shapes.txt**.
 
