@@ -1,4 +1,4 @@
-Reviews and Author's Responses for (Busch Khakhalin 2018)
+Reviews and Authors' Responses for (Busch Khakhalin 2018)
 ======================
 
 This is a collection of reviews and feedbacks, both official and unofficial, for different working copies of this paper. Reviews are split into paragraphs, and Author's responses and comments are shown after each paragraph. Reviews, and responses to these revivews, are given in reverese chronological order.

@@ -34,7 +34,7 @@ Cell basic properties:
 * rm - membrane resistance
 * cm - membrane capacicty
 * ihold	- current required to bring the cell to -60 mV
-* rostral - how caudal the cell was, in arbitrary "screen units". In the script 'silas_othervars.R' this value is then recalcualted to true "rostral", and measured in percent. The reason for this weird way of measurement is an unfortuante suboptimal choice that was made early, and then maintained during the whole data collection period.
+* rostral - how caudal the cell was, in arbitrary "screen units". In the script 'dynamic_other_vars.R' this value is then recalcualted to true "rostral", and measured in percent. The reason for this weird way of measurement is an unfortuante suboptimal choice that was made early, and then maintained during the whole data collection period.
 * medial - how lateral the cell was, measured in relative units. Similarly, is adjusted (reveresed, and changed to percent) in the processing script.
 
 IV block:
@@ -71,4 +71,4 @@ Consensus total number of spikes generated in each sweep, for each cell, in the 
 
 ### data_spikeShapes.txt
 
-For each cell, quantifies average spiking, amplitude tuning, and temporal tuning of spikiness in the dynamic clamp experiments. Produced by **silas_spikes_plot_2017.R**, based on the data from **data_outDataset**. These numbers were latere integrated into the **data_mainInput.txt** summary table.
+For each cell, quantifies average spiking, amplitude tuning, and temporal tuning of spikiness in the dynamic clamp experiments. Produced by **dynamic_spikes_plot_2017.R**, based on the data from **data_outDataset**. These numbers were latere integrated into the **data_mainInput.txt** summary table.
