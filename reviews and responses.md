@@ -37,10 +37,10 @@ Replaced.
 
 > 4.	The statistical tests applied throughout the paper are unclear and need more explanation. The number of degrees of freedom (e.g, 667) seems far too high, suggesting that multiple recordings from the same cell under different conditions are being treated as independent N. However recordings from the same cell under different temporal or amplitude conditions are far from independent measurements. It seems that a two-way or even three-way ANOVA might be the best approach for examining the variables of conditioning stimulus and response property. 
 
-The number of degrees of freedom in question comes from a full linear model, and does mean that we treated different conditions as independent. Typically, to compare the numer of spikes in two conditions we used a 3-way ANCOVA (injection amplitude and duration as ordinal variables; group id as a nominal variable) with interactions, and repeated measures (wieh cell id included as a nominal variable). For example, for a comparison of "Control" group to "Sound" group we used the following R code (see **dynamic_spikes_plot.R** for the full code):
+The number of degrees of freedom in question comes from a full linear model, and does mean that we treated different conditions as independent. Typically, to compare the numer of spikes in two conditions we used a 3-way ANCOVA (injection amplitude and duration as ordinal variables; group id as a nominal variable) with interactions, and repeated measures (wieh cell id included as a nominal variable). For example, for a comparison of "Control" group to "Sound" group we used the following R code (see `dynamic_spikes_plot.R` for the full code):
 
-'''ds = subset(d,is.element(Group,c("Control","Sound")))
-summary(aov(data=ds,Spikes~Shape*Amp + Shape*Group + Amp*Group + Cell*Shape*Amp))'''
+```ds = subset(d,is.element(Group,c("Control","Sound")))
+summary(aov(data=ds,Spikes~Shape*Amp + Shape*Group + Amp*Group + Cell*Shape*Amp))```
 
 We now included several brief descriptions of our models in the "Results" section; improved the description in the "Methods" section; and included several references to the "Methods" section in the "Results" section, to hint that the reader may find full information there.
 
