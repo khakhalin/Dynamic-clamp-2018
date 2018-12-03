@@ -3,7 +3,7 @@ Reviews and Authors' Responses for (Busch Khakhalin 2018)
 
 This is a collection of reviews and feedbacks, both official and unofficial, for different working copies of this paper. Reviews are split into paragraphs, and Author's responses and comments are shown after each paragraph. Reviews, and responses to these revivews, are given in reverese chronological order.
 
-# J Neurosci (rejection), 2018 Nov 01
+# J Neurosci rejection letter, 2018 Nov 01
 
 These reviews were received on Nov 1st 2018 from J Neurosci, as this paper was rejected by the editors.
 
@@ -139,7 +139,7 @@ Page 13, lines 18 - 24: the authors refer to the questions they asked in the int
 "we show that synaptic and intrinsic temporal properties of neurons are homeostatically co-tuned" what does this mean?
 
 
-# eLife (rejection), 2018 Aug 17
+# eLife rejection letter, 2018 Aug 17
 
 > ...While both BRE members found much to like about the manuscript, they found it dense going. But they both felt this paper belongs in a more specialized journal. A comment from one of them: 
 The authors pose two questions in the introduction: 1. Is intrinsic plasticity limited to changes in excitability? 2. Whether intrinsic plasticity is a response to synaptic activation? There are data in other systems that make these questions "straw men". We know from the STG that intrinsic plasticity is not limited to change in spikiness alone and that there are several other parameters such as bursts, rebounds, spike widths etc which can and do get altered in the short and long term. There are also plenty of examples where one ion channel expression is co-regulated with another type of ion channel, or by slow action of growth factors, hormones and other neuromodulators. These are examples of intrinsic plasticity not governed by fast synaptic transmission alone.
