@@ -19,7 +19,7 @@ Even though the paper was rejected, we decided to include these reviews to our n
 
 > A reasonable attempt was made explain the conditioning changes observed at a more mechanistic level, but at least for the dynamic clamp experiments the authors were unable to account for their observations based on traditional mechanisms for regulation of intrinsic excitability. Overall the paper is fascinating and introduces a potentially interesting new way of thinking about plasticity, but doesn't quite provide enough of a mechanistic underpinning nor of a functional context for the model. It comes across as a slightly contrived set of systematic observations. The paper has a few minor technical issues, but suffers mainly from failing to systematically test any hypothesis in a satisfying and reductionist way. The paper would likely be better suited either for a more specialized cellular neurophysiology journal or, if the narrative can be tightened up to clearly convey its novelty, for a short format high-impact report.
 
-
+&nbsp;
 
 We are grateful for the kind words, and agree with the assessment that our paper is largely phenomenological. Unfortunatelly, in a small teaching-oriented college, we simply cannot run most experiments needed to probe the mechanisms of intrinsic temporal tuning. We cannot perform in-vivo experiments with sensory stimulation; and cannot measure or change gene expression in isolated tectal cells. Even a detailed electrophysiological study of isolated ionic currents would have taken extra 2-3 years, so we decided to publish this phenomenological report, in a hope that the very phenomenon we describe is interesting enough to be followed up by other labs, potentially in different models.
 
