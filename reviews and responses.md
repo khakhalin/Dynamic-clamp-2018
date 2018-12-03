@@ -19,6 +19,8 @@ Even though the paper was rejected, we decided to include these reviews to our n
 
 > A reasonable attempt was made explain the conditioning changes observed at a more mechanistic level, but at least for the dynamic clamp experiments the authors were unable to account for their observations based on traditional mechanisms for regulation of intrinsic excitability. Overall the paper is fascinating and introduces a potentially interesting new way of thinking about plasticity, but doesn't quite provide enough of a mechanistic underpinning nor of a functional context for the model. It comes across as a slightly contrived set of systematic observations. The paper has a few minor technical issues, but suffers mainly from failing to systematically test any hypothesis in a satisfying and reductionist way. The paper would likely be better suited either for a more specialized cellular neurophysiology journal or, if the narrative can be tightened up to clearly convey its novelty, for a short format high-impact report.
 
+
+
 We are grateful for the kind words, and agree with the assessment that our paper is largely phenomenological. Unfortunatelly, in a small teaching-oriented college, we simply cannot run most experiments needed to probe the mechanisms of intrinsic temporal tuning. We cannot perform in-vivo experiments with sensory stimulation; and cannot measure or change gene expression in isolated tectal cells. Even a detailed electrophysiological study of isolated ionic currents would have taken extra 2-3 years, so we decided to publish this phenomenological report, in a hope that the very phenomenon we describe is interesting enough to be followed up by other labs, potentially in different models.
 
 In this, updated version of the paper, we are trying to be more explicit about possible next steps other researches could take to study the mechanisms of the curious phenomenon we discovered.
@@ -27,13 +29,13 @@ In this, updated version of the paper, we are trying to be more explicit about p
 
 > 1.	Page 2, Line 29 the word "thorough" is not appropriate here. If the search had been thorough, an answer would have been found. Instead "extensive" may be more appropriate.
 
-Replaced.
+Correction accepted.
 
-2.	Page 2-3, The dynamic clamp is not very commonly used. It would be useful to provide more detail about how it differs from simple step injections of current and why this might matter.
+> 2.	Page 2-3, The dynamic clamp is not very commonly used. It would be useful to provide more detail about how it differs from simple step injections of current and why this might matter.
 
 > 3.	Page 3 line 18, "when tadpoles were exposed to" -> "in tadpoles that had been exposed to"
 
-Replaced.
+Correction accepted.
 
 > 4.	The statistical tests applied throughout the paper are unclear and need more explanation. The number of degrees of freedom (e.g, 667) seems far too high, suggesting that multiple recordings from the same cell under different conditions are being treated as independent N. However recordings from the same cell under different temporal or amplitude conditions are far from independent measurements. It seems that a two-way or even three-way ANOVA might be the best approach for examining the variables of conditioning stimulus and response property. 
 
@@ -44,30 +46,30 @@ ds = subset(d,is.element(Group,c("Control","Sound")))
 summary(aov(data=ds,Spikes~Shape*Amp + Shape*Group + Amp*Group + Cell*Shape*Amp))
 ```
 
-We now included several brief descriptions of our models in the "Results" section; improved the description in the "Methods" section; and included several references to the "Methods" section in the "Results" section, to hint that the reader may find full information there.
+We now included a brief description of our model in the "Results" section; improved the description in the "Methods" section; and added several referrals to the "Methods" section in the "Results" section, to hint that the reader may find full information there. In particular, in the sentence that reports the first F-value for this study, we now added the following commentary:
 
-5.	Page 5 line 19 "This suggests that unlike the change in overall intrinsic excitability, the average temporal retuning was "adaptive" rather than "homeostatic", as neurons exposed to shorter stimuli (flashes) became more equipped to process shorter activation patterns." While it is appealing to give a name to this form of plasticity, the looming stimulus, which can be thought of as slower than the flash nonetheless caused a similar type of shift in response preference in the neurons, which runs counter the notion that there exists a meaningful dichotomy of adaptive vs. homeostatic change here.
+F(1,677)=30.4, p=5e-8, n cells=28, 29. Here and below, when F-values are reported, we use 4-way fixed effects analysis of variance with selected interactions, and cell id included as repeated measures factor, see "Methods" for a detailed description.
 
-6.	Figure 2B Amplitude is misspelled.
+> 5.	Page 5 line 19 "This suggests that unlike the change in overall intrinsic excitability, the average temporal retuning was "adaptive" rather than "homeostatic", as neurons exposed to shorter stimuli (flashes) became more equipped to process shorter activation patterns." While it is appealing to give a name to this form of plasticity, the looming stimulus, which can be thought of as slower than the flash nonetheless caused a similar type of shift in response preference in the neurons, which runs counter the notion that there exists a meaningful dichotomy of adaptive vs. homeostatic change here.
 
-7.	The narrative logic on page 9 lines 11-22 is confusing. How does homeostatic plasticity, if it truly is at play here, "increase their ability to respond to unusual patterns of synaptic activation." If anything wouldn't homeostasis decrease dynamic range by pushing all cells toward a central set point?
+> 6.	Figure 2B Amplitude is misspelled.
 
-8.	Page 12 the section on position within the tectum feels like it was just tacked onto the end of the paper. This should be integrated earlier in the paper perhaps to go with figure 1A.
+> 7.	The narrative logic on page 9 lines 11-22 is confusing. How does homeostatic plasticity, if it truly is at play here, "increase their ability to respond to unusual patterns of synaptic activation." If anything wouldn't homeostasis decrease dynamic range by pushing all cells toward a central set point?
 
-9. The formatting of the manuscript is not correct for J Neurosci.
+> 8.	Page 12 the section on position within the tectum feels like it was just tacked onto the end of the paper. This should be integrated earlier in the paper perhaps to go with figure 1A.
 
 
 ## Reviewer #2 (Rationale for Significance Rating for Authors (Required)):
 
-There is indeed some merit in the goals of the study (to see if adaptation changes with experience in addition to conductance/response gains), but it has so many technical problems at present that it would need to be radically different (perhaps with experiments and analysis re-done) to perhaps be of interest to the broad readership of J Neuroscience.
+> There is indeed some merit in the goals of the study (to see if adaptation changes with experience in addition to conductance/response gains), but it has so many technical problems at present that it would need to be radically different (perhaps with experiments and analysis re-done) to perhaps be of interest to the broad readership of J Neuroscience.
 
-The manuscript by Khakhalin and Busch describes the impact of experience on the intrinsic response properties of tectal neurons in the developing tadpole. The authors describe a surprising phenomenon: not only is the response gain of the conductance response altered by experience (in a homeostatic manner, if we imagine that the experience produces increased activity, which isn't shown), but the adaptation of the response is also impacted. The authors then go on to make some arguments, in my opinion unconvincing, that properties of the duration of the polysynaptic response to an optic chiasm shock are related to these intrinsic properties.
+> The manuscript by Khakhalin and Busch describes the impact of experience on the intrinsic response properties of tectal neurons in the developing tadpole. The authors describe a surprising phenomenon: not only is the response gain of the conductance response altered by experience (in a homeostatic manner, if we imagine that the experience produces increased activity, which isn't shown), but the adaptation of the response is also impacted. The authors then go on to make some arguments, in my opinion unconvincing, that properties of the duration of the polysynaptic response to an optic chiasm shock are related to these intrinsic properties.
 
 The paper is, in my opinion, hard to read because the authors are often not clear about what they mean, refer to previous parts of the paper assuming the reader has a perfect memory or is willing to turn back and forth across pages, and use non-traditional terminology. In addition, the statistically analysis appears to be pooling many data points from non-independent cells, rendering many of the conclusions invalid. Further, the experiments intended to measure intrinsic properties (in Figures 1 and 2) appear to have been performed without synaptic blockers, so the the adaptation that they measure could be in the circuit (inhibitory recruitment) instead of in the intrinsic properties.
 
 There is indeed some merit in the goals of the study (to see if adaptation changes with experience in addition to conductance/response gains), but it has so many technical problems at present that it would need to be radically different (perhaps with experiments and analysis re-done) to perhaps be of interest to the broad readership of J Neuroscience.
 
-### Speficic points:
+### Specific points:
 
 Introduction:
 
