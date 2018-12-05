@@ -65,9 +65,13 @@ F(1,677)=30.4, p=5e-8, n cells=28, 29. Here and below, when F-values are reporte
 
 > The manuscript by Khakhalin and Busch describes the impact of experience on the intrinsic response properties of tectal neurons in the developing tadpole. The authors describe a surprising phenomenon: not only is the response gain of the conductance response altered by experience (in a homeostatic manner, if we imagine that the experience produces increased activity, which isn't shown), but the adaptation of the response is also impacted. The authors then go on to make some arguments, in my opinion unconvincing, that properties of the duration of the polysynaptic response to an optic chiasm shock are related to these intrinsic properties.
 
-The paper is, in my opinion, hard to read because the authors are often not clear about what they mean, refer to previous parts of the paper assuming the reader has a perfect memory or is willing to turn back and forth across pages, and use non-traditional terminology. In addition, the statistically analysis appears to be pooling many data points from non-independent cells, rendering many of the conclusions invalid. Further, the experiments intended to measure intrinsic properties (in Figures 1 and 2) appear to have been performed without synaptic blockers, so the the adaptation that they measure could be in the circuit (inhibitory recruitment) instead of in the intrinsic properties.
+> The paper is, in my opinion, hard to read because the authors are often not clear about what they mean, refer to previous parts of the paper assuming the reader has a perfect memory or is willing to turn back and forth across pages, and use non-traditional terminology. In addition, the statistically analysis appears to be pooling many data points from non-independent cells, rendering many of the conclusions invalid. Further, the experiments intended to measure intrinsic properties (in Figures 1 and 2) appear to have been performed without synaptic blockers, so the the adaptation that they measure could be in the circuit (inhibitory recruitment) instead of in the intrinsic properties.
 
-There is indeed some merit in the goals of the study (to see if adaptation changes with experience in addition to conductance/response gains), but it has so many technical problems at present that it would need to be radically different (perhaps with experiments and analysis re-done) to perhaps be of interest to the broad readership of J Neuroscience.
+> There is indeed some merit in the goals of the study (to see if adaptation changes with experience in addition to conductance/response gains), but it has so many technical problems at present that it would need to be radically different (perhaps with experiments and analysis re-done) to perhaps be of interest to the broad readership of J Neuroscience.
+
+&nbsp;
+
+Regarding references to previous parts, thank you for pointing it out! We now tried to link different parts of the paper more tightly together, by reminding the reader about previously made statements every time we make a reference.
 
 ### Specific points:
 
@@ -101,7 +105,7 @@ Page 6, lines 10-20. Need to cite Figure 1E
 
 Page 6, line 22: "homologous to superior colliculus"
 
-Page 7, line 3: [after multi sensory stimulation], "tectal neurons were more excitable than after visual stimulation alone). Many issues. The average number of spikes is reported..is this across all conductance curve conditions or just one of them? Next, in Fig 1E, "sync" and "flash" and "looming" all look pretty similar to each other. What are the degrees of freedom? Again, they seem very high like each condition might be being treated as independent.
+Page 7, line 3: after multi sensory stimulation, "tectal neurons were more excitable than after visual stimulation alone). Many issues. The average number of spikes is reported..is this across all conductance curve conditions or just one of them? Next, in Fig 1E, "sync" and "flash" and "looming" all look pretty similar to each other. What are the degrees of freedom? Again, they seem very high like each condition might be being treated as independent.
 
 More stats: Are these multiple comparisons across conditions done in an unbiased manner, like with a Bonferroni correction or an ANOVA? It seems not.
 
