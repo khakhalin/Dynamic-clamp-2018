@@ -75,13 +75,15 @@ Regarding references to previous parts, thank you for pointing it out! We now tr
 
 ### Specific points:
 
-Introduction:
+> Introduction:
 
-Page 3, line 23: Sentences that begin "First" and "Second" need subjects
+> Page 3, line 23: Sentences that begin "First" and "Second" need subjects
 
-Page 3, line 34: "spikiness" -> not a precise word. "Changes in f-I curve", perhaps? Or "Average firing rate"?
+We now repeated "we asked" in both sentences, making "we" the subject.
 
-Page 3: "traces left by multi sensory stimuli in the tectum of freely behaving tadpoles" -> unclear what is meant by the this sentence until later; suggest re-word
+> Page 3, line 34: "spikiness" -> not a precise word. "Changes in f-I curve", perhaps? Or "Average firing rate"?
+
+> Page 3: "traces left by multi sensory stimuli in the tectum of freely behaving tadpoles" -> unclear what is meant by the this sentence until later; suggest re-word
 
 
 
