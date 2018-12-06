@@ -3,13 +3,13 @@ Reviews and Authors' Responses for (Busch Khakhalin 2018)
 
 This is a collection of reviews and feedbacks, both official and unofficial, for different working copies of this paper. Reviews are split into paragraphs, and Author's responses and comments are shown after each paragraph. Reviews, and responses to these revivews, are given in reverese chronological order.
 
-# J Neurosci rejection letter, 2018 Nov 01
+# Reviews from J Neurosci, 2018 Nov 01 (rejection letter)
 
 These reviews were received on Nov 1st 2018 from J Neurosci, as this paper was rejected by the editors.
 
 Even though the paper was rejected, we decided to include these reviews to our next submission, and to this repository, and provide our responses to each of the critiques.
 
-## Reviewer #1 (Rationale for Significance Rating for Authors (Required)):
+## Reviewer #1
 
 > The study is full of clever ideas and technical expertise, but it is too phenomenological and descriptive at this point, lacking a systematic step by step dissection of the underlying mechanisms. The hypothesis is fascinating but it isn't really tested directly.
 
@@ -59,7 +59,7 @@ F(1,677)=30.4, p=5e-8, n cells=28, 29. Here and below, when F-values are reporte
 > 8.	Page 12 the section on position within the tectum feels like it was just tacked onto the end of the paper. This should be integrated earlier in the paper perhaps to go with figure 1A.
 
 
-## Reviewer #2 (Rationale for Significance Rating for Authors (Required)):
+## Reviewer #2
 
 > There is indeed some merit in the goals of the study (to see if adaptation changes with experience in addition to conductance/response gains), but it has so many technical problems at present that it would need to be radically different (perhaps with experiments and analysis re-done) to perhaps be of interest to the broad readership of J Neuroscience.
 
@@ -79,7 +79,7 @@ Regarding references to previous parts, thank you for pointing it out! We now tr
 
 > Page 3, line 23: Sentences that begin "First" and "Second" need subjects
 
-We now repeated "we asked" in both sentences, making "we" the subject.
+We now added "we asked" to both sentences, making "we" a subject.
 
 > Page 3, line 34: "spikiness" -> not a precise word. "Changes in f-I curve", perhaps? Or "Average firing rate"?
 
@@ -145,10 +145,11 @@ Page 13, lines 18 - 24: the authors refer to the questions they asked in the int
 "we show that synaptic and intrinsic temporal properties of neurons are homeostatically co-tuned" what does this mean?
 
 
-# eLife rejection letter, 2018 Aug 17
+# Reviews from eLife, 2018 Aug 17 (rejection letter)
 
 > ...While both BRE members found much to like about the manuscript, they found it dense going. But they both felt this paper belongs in a more specialized journal. A comment from one of them: 
-The authors pose two questions in the introduction: 1. Is intrinsic plasticity limited to changes in excitability? 2. Whether intrinsic plasticity is a response to synaptic activation? There are data in other systems that make these questions "straw men". We know from the STG that intrinsic plasticity is not limited to change in spikiness alone and that there are several other parameters such as bursts, rebounds, spike widths etc which can and do get altered in the short and long term. There are also plenty of examples where one ion channel expression is co-regulated with another type of ion channel, or by slow action of growth factors, hormones and other neuromodulators. These are examples of intrinsic plasticity not governed by fast synaptic transmission alone.
+
+> The authors pose two questions in the introduction: 1. Is intrinsic plasticity limited to changes in excitability? 2. Whether intrinsic plasticity is a response to synaptic activation? There are data in other systems that make these questions "straw men". We know from the STG that intrinsic plasticity is not limited to change in spikiness alone and that there are several other parameters such as bursts, rebounds, spike widths etc which can and do get altered in the short and long term. There are also plenty of examples where one ion channel expression is co-regulated with another type of ion channel, or by slow action of growth factors, hormones and other neuromodulators. These are examples of intrinsic plasticity not governed by fast synaptic transmission alone.
 
 This is of course true, but while many types of intricate effects of intrinsic plasticity are described in small networks, and especially in oscillatory networks, such as the STG, it is less common to consider these non-trivial effects in large feed-forward excitatory networks, such as networks in the cortex, or superior colliculus. It is natural for researchers to limit the complexity of their conceptual and computational models, and it is probably fair to say that as the number of neurons involved in a model increases, researchers typically shift their attention from intrinsic mechanisms to connectomic approaches, approximating neural networks as a collection of nodes, linked with synapses of different strengths (e.g: Cline 2008; Kirby 2013). Even realistic biophysical models that represent neurons as multi compartment systems with active dendritic currents often don't assume that these active currents may be modulated in response to activation (Moldwin 2018). When machine learning approaches are used as a model for brain development, intrinsic excitability is reflected in these models, as a change in activation function of each artificial neuron (Marblestone 2016). This type of modeling implicitly assumes, however, that outside of obviously oscillatory networks (spinal cord, thalamus, etc.), intrisic excitability in biological networks is largely confined to overall changes in neuronal "resonsiveness".
 
