@@ -52,7 +52,7 @@ summary(aov(data=ds,Spikes~Shape*Amp + Shape*Group + Amp*Group + Cell*Shape*Amp)
 
 We now included a brief description of our model in the "Results" section; improved the description in the "Methods" section; and added several referrals to the "Methods" section in the "Results" section, to hint that the reader may find full information there. In particular, in the sentence that reports the first F-value for this study, we now added the following commentary:
 
-F(1,677)=30.4, p=5e-8, n cells=28, 29. Here and below, when F-values are reported, we use 4-way fixed effects analysis of variance with selected interactions, and cell id included as repeated measures factor, see "Methods" for a detailed description.
+"F(1,677)=30.4, p=5e-8, n cells=28, 29. Here and below, when F-values are reported, we use 4-way fixed effects analysis of variance with selected interactions, and cell id included as repeated measures factor, see "Methods" for a detailed description."
 
 > 5.	Page 5 line 19 "This suggests that unlike the change in overall intrinsic excitability, the average temporal retuning was "adaptive" rather than "homeostatic", as neurons exposed to shorter stimuli (flashes) became more equipped to process shorter activation patterns." While it is appealing to give a name to this form of plasticity, the looming stimulus, which can be thought of as slower than the flash nonetheless caused a similar type of shift in response preference in the neurons, which runs counter the notion that there exists a meaningful dichotomy of adaptive vs. homeostatic change here.
 
@@ -129,29 +129,65 @@ We now added "we asked" to both sentences, making "we" a subject.
 
 > More stats: Are these multiple comparisons across conditions done in an unbiased manner, like with a Bonferroni correction or an ANOVA? It seems not.
 
+1) As described above, we used a family of similar generalized linear models, followed by F-test for the analysis of variance, to compare across conditions. This type of analysis may be loosely referred to as ANOVA, although most textbooks would not recommend referring our models as an "ANOVA", as it included two ordinal variables, and a factor to account for repeated measures.
+
+2) It is true that in our analysis we compared several pairs of conditions: Flash to Control, Looming to Control, Flash to Looming, Sound to Control, Flash to Sync, and Flash to Async. However, all of these comparisons were easily interpretable, as they form a logical progression of stimuli. These planned comparisons consistuted a small share of all possible post-hoc comparisons between groups that one could have run on this data (6 out of 30 possible pairs). Typically, for planned comparisons, researchers do not use an adjustment for multiple comparisons.
+
+3) Finally, in this paper we report exact numbers all p-values, instead of indicating whether they were above or below any arbitrary threshold. This gives the reader the freedom to interpret our data against any significance threshold of their choice. As expected, some p-values were larger, and some were smaller, but we are confident that our overall conclusions are reasonable, expecially if comparing different pieces of evidence across the entire study.
+
+Together, this makes us reasonably confident that a Bonferroni correction would be unnecessarily punitive for this type of analysis.
+
 > Page 8, lines 2-12. "Average firing rate" is a more common term than "spikiness". How about "gain" for amplitude tuning? I see that the authors are using the parameter a to indicate the non-linearity in the tuning curve. For "temporal tuning", why not use "adaptation index" or something like that, that could be plotted in Figure 1F? The "temporal tuning" is a measure of non-linearity, but it is not very intuitive. (It is not "incorrect" as the authors have it now, but I think it would be hard for the interdisciplinary readership of J Neuroscience to get on board easily.)
+
+---------- TODO ----------- : Argue that average firing rate is usually applied to actual firing rate (either long-term, or instaneous) in realistic situations (in-vivo, or during spontaneous activity), while we look at a rather artificial excitability index. Gain and adaptation index should be included in the text, when "tunings" are introduced, but I prefer retaining original "tunings" for repeated use.
 
 > Figure 2: Units needed for Y axis on A, B (units of a are spikes per conductance squared and units of amplitude tuning are spikes/conductance)
 
+---------- TODO ----------- : This is not true, both parameters are dimensionless, as both conductance and amplitude are treated as ordinal values. Reiterate this.
+
 > Page 8, about line 9: It is false that the numerical values are not interpretable, they are in an equation and have units.
 
+We now replaced "not interpretable" with "not easily interpretable". We wanted our readers to know that a comparison of these values can be interpreted very easily, while exact numbers (say, 0.82) do not carry that much narrative weight.
+
 > Page 8, line 16-19: Cohen's D tells the discriminability rather than whether there is a difference between two quantities. A test like the Hoteling-2 test can provide significance measures for whether the means of the data in 2C are significant.
+
+We report Cohen's d values as a measure of effect sizes, not as a quantification of significance.
+
+---------- TODO ----------- : try Hoteling t-squared test
 
 > Page 8, lines 26-35: Rather than only saying that groups that were significantly different in average values were also significantly different in variability, name the groups again. (Otherwise the reader has to jump all around.)
 
 > Figure 2B and Figure 3A, 3D don't show any post-hoc comparisons among the groups. Which groups differ? I see it in the text but it is hard to take it home.
 
+---------- TODO ----------- : Add asterisks to figures?
+
 > Figure 3E and G: how can we reconcile these accounts? In each of the groups (3G), there is at best a very weak relationship between temporal tuning and synaptic duration. Somehow, if you take the means of all of these groups, you can fit a line through them (Figure 3E). Why is that the right thing to do? Aren't the field of individual points (partially-transparent background) and the data plotted in 3G the relative quantities?
+
+---------- TODO ----------- : Perhaps this will be more clear now, as the Simpson's praradox paragraph is back. Maybe we shoudl also add 1-2 more interpretative sentences to the Simpsons paradox paragraph? Also, do we need a reference there?
 
 > Figure 3C shows that monosynaptic amplitude and synaptic duration are correlated, as one would expect from the definition of synaptic duration (center of mass). Basically, as the monosynaptic amplitude gets bigger, the center of mass will shift earlier and earlier. So what independent information is really being conveyed in the synaptic duration? The correlation in 3C is so strong, I don't see that it is truly an independent quantity that teaches us something beyond the monosynaptic input strength. The monosynaptic input strength is much more defined, why not use that for examining correlation with temporal tuning (or adaptation index), average firing rate, and gain. The "synaptic duration" isn't really a measure of synaptic duration, which makes Page 10, lines 3-23 really hard to interpret.
 
+On the correlation between monosynaptic amplitude and synaptic duration: this is a very valid observation, and it is also exactly what we claim in the text:
+
+"As expected, cells with strong monosynaptic inputs had shorter synaptic currents, while polysynaptic activity made synaptic currents longer"
+
+---------- TODO ----------- : Add a paragraph to the paper, explaining that synaptic duration is necessary, as it is what allows us to compare apples to apples, as we fit the synaptic currents exactly with a waveform we used to assess temporal tuning in dynamic clamp experiments. Then reiterate, and cite this paragraph here.
+
 > Figure 3G, page 10 lines 24-40. Creation of "super groups" is totally bogus. This part should be dropped. I see no strong significant relationship between temporal tuning and synaptic duration, and am not convinced synaptic duration is a meaningful quantity.
+
+---------- TODO ----------- : See whether it is possible to use a different method here. The goal is to illustrate the fact that the weak correlation observed on full data is entirely driven by 3 "fast" datasets. Would some sort of a Tukey-like test work here?
 
 > I am very confused by Figure 4. Is it supposed to tell us that average firing rate is correlated with sodium channel conductances? Why is this experiment being done? What do we learn about the brain? I mean this genuinely, I feel I do not understand what the authors are trying to say that is novel. Of course we would expect such a relationship. 
 
+---------- TODO ----------- : Change the description; bring attention to the fact that the correlation exists (as predicted), but is also very bad (surprisinigly bad, in fact). Or maybe indeed drop it, and replace it with models predicting temporal and 
+
 > Why not show the 8 parameter model fit of the current tuning curves?
 
+---------- TODO ----------- : Do they mean a correlation-like plot that has model projection on X and estimations on Y? That would be interesting: do it.
+
 > Page 11, "the mechanisms behind temporal intrinsic plasticity". I'm confused. This section and Figure 4 seems to focus on average firing rate / spikiness rather than the temporal tuning parameter. So why the heading?
+
+---------- TODO ----------- : The section is mostly about mechanisms, but Fig 4 for now is not; once we introduce new fit-figures, we'll be able to claim it.
 
 
 > Discussion: 
