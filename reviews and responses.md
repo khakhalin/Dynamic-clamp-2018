@@ -85,7 +85,11 @@ We agree that the word "homeostatic" was confusing in this context. We now simpl
 
 &nbsp;
 
-Regarding references to previous parts, thank you for pointing it out! We now tried to link different parts of the paper more tightly together, by reminding the reader about previously made statements every time we make a reference.
+On references to previous parts, thank you for pointing it out! We now tried to link different parts of the paper more tightly together, by reminding the reader about previously made statements every time we make a reference.
+
+On statistical analysis: we do not pool data points from non-independent cells, but used a repeated measures analysis, verified by mixed model analysis (see Methods, as well as corrections described in our responses to Reviewer 1).
+
+On synaptic blockers: it is true that we measured intrinsic properties without synaptic blockers, but this is considered a standard practice in this preparation, as most earlier studies measured IV curves without synaptic blockers (Aizenman .. Cline 2002; Aizenman .. Cline 2003; James .. Aizenman 2015; Ciarleglio Khakhalin .. Aizenman 2015). What makes this practice possible is a relatively weak recruitment of polysynaptic activity after activation of a single tectal cell (Bell .. Aizenman 2011).
 
 ### Specific points:
 
