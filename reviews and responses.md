@@ -29,13 +29,17 @@ In this, updated version of the paper, we are trying to be more explicit about p
 
 > 1.	Page 2, Line 29 the word "thorough" is not appropriate here. If the search had been thorough, an answer would have been found. Instead "extensive" may be more appropriate.
 
-Correction accepted.
+Corrected.
 
 > 2.	Page 2-3, The dynamic clamp is not very commonly used. It would be useful to provide more detail about how it differs from simple step injections of current and why this might matter.
 
+Thank you for reminding us about that! We now added a one-sentence description of dynamic clamp into the last paragraph of the intro section:
+
+"Unlike for more common voltage and current clamp techniques, in dynamic clamp, the electric current injected into the cell is dynamically adjusted, based on a predefined formula that depends on cell membrane potential and time."
+
 > 3.	Page 3 line 18, "when tadpoles were exposed to" -> "in tadpoles that had been exposed to"
 
-Correction accepted.
+Corrected.
 
 > 4.	The statistical tests applied throughout the paper are unclear and need more explanation. The number of degrees of freedom (e.g, 667) seems far too high, suggesting that multiple recordings from the same cell under different conditions are being treated as independent N. However recordings from the same cell under different temporal or amplitude conditions are far from independent measurements. It seems that a two-way or even three-way ANOVA might be the best approach for examining the variables of conditioning stimulus and response property. 
 
@@ -51,6 +55,10 @@ We now included a brief description of our model in the "Results" section; impro
 F(1,677)=30.4, p=5e-8, n cells=28, 29. Here and below, when F-values are reported, we use 4-way fixed effects analysis of variance with selected interactions, and cell id included as repeated measures factor, see "Methods" for a detailed description.
 
 > 5.	Page 5 line 19 "This suggests that unlike the change in overall intrinsic excitability, the average temporal retuning was "adaptive" rather than "homeostatic", as neurons exposed to shorter stimuli (flashes) became more equipped to process shorter activation patterns." While it is appealing to give a name to this form of plasticity, the looming stimulus, which can be thought of as slower than the flash nonetheless caused a similar type of shift in response preference in the neurons, which runs counter the notion that there exists a meaningful dichotomy of adaptive vs. homeostatic change here.
+
+We think that there exists a certain dichotomy here, but we agree that our description of it was not clear enough. We now replaced it with the following, longer exposition:
+
+"...This suggests that the change in overall intrinsic excitability, and the change in temporal tuning, each follow different logic, and cannot be easily described by a blanket statement. The overall excitability is "homeostatic", as in response to stronger stimulation neurons became less excitable. The temporal retuning however can be better described as “adaptive”, as neurons exposed to shorter stimuli (flashes) became relatively more responsive to shorter stimuli, and so presumably more equipped to process faster activation patterns."
 
 > 6.	Figure 2B Amplitude is misspelled.
 
@@ -93,62 +101,62 @@ We now added "we asked" to both sentences, making "we" a subject.
 
 
 
-Results
+> Results
 
-Page 4, line 6 "the stimuli we used were weaker" What is meant, the stimuli in the previous studies were weaker, or the stimuli in the present study? Maybe say the previous stimuli were very high contrast and did not reflect contrasts used in behavioral studies. Here, we presented a checkerboard"...
+> Page 4, line 6 "the stimuli we used were weaker" What is meant, the stimuli in the previous studies were weaker, or the stimuli in the present study? Maybe say the previous stimuli were very high contrast and did not reflect contrasts used in behavioral studies. Here, we presented a checkerboard"...
 
-Page 4 line 19 "spiky" again, imprecise
+> Page 4 line 19 "spiky" again, imprecise
 
-Page 4, lines 21-24. I'm really confused about the degrees of freedom. Are you all loading in all observations from all cells? If so, the assumption of the statistical test that these are independent observations is violated. Many of these values were measured in the same cells with different current levels, so they are clearly not independent measurements. The analysis should essentially contain one observation per cell. (One "gain" value or number of spikes to some stimulus, etc..) Or could do a multi-variate ANOVA...
+> Page 4, lines 21-24. I'm really confused about the degrees of freedom. Are you all loading in all observations from all cells? If so, the assumption of the statistical test that these are independent observations is violated. Many of these values were measured in the same cells with different current levels, so they are clearly not independent measurements. The analysis should essentially contain one observation per cell. (One "gain" value or number of spikes to some stimulus, etc..) Or could do a multi-variate ANOVA...
 
-Page 4: Lines 27, 28: This sentence is missing conjunctions "in order to map their amplitude transfer function" ?
+> Page 4: Lines 27, 28: This sentence is missing conjunctions "in order to map their amplitude transfer function" ?
 
-Page 4: Lines 27, 28: What exactly is meant by the amplitude transfer function or amplitude tuning? Is there an equation?
+> Page 4: Lines 27, 28: What exactly is meant by the amplitude transfer function or amplitude tuning? Is there an equation?
 
-Page 4, lines 27 - 33: what figure panels are being described here? 
+> Page 4, lines 27 - 33: what figure panels are being described here? 
 
-Page 6, lines 10-20. The authors point out that the amount of response adaptation in the conductance vs. number of spike curves varies as a function of the stimulus that the animal was exposed to. While it is true that this information can be gleaned by examining Figure 1E, the authors would be well served to make a second index, such as an adaptation index, in a panel F. This would really drive home the points the authors would like the reader to take away from the Figure. (I missed it the first time through, I just saw the reduced gain in Fig. 1E, not the adaptation.)
+> Page 6, lines 10-20. The authors point out that the amount of response adaptation in the conductance vs. number of spike curves varies as a function of the stimulus that the animal was exposed to. While it is true that this information can be gleaned by examining Figure 1E, the authors would be well served to make a second index, such as an adaptation index, in a panel F. This would really drive home the points the authors would like the reader to take away from the Figure. (I missed it the first time through, I just saw the reduced gain in Fig. 1E, not the adaptation.)
 
-Page 6, lines 10-20. Need to cite Figure 1E
+> Page 6, lines 10-20. Need to cite Figure 1E
 
-Page 6, line 22: "homologous to superior colliculus"
+> Page 6, line 22: "homologous to superior colliculus"
 
-Page 7, line 3: after multi sensory stimulation, "tectal neurons were more excitable than after visual stimulation alone). Many issues. The average number of spikes is reported..is this across all conductance curve conditions or just one of them? Next, in Fig 1E, "sync" and "flash" and "looming" all look pretty similar to each other. What are the degrees of freedom? Again, they seem very high like each condition might be being treated as independent.
+> Page 7, line 3: after multi sensory stimulation, "tectal neurons were more excitable than after visual stimulation alone). Many issues. The average number of spikes is reported..is this across all conductance curve conditions or just one of them? Next, in Fig 1E, "sync" and "flash" and "looming" all look pretty similar to each other. What are the degrees of freedom? Again, they seem very high like each condition might be being treated as independent.
 
-More stats: Are these multiple comparisons across conditions done in an unbiased manner, like with a Bonferroni correction or an ANOVA? It seems not.
+> More stats: Are these multiple comparisons across conditions done in an unbiased manner, like with a Bonferroni correction or an ANOVA? It seems not.
 
-Page 8, lines 2-12. "Average firing rate" is a more common term than "spikiness". How about "gain" for amplitude tuning? I see that the authors are using the parameter a to indicate the non-linearity in the tuning curve. For "temporal tuning", why not use "adaptation index" or something like that, that could be plotted in Figure 1F? The "temporal tuning" is a measure of non-linearity, but it is not very intuitive. (It is not "incorrect" as the authors have it now, but I think it would be hard for the interdisciplinary readership of J Neuroscience to get on board easily.)
+> Page 8, lines 2-12. "Average firing rate" is a more common term than "spikiness". How about "gain" for amplitude tuning? I see that the authors are using the parameter a to indicate the non-linearity in the tuning curve. For "temporal tuning", why not use "adaptation index" or something like that, that could be plotted in Figure 1F? The "temporal tuning" is a measure of non-linearity, but it is not very intuitive. (It is not "incorrect" as the authors have it now, but I think it would be hard for the interdisciplinary readership of J Neuroscience to get on board easily.)
 
-Figure 2: Units needed for Y axis on A, B (units of a are spikes per conductance squared and units of amplitude tuning are spikes/conductance)
+> Figure 2: Units needed for Y axis on A, B (units of a are spikes per conductance squared and units of amplitude tuning are spikes/conductance)
 
-Page 8, about line 9: It is false that the numerical values are not interpretable, they are in an equation and have units.
+> Page 8, about line 9: It is false that the numerical values are not interpretable, they are in an equation and have units.
 
-Page 8, line 16-19: Cohen's D tells the discriminability rather than whether there is a difference between two quantities. A test like the Hoteling-2 test can provide significance measures for whether the means of the data in 2C are significant.
+> Page 8, line 16-19: Cohen's D tells the discriminability rather than whether there is a difference between two quantities. A test like the Hoteling-2 test can provide significance measures for whether the means of the data in 2C are significant.
 
-Page 8, lines 26-35: Rather than only saying that groups that were significantly different in average values were also significantly different in variability, name the groups again. (Otherwise the reader has to jump all around.)
+> Page 8, lines 26-35: Rather than only saying that groups that were significantly different in average values were also significantly different in variability, name the groups again. (Otherwise the reader has to jump all around.)
 
-Figure 2B and Figure 3A, 3D don't show any post-hoc comparisons among the groups. Which groups differ? I see it in the text but it is hard to take it home.
+> Figure 2B and Figure 3A, 3D don't show any post-hoc comparisons among the groups. Which groups differ? I see it in the text but it is hard to take it home.
 
-Figure 3E and G: how can we reconcile these accounts? In each of the groups (3G), there is at best a very weak relationship between temporal tuning and synaptic duration. Somehow, if you take the means of all of these groups, you can fit a line through them (Figure 3E). Why is that the right thing to do? Aren't the field of individual points (partially-transparent background) and the data plotted in 3G the relative quantities?
+> Figure 3E and G: how can we reconcile these accounts? In each of the groups (3G), there is at best a very weak relationship between temporal tuning and synaptic duration. Somehow, if you take the means of all of these groups, you can fit a line through them (Figure 3E). Why is that the right thing to do? Aren't the field of individual points (partially-transparent background) and the data plotted in 3G the relative quantities?
 
-Figure 3C shows that monosynaptic amplitude and synaptic duration are correlated, as one would expect from the definition of synaptic duration (center of mass). Basically, as the monosynaptic amplitude gets bigger, the center of mass will shift earlier and earlier. So what independent information is really being conveyed in the synaptic duration? The correlation in 3C is so strong, I don't see that it is truly an independent quantity that teaches us something beyond the monosynaptic input strength. The monosynaptic input strength is much more defined, why not use that for examining correlation with temporal tuning (or adaptation index), average firing rate, and gain. The "synaptic duration" isn't really a measure of synaptic duration, which makes Page 10, lines 3-23 really hard to interpret.
+> Figure 3C shows that monosynaptic amplitude and synaptic duration are correlated, as one would expect from the definition of synaptic duration (center of mass). Basically, as the monosynaptic amplitude gets bigger, the center of mass will shift earlier and earlier. So what independent information is really being conveyed in the synaptic duration? The correlation in 3C is so strong, I don't see that it is truly an independent quantity that teaches us something beyond the monosynaptic input strength. The monosynaptic input strength is much more defined, why not use that for examining correlation with temporal tuning (or adaptation index), average firing rate, and gain. The "synaptic duration" isn't really a measure of synaptic duration, which makes Page 10, lines 3-23 really hard to interpret.
 
-Figure 3G, page 10 lines 24-40. Creation of "super groups" is totally bogus. This part should be dropped. I see no strong significant relationship between temporal tuning and synaptic duration, and am not convinced synaptic duration is a meaningful quantity.
+> Figure 3G, page 10 lines 24-40. Creation of "super groups" is totally bogus. This part should be dropped. I see no strong significant relationship between temporal tuning and synaptic duration, and am not convinced synaptic duration is a meaningful quantity.
 
-I am very confused by Figure 4. Is it supposed to tell us that average firing rate is correlated with sodium channel conductances? Why is this experiment being done? What do we learn about the brain? I mean this genuinely, I feel I do not understand what the authors are trying to say that is novel. Of course we would expect such a relationship. 
+> I am very confused by Figure 4. Is it supposed to tell us that average firing rate is correlated with sodium channel conductances? Why is this experiment being done? What do we learn about the brain? I mean this genuinely, I feel I do not understand what the authors are trying to say that is novel. Of course we would expect such a relationship. 
 
-Why not show the 8 parameter model fit of the current tuning curves?
+> Why not show the 8 parameter model fit of the current tuning curves?
 
-Page 11, "the mechanisms behind temporal intrinsic plasticity". I'm confused. This section and Figure 4 seems to focus on average firing rate / spikiness rather than the temporal tuning parameter. So why the heading?
+> Page 11, "the mechanisms behind temporal intrinsic plasticity". I'm confused. This section and Figure 4 seems to focus on average firing rate / spikiness rather than the temporal tuning parameter. So why the heading?
 
 
-Discussion: 
+> Discussion: 
 
-Page 13, lines 18 - 24: the authors refer to the questions they asked in the introduction, without re-describing them. The reader cannot possibly remember and is forced to page back and forth. The writing must be so much better.
+> Page 13, lines 18 - 24: the authors refer to the questions they asked in the introduction, without re-describing them. The reader cannot possibly remember and is forced to page back and forth. The writing must be so much better.
 
-"intrinsic plasticity does not simply adjust neuronal spikiness, but can regulate selectivity for inputs of different dynamics". How are the input dynamics different? I only see that monosynaptic magnitude is different across the conditions. The duration parameter does not reflect duration, just a weighted average of where the most input arrives, and is not related to the whole duration of synaptic input in a manner independent of the initial volley of input.)
+> "intrinsic plasticity does not simply adjust neuronal spikiness, but can regulate selectivity for inputs of different dynamics". How are the input dynamics different? I only see that monosynaptic magnitude is different across the conditions. The duration parameter does not reflect duration, just a weighted average of where the most input arrives, and is not related to the whole duration of synaptic input in a manner independent of the initial volley of input.)
 
-"we show that synaptic and intrinsic temporal properties of neurons are homeostatically co-tuned" what does this mean?
+> "we show that synaptic and intrinsic temporal properties of neurons are homeostatically co-tuned" what does this mean?
 
 
 # Reviews from eLife, 2018 Aug 17 (rejection letter)
