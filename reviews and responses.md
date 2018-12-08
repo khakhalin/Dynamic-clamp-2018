@@ -58,7 +58,7 @@ F(1,677)=30.4, p=5e-8, n cells=28, 29. Here and below, when F-values are reporte
 
 We think that there exists a certain dichotomy here, but we agree that our description of it was not clear enough. We now replaced it with the following, longer exposition:
 
-"...This suggests that the change in overall intrinsic excitability, and the change in temporal tuning, each follow different logic, and cannot be easily described by a blanket statement. The overall excitability is "homeostatic", as in response to stronger stimulation neurons became less excitable. The temporal retuning however can be better described as “adaptive”, as neurons exposed to shorter stimuli (flashes) became relatively more responsive to shorter stimuli, and so presumably more equipped to process faster activation patterns."
+"... This suggests that the change in overall intrinsic excitability, and the change in temporal tuning, follow two different kinds of logic. The overall excitability is homeostatic, as neurons became less excitable in response to stronger stimulation. The temporal retuning however can be better described as “adaptive”, as neurons exposed to shorter stimuli (flashes) became relatively *more* responsive to shorter stimuli, and less responsive to longer stimuli, which is opposite of what one would expect for a homeostatic retuning. We chose to call this type of plasticity "adaptive", as presumably it means that after exposure to faster stimuli, neurons become more equipped to process faster patterns of activation."
 
 > 6.	Figure 2B Amplitude is misspelled.
 
