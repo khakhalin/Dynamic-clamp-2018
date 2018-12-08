@@ -64,8 +64,8 @@ A technical tool to transform spiking data from Excel that we originally used to
 
 ### Dependencies:
 
-Some common functions used by more than one utility here:
+Some utility custom functions used by more than one script here:
 
-* dispf - a custom mix between disp() and fprintf() that arranges outputs as a table, easy to copy ----------- TODO -----------
+* dispf - a custom mix between disp() and fprintf() that arranges outputs as a table, making it easy to copy.
 
 
