@@ -54,7 +54,13 @@ F(1,677)=30.4, p=5e-8, n cells=28, 29. Here and below, when F-values are reporte
 
 > 6.	Figure 2B Amplitude is misspelled.
 
+Fixed.
+
 > 7.	The narrative logic on page 9 lines 11-22 is confusing. How does homeostatic plasticity, if it truly is at play here, "increase their ability to respond to unusual patterns of synaptic activation." If anything wouldn't homeostasis decrease dynamic range by pushing all cells toward a central set point?
+
+We agree that the word "homeostatic" was confusing in this context. We now simplified the sentence:
+
+"This means that individual neurons tended to tune their intrinsic properties away from the typical statistics of their inputs, increasing their ability to respond to unusual patterns of synaptic activation."
 
 > 8.	Page 12 the section on position within the tectum feels like it was just tacked onto the end of the paper. This should be integrated earlier in the paper perhaps to go with figure 1A.
 
