@@ -1,22 +1,25 @@
-# Silas everything that is not spikes analyzer
-# version May 24 2018
+# Dynamic study of intrinsic plasticity:
+# Analysis of everything that isn't raw spike data.
+# Version Dec 09 2018
+
 # install.packages("lme4") # This one is required for lmerTest to work
 # install.packages("lmerTest")
 # install.packages("effsize")
-require("effsize")
-library(ggplot2)
-library(dplyr)
-library(ggbeeswarm)
-library(reshape2)
-library(MASS) # Model selection
+require(effsize)
+require(ggplot2)
+require(dplyr)
+require(ggbeeswarm)
+require(reshape2)
+require(MASS) # Model selection
 #require(lme4); detach("package:lme4",unload=T)
-library(lmerTest)
+require(lmerTest)
 #install.packages("viridis")
 require(viridis)
+
 rm(list = ls())  # Clear workspace
 
 # ----- Read the data ----
-d = read.table("data_mainInput.txt",header=T)
+d = read.table("Dynamic-clamp-2018-git/Data/data_mainInput.txt",header=T)
 d = mutate(d,group = reorder(group, groupid))
 # d_full = d                # Save a copy just in case
 
@@ -34,6 +37,8 @@ d = mutate(d, group = recode_factor(group,'Control'='Control','Flash'='Flash','C
 d$rostral = 1 - d$rostral/325        # Move to true "rostral", and from screen units to %
 d$medial = 1 - (d$medial + 25)/375   # Move to true "medial"
 
+d$rm = d$rm/10  # Units mistake in the original dataset. Now it's in GOhm
+
 # Now qplot(medial,rostral) will look like left tectum
 # "medial" is indeed how medial everything is
 # and "rostral" is indeed how rostral it is
@@ -46,8 +51,6 @@ mean(d$medial,na.rm=T)
 sd(d$medial,na.rm=T)
 min(d$medial,na.rm=T)
 max(d$medial,na.rm=T)
-
-d$rm = d$rm/10  # Units mistake in the original dataset. Now it's in GOhm
 
 # Tucking down two extreme outlier cells. Only use for visualizations, not for analysis.
 ggplot(data=d) + theme_bw() + geom_point(aes(samp,sbend))
@@ -89,18 +92,18 @@ summary(aov(data=d,kti~group+rostral+medial)) # no
 summary(aov(data=d,ktv~group+rostral+medial)) # no
 summary(aov(data=d,ksi~group+rostral+medial)) # medial
 summary(aov(data=d,ksv~group+rostral+medial)) # no
-# Drop values
-f = lm(data=d,cm~group+medial+rostral); coef(f)['medial']*(0.53-0.25) # -2.4 pA
-f = lm(data=d,rm~group+medial+rostral); coef(f)['medial']*(0.53-0.25) # 250 kOhm
-f = lm(data=d,nav~group+medial+rostral); coef(f)['medial']*(0.53-0.25) # -12 mV
-f = lm(data=d,ksi~group+medial+rostral); coef(f)['medial']*(0.53-0.25) # -276 pA
-f = lm(data=d,nai~group+medial+rostral); coef(f)['rostral']*(0.69-0.36) # 156 pA
+# Drop of values across the entire tectum: 
+f = lm(data=d,cm ~ group+medial+rostral); coef(f)['medial']*(0.53-0.25) # -2.4 pA
+f = lm(data=d,rm ~ group+medial+rostral); coef(f)['medial']*(0.53-0.25) # 250 kOhm
+f = lm(data=d,nav ~ group+medial+rostral); coef(f)['medial']*(0.53-0.25) # -12 mV
+f = lm(data=d,ksi ~ group+medial+rostral); coef(f)['medial']*(0.53-0.25) # -276 pA
+f = lm(data=d,nai ~ group+medial+rostral); coef(f)['rostral']*(0.69-0.36) # 156 pA
 
 # Based on (Hamodi Pratt), they observed ~150 pA change in nai, and ~200 pA in ki (?),
 # while comparing 0-30% and 60-80% of the OT. If ~ 55% of width gave them these differences,
 # with our ~30% of range we can expect ~70-100 pA diff for nai and ki.
 
-ggplot(data=d) + theme_bw() + geom_point(aes(medial,nav)) # Real but not striking
+ggplot(data=d) + theme_bw() + geom_point(aes(medial,nav)) # We also see it, but it's not striking
 
 # Different stories for 2 types of spiking
 summary(aov(data=d,stepspike~group+rostral+medial)) # medial
@@ -176,6 +179,8 @@ ggplot() + theme_bw() + theme(text=element_text(size=8)) +
 
 
 # ------- ------- Adjust variables on position once and for all
+# (This segment NEEDS to be run before all analyses further down)
+
 # dadj = na.omit(d) # copy values, improper
 dadj = d # copy values, proper
 
@@ -204,12 +209,13 @@ model = aov(data=dadj,lat_s~rostral+medial,na.action=na.exclude);     dadj$lat_s
 
 
 # ------- ------- ANOVAs on spiking phenotypes
-# ------- smean
+# ------- Analysis of smean
 model = aov(data=d,smean~rostral+medial+group); summary(model) # Yes: p=0.01
 TukeyHSD(model,which="group") # CF
 anova(lmer(data=d,smean~rostral+medial+group+(1|animal),na.action=na.omit)) # Verification (yes, 0.047)
 bartlett.test(data=d,smean~group) # Variances are different
 ggplot(data=d,aes(group,smean)) + geom_point(alpha=0.3,position=position_jitter(width=0.1)) + theme_bw()
+
 # Which vars are significantly different?
 var.test(data=subset(d,group %in% c("Control","Flash")), smean~group, alternative = "two.sided") # 2e-6
 var.test(data=subset(d,group %in% c("Control","Looming")), smean~group, alternative = "two.sided") # 7e-5
@@ -217,29 +223,33 @@ var.test(data=subset(d,group %in% c("Flash","Sound")), smean~group, alternative 
 var.test(data=subset(d,group %in% c("Sound","Sync")), smean~group, alternative = "two.sided") #1e-3, Y more variable
 var.test(data=subset(d,group %in% c("Flash","Async")), smean~group, alternative = "two.sided") # 0.01, A more variable
 # Not different: CS (0.07), FY (0.9), SA (0.5)
+
 t.test(data=subset(d,group %in% c("Control","Flash")),smean~group) # 0.01
 t.test(data=subset(d,group %in% c("Control","Looming")),smean~group) # 0.1
 t.test(data=subset(d,group %in% c("Control","Sound")),smean~group) # 0.5
 t.test(data=subset(d,group %in% c("Sync","Flash")),smean~group) # 0.2
 t.test(data=subset(d,group %in% c("Async","Flash")),smean~group) # 0.02
 
-# ------- sbend
+# ------- Analysis of sbend
 model = aov(data=d,sbend~rostral+medial+group); summary(model) # Yes
 TukeyHSD(model,which="group") # FC, YC
 bartlett.test(data=dadj,sbend~group) # Variances are different, p=7e-12 non-adj, 8e-12 adj
 ggplot(data=d,aes(group,sbend)) + geom_boxplot() + theme_bw()
+
 # Meaningful var comparisons:
 var.test(data=subset(d,group %in% c("Control","Flash")), sbend~group, alternative = "two.sided") # 5e-11
 var.test(data=subset(d,group %in% c("Control","Looming")), sbend~group, alternative = "two.sided") # 1e-7
 var.test(data=subset(d,group %in% c("Control","Sound")), sbend~group, alternative = "two.sided") # 0.4
 var.test(data=subset(d,group %in% c("Flash","Sync")), sbend~group, alternative = "two.sided") #0.7
 var.test(data=subset(d,group %in% c("Flash","Async")), sbend~group, alternative = "two.sided") # 0.01, with A more variable
+
 # First p-val is for non-position-adjusted; 2nd for adjusted values
 t.test(data=subset(dadj,group %in% c("Control","Flash")),sbend~group) # 0.007, 0.008
 t.test(data=subset(dadj,group %in% c("Control","Looming")),sbend~group) # 0.03, 0.03
 t.test(data=subset(dadj,group %in% c("Control","Sound")),sbend~group) # 0.25, 0.26
 t.test(data=subset(d,group %in% c("Sync","Flash")),sbend~group) # 0.7
 t.test(data=subset(dadj,group %in% c("Async","Flash")),sbend~group) # 0.4, 0.5
+
 # Note that for cohen d below signs are shown in the CFLSYA sequence, not in the sequence
 # shown in the subset formula. (The formula sequence affects nothing, it's a set operation)
 # First d is for non-position-adjusted; 2nd for adjusted values
@@ -250,7 +260,7 @@ cohen.d(data=subset(dadj,group %in% c("Control","Sound")),sbend~group) # 0.27, 0
 cohen.d(data=subset(dadj,group %in% c("Flash","Sync")),sbend~group) # 0.08, 0.01
 cohen.d(data=subset(dadj,group %in% c("Flash","Async")),sbend~group) # 0.30, 0.26
 
-# ------- samp
+# ------- Analysis for samp
 model = aov(data=d,samp~rostral+medial+group); summary(model)  # Yes
 TukeyHSD(model,which="group")
 bartlett.test(data=dadj,samp~group) # Variances are different, p=6e-10 non-adj, 2e-9 adj
@@ -259,16 +269,19 @@ ggplot(data=d,aes(group,samp)) + theme_bw() +
 ggplot(data=d,aes(group,samp)) + theme_bw() + 
   geom_beeswarm(cex=1,shape=1,size=1,aes(color=group)) +
   stat_summary(fun.y="mean",color="black",geom="point")
+
 var.test(data=subset(d,group %in% c("Control","Flash")), samp~group, alternative = "two.sided") # 2e-9
 var.test(data=subset(d,group %in% c("Control","Looming")), samp~group, alternative = "two.sided") # 7e-9
 var.test(data=subset(d,group %in% c("Control","Sound")), samp~group, alternative = "two.sided") # 0.06
 var.test(data=subset(d,group %in% c("Flash","Sync")), samp~group, alternative = "two.sided") #0.9
 var.test(data=subset(d,group %in% c("Flash","Async")), samp~group, alternative = "two.sided") # 0.6
+
 t.test(data=subset(dadj,group %in% c("Control","Flash")),samp~group) # 0.002, 0.002
 t.test(data=subset(dadj,group %in% c("Control","Looming")),samp~group) # 0.02, 0.02
 t.test(data=subset(dadj,group %in% c("Control","Sound")),samp~group) # 0.2, 0.2
 t.test(data=subset(dadj,group %in% c("Sync","Flash")),samp~group) # 0.4, 0.4
 t.test(data=subset(dadj,group %in% c("Async","Flash")),samp~group) # 0.03, 0.03
+
 # For each row, first non-position-ajusted, then position-adjusted value
 cohen.d(data=subset(dadj,group %in% c("Control","Flash")),samp~group) # 0.89, 0.90
 cohen.d(data=subset(dadj,group %in% c("Control","Looming")),samp~group) # 0.49, 0.50
@@ -343,6 +356,7 @@ ds = summarize(group_by(dadj,group),
                ci1=sd(smean,na.rm=T)/sqrt(n)*qt(0.025,df=n-1),
                m2=mean(sbend,na.rm=T),
                ci2=sd(sbend,na.rm=T)/sqrt(n)*qt(0.025,df=n-1))
+
 ggplot() + theme_bw() + theme(text=element_text(size=8)) + 
   stat_ellipse(data=dadj,aes(smean,sbend,fill=group),geom="polygon") +
   geom_point(data=t,aes(x,y),color="lightgray",shape=1) +
@@ -356,6 +370,22 @@ ggplot() + theme_bw() + theme(text=element_text(size=8)) +
   geom_point(data=ds,aes(m1,m2,color=group)) +
   geom_errorbar(data=ds,aes(x=m1,ymin=m2-ci2,ymax=m2+ci2,color=group),width=0.02) +
   geom_errorbarh(data=ds,aes(x=m1,xmin=m1-ci1,xmax=m1+ci1,y=m2,color=group),height=0.02)
+
+# 2D t-test (Hoteling t-squared test) for these crosses
+#install.packages("Hotelling")
+require(Hotelling)
+dclean = na.omit(dadj)
+names(dclean)
+d_prepared = dclean %>% 
+  dplyr::select(group,samp,sbend)
+summary(d_prepared)
+
+fit = hotelling.test(.~group, data=d_prepared, pair=c("Control","Flash")); fit # 0.001
+fit = hotelling.test(.~group, data=d_prepared, pair=c("Control","Looming")); fit # 0.01
+fit = hotelling.test(.~group, data=d_prepared, pair=c("Flash","Looming")); fit # 0.1
+fit = hotelling.test(.~group, data=d_prepared, pair=c("Control","Sound")); fit # 0.2
+fit = hotelling.test(.~group, data=d_prepared, pair=c("Flash","Sync")); fit # 0.2
+fit = hotelling.test(.~group, data=d_prepared, pair=c("Flash","Async")); fit # 0.051
 
 
 # --- IV analysis
