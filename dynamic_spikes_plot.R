@@ -1,14 +1,16 @@
 # Dynamic Clamp spiking data analyzer
-# version Oct 30 2017
+# version Dec 09 2018
 
 require(ggplot2)
 require(dplyr)
 require(reshape2)
-library(lmerTest)
+# install.packages("lmerTest") # Mixed ANOVAs
+require(lmerTest)
+
 rm(list = ls())  # Clear workspace
 
 # ----- Read and prepare spike data ----
-d = read.table("data_outDataset.txt",header=T)
+d = read.table("Dynamic-clamp-2018-git/Data/data_outDataset.txt",header=T) # Update the path as necessary
 d = subset(d,is.element(Group,c(0,1,2,3,4,5))) # Remove slow and naive
 d = mutate(d,Group = recode_factor(Group,"0"="Control","2"="Flash","1"="Looming",
                 "3"="Sound","4"="Sync","5"="Async","6"="Slowc","7"="Slowf","8"="Naive"))
@@ -16,27 +18,32 @@ d = mutate(d,ShapeName = recode_factor(Shape,"1"="100","2"="200","3"="500","4"="
 
 # Only leave good new crashes and flashes; exclude the bad old ones
 # (where "bad old" are all old cells that don't belong to Naive group)
-d$Old = ifelse(d$Cell<=102,"Old","New") # TRUE if the cell is old
-d$Old = factor(d$Old)
+d$Old = factor(ifelse(d$Cell<=102,"Old","New")) # TRUE if the cell is old
 d = subset(d,Old=="New")
-# d = subset(d,(is.element(Group,"Naive")) | (Old=="New"))
-
+d = dplyr::select(d,-Old) # Cleanup, drop this column
 
 # ----- Some simple analysis  ----
-# Count cell numbers:
-summarize(group_by(d,Group,Old), count = length(unique(Cell)))
+summarize(group_by(d,Group), count = length(unique(Cell))) # Count cell numbers
 names(d)
 
 ds = summarize(group_by(d,Cell,Amp,Shape),Spikes=mean(Spikes))
 
 # Fit spike-curves, to quantify them with 3 parameters for each cell
+# Here: ms : mean spikes
+# sa : amplitude tuning
+# ss : temporal (shape) tuning
+# ms2 : another estimation for mean spiking
 d1 = d %>% group_by(Cell) %>% 
-  do(fsa=lm(Spikes ~ (Amp-1),.),
+  do(fsa=lm(Spikes ~ I(Amp-1),.),
      fss=lm(Spikes~Shape+I(Shape^2),.),
-     ms=mean(.$Spikes)) %>% as_data_frame() %>%
+     ms=mean(.$Spikes)
+     ) %>% 
+  as_data_frame() %>%
   summarize(Cell=Cell,ms=ms,sa=coef(fsa)[2],ss=coef(fss)[3],ms2=coef(fsa)[1])
 head(d1)
-# Sence-check if mean term is different than simple mean
+
+
+# Sence-check if mean term is too different from simple mean (they are almost the same)
 ggplot() + theme_bw() + geom_point(data=d1,aes(ms,ms2)) # Basically the same, doesn't matter
 
 # Testbed for quadratic lm formulas we use:
@@ -57,18 +64,18 @@ mean(y)
 ## Conclusion: yes, it does capture the shape, and is better than a simpler measure
 dss = summarize(group_by(ds,Cell,Shape),spikes=mean(Spikes))
 dssc = dcast(dss,Cell ~ Shape, value.var="spikes")
-dssc$bend = dssc[[5]]-dssc[[4]]
+dssc$bend = dssc[[5]]-dssc[[4]] # Simple estimation of bendiness
 head(dssc)
 summary(dssc)
 dfull = merge(d1,dssc,by="Cell")
 head(dfull)
-ggplot() + theme_bw() + geom_point(data=dfull,aes(ss,bend))
+ggplot() + theme_bw() + geom_point(data=dfull,aes(ss,bend)) # Simple bendiness and fancy bendiness correlate well
 
 # Output
-write.csv(d1,"C:/Users/Arseny/Documents/5_Dynamic clamp/spike shapes.txt",row.names=F)
+write.csv(d1,"spike shapes.txt",row.names=F)
 
 d2 = inner_join(ds,d1,by="Cell")
-# Just plot everything
+# Plot everything
 ggplot(mutate(d2,ssign=(ss<0))) + theme_bw() +
   geom_line(aes(Shape,Spikes,group=interaction(Cell,Amp))) + 
   facet_grid(ssign~Amp)
@@ -77,18 +84,8 @@ ggplot(mutate(d2,ssgroup=floor(ss*5))) + theme_bw() +
   geom_line(aes(Shape,Spikes,group=interaction(Cell,Amp))) + 
   facet_grid(.~ssgroup)
 
-### Summary at cell level (semi-raw)
-# d_cell = ddply(d,c("Amp","Shape","Group","Cell"), function(x) {
-#   data.frame(Spikes=mean(x$Spikes),
-#              ci=sd(x$Spikes)/sqrt(length(x$Spikes))*qt(0.025,df=length(x$Spikes)-1))
-# })
-# ggplot(data=d_cell, aes(Shape,1+Spikes,color=Shape)) + theme_bw() + 
-#   facet_grid(Amp~Group) + scale_y_log10() +
-#   geom_point(alpha=0.2,size=3) +
-#   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank());
-
 ### Summary at a treatment level (very aggregated)
-# Summary plot with CI error bars (aka "main plot of the poster")
+# Summary plot with CI error bars (aka "main plot of the paper")
 d_sum = summarize(group_by(d,Group,Amp,Shape),
             sn = ShapeName[1],
             m=mean(Spikes),
@@ -103,7 +100,7 @@ ggplot(data=d_sum, aes(sn,m,color=Amp,group=Amp)) +
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
   xlab('Conductance curve length, ms') + ylab('Number of spikes')
 
-# Summary plot showing changes vs control (not very pretty, due to CI overlap)
+# Summary plot showing changes vs control (not pretty, due to CI overlap)
 require(dplyr)
 d_diff = d_sum %>% group_by(Amp,Shape) %>% 
   mutate(diff = m[Group=="Control"]-m , 
@@ -116,23 +113,25 @@ ggplot(data=subset(d_diff,Group!="Control"), aes(sn,diff,color=Amp,group=Amp)) +
   xlab('Conductance curve length, ms') + ylab('Spike suppression')
 
 # Compare any set of groups to each other
-# Uncomment any of the options below
-#ds = subset(d,is.element(Group,c("Control","Flash","Looming")))
-#ds = subset(d,is.element(Group,c("Flash","Sound","Sync","Async")))
+# Uncomment any single row among the options below
+# ds = subset(d,is.element(Group,c("Control","Flash","Looming")))
+# ds = subset(d,is.element(Group,c("Flash","Sound","Sync","Async")))
 # ds = subset(d,is.element(Group,c("Control","Flash")))
 # ds = subset(d,is.element(Group,c("Control","Looming")))
 # ds = subset(d,is.element(Group,c("Flash","Looming")))
-#ds = subset(d,is.element(Group,c("Control","Async")))
+# ds = subset(d,is.element(Group,c("Control","Async")))
 # ds = subset(d,is.element(Group,c("Control","Sou#nd")))
-#ds = subset(d,is.element(Group,c("Flash","Sound")))
+# ds = subset(d,is.element(Group,c("Flash","Sound")))
 ds = subset(d,is.element(Group,c("Flash","Sync")))
-ds = subset(d,is.element(Group,c("Flash","Async")))
+# ds = subset(d,is.element(Group,c("Flash","Async")))
 # ds = d # To compare all
+
 dsflat <- ds %>% group_by(Group,Cell,Amp,Shape) %>% summarize(Spikes=mean(Spikes,na.rm=T))
 summary(aov(data=dsflat,Spikes~Group + Group*Shape + Group*Amp + Cell)) # Repeated measures
 # Sense-check:
-# anova(lmer(data=ds,Spikes~Group*Shape + Group*Amp + (1+Shape+Amp|Cell),na.action=na.omit)) # Interactions
+anova(lmer(data=ds,Spikes~Group*Shape + Group*Amp + (1+Shape+Amp|Cell),na.action=na.omit)) # Interactions
 # Except that aov is sequential, while lmer is typeIII (marginal with interactions included)
+
 # Summarize data:
 ds %>% group_by(Group,Cell) %>% summarize(spikes=mean(Spikes),na.rm=T) %>%
   group_by(Group) %>% summarize(n=n(),m=mean(spikes),s=sd(spikes))
@@ -168,6 +167,8 @@ TukeyHSD(m,which="Amp:Group")
 
 
 # Unpublished technical sub-analysis: old vs new data groups for flashes and crashes
+# To run this segment one needs to SKIP the "Remove all OLD data" segment
+# up above.
 ds = subset(d,is.element(Group,c("Crash","Flash")))
 ggplot(data=ds, aes(Shape,Spikes,color=Group,group=Group)) + theme_bw() + 
   facet_grid(Amp~Old) +  stat_summary(fun.y="mean",geom="line") # Summary curves
