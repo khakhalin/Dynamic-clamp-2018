@@ -151,9 +151,7 @@ We now replaced "not interpretable" with "not easily interpretable". We wanted o
 
 > Page 8, line 16-19: Cohen's D tells the discriminability rather than whether there is a difference between two quantities. A test like the Hoteling-2 test can provide significance measures for whether the means of the data in 2C are significant.
 
-We report Cohen's d values as a measure of effect sizes, not as a quantification of significance.
-
----------- TODO ----------- : try Hoteling t-squared test
+We initially reported Cohen's d values as a measure of effect sizes, not as a quantification of significance. Now we also ran Hotelling t-squared tests on 2D sets of points, representing amplitude and temporal tuning values for different cells.
 
 > Page 8, lines 26-35: Rather than only saying that groups that were significantly different in average values were also significantly different in variability, name the groups again. (Otherwise the reader has to jump all around.)
 
@@ -175,7 +173,7 @@ On the correlation between monosynaptic amplitude and synaptic duration: this is
 
 > Figure 3G, page 10 lines 24-40. Creation of "super groups" is totally bogus. This part should be dropped. I see no strong significant relationship between temporal tuning and synaptic duration, and am not convinced synaptic duration is a meaningful quantity.
 
----------- TODO ----------- : See whether it is possible to use a different method here. The goal is to illustrate the fact that the weak correlation observed on full data is entirely driven by 3 "fast" datasets. Would some sort of a Tukey-like test work here?
+---------- TODO ----------- : Explain that essentially we are talking about strongly reshaped vs. weakly reshaped protocols. As we do not have apriory information about what protocols are inherently stronger, we can try to use Fig 2D to separate them into subgroups: weakly affected (Control, Sound, Looming) and storngly reshaped (Flash & both multisensory). Explain that it was the reason for creating "supergroups". Also downplay "supergroups", and remove this word. Make it more casual.
 
 > I am very confused by Figure 4. Is it supposed to tell us that average firing rate is correlated with sodium channel conductances? Why is this experiment being done? What do we learn about the brain? I mean this genuinely, I feel I do not understand what the authors are trying to say that is novel. Of course we would expect such a relationship. 
 

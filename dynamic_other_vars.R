@@ -380,12 +380,12 @@ d_prepared = dclean %>%
   dplyr::select(group,samp,sbend)
 summary(d_prepared)
 
-fit = hotelling.test(.~group, data=d_prepared, pair=c("Control","Flash")); fit # 0.001
-fit = hotelling.test(.~group, data=d_prepared, pair=c("Control","Looming")); fit # 0.01
-fit = hotelling.test(.~group, data=d_prepared, pair=c("Flash","Looming")); fit # 0.1
-fit = hotelling.test(.~group, data=d_prepared, pair=c("Control","Sound")); fit # 0.2
-fit = hotelling.test(.~group, data=d_prepared, pair=c("Flash","Sync")); fit # 0.2
-fit = hotelling.test(.~group, data=d_prepared, pair=c("Flash","Async")); fit # 0.051
+fit = hotelling.test(.~group, data=d_prepared, pair=c("Control","Flash"), perm=T); fit # 0.0002
+fit = hotelling.test(.~group, data=d_prepared, pair=c("Control","Looming"), perm=T); fit # 0.01
+fit = hotelling.test(.~group, data=d_prepared, pair=c("Flash","Looming"), perm=T); fit # 0.1
+fit = hotelling.test(.~group, data=d_prepared, pair=c("Control","Sound"), perm=T); fit # 0.2
+fit = hotelling.test(.~group, data=d_prepared, pair=c("Flash","Sync"), perm=T); fit # 0.2
+fit = hotelling.test(.~group, data=d_prepared, pair=c("Flash","Async"), perm=T); fit # 0.04
 
 
 # --- IV analysis
@@ -564,6 +564,7 @@ ggplot(data=d) + geom_density(aes(log(1+poly_s)))
 # Same plot after compensation:
 ggplot(data=dadj,aes(group,log(1-mono_m))) + geom_beeswarm(color="blue",alpha=0.2) + theme_bw() + 
   stat_summary(fun.y=mean,geom="point")
+
 # ANCOVAs on transformed:
 # (relies on previouisly compensated dadj dataframe)
 summary(aov(data=d,log(1-mono_m)~medial+rostral+group)) # yes, 0.001
@@ -628,7 +629,7 @@ ggplot(data=dres,aes(lat_m,sbend,color=group)) + geom_point(shape=1) +
   theme_bw() +  geom_smooth(method=lm,se=F) # Many lines
 ggplot(data=dres,aes(lat_m,sbend)) + geom_point(aes(color=group),shape=1) + 
   theme_bw() +  geom_smooth(method=lm,se=F) # One line - for the paper
-cor.test(dadj$lat_m,dadj$sbend) # Total: No: p=0.7, r=-0.04
+cor.test(dadj$lat_m,dadj$sbend) # Total: No: p=0.6, r=-0.05
 cor.test(ds$lat_mm,ds$sbendm) # Between: Yes: 0.02, r=0.89
 cor.test(dres$lat_m,dres$sbend) # Within: Yes: 0.03, r=-0.18 # Simpson's paradox
 summary(aov(data=dadj,sbend~lat_m)) # p=0.6
@@ -646,6 +647,7 @@ cor.test(data=subset(dadj,group=="Async"),~lat_m+sbend)   # 0.97, 23,  0.01
 # Comparison of per-group slopes (not significant)
 ggplot(data=ds,aes(lat_mm,ls)) + theme_bw() + geom_point()
 cor.test(data=ds,~lat_mm+ls) # p=0.2
+
 
 # All flashed vs all unflashed
 t <- dres
