@@ -97,9 +97,13 @@ On synaptic blockers: it is true that we measured intrinsic properties without s
 
 > Page 3, line 23: Sentences that begin "First" and "Second" need subjects
 
-We now added "we asked" to both sentences, making "we" a subject.
+We now added "we asked" to both sentences, which makes "we" a subject.
 
 > Page 3, line 34: "spikiness" -> not a precise word. "Changes in f-I curve", perhaps? Or "Average firing rate"?
+
+We think that this word well reflects the nature of the property we are describing (the property of being easily excitable, and able to generate spikes), and we also think that we define it rather precisely within thiss paper. We prefer it to other alternatives, as they are rather too general ("intrinsic excitability") or too bulky ("ability to produce spikes in response to stimulation"). 
+
+Of the two options offered by the reviewer, the first one ("Changes in f-I curve") is both too long, and does not reflect the nature of our measure, as with it we are trying to assess average ability to produce spikes, not a change of any sort. The second one sounds good and standard, but is actually somewhat misleading, as the term "Avereage firing rate" is defined rather precisely as the average rate at which a neuron fires in the network; usually either in the context of in-vivo recordings, or in-vitro spontaneous activity. Accordingly, a true "Average firing rate" for our neurons would depend both on their intrinsic properties (perhaps the measure we call "spikness here"), *and* the strength of their synaptic inputs, as well as their position within the network. In short, while "Average firing rate" is an important property, in this study we did not address it, nor had an opportunity to observe a proxy for it.
 
 > Page 3: "traces left by multi sensory stimuli in the tectum of freely behaving tadpoles" -> unclear what is meant by the this sentence until later; suggest re-word
 
@@ -111,11 +115,17 @@ We now added "we asked" to both sentences, making "we" a subject.
 
 > Page 4 line 19 "spiky" again, imprecise
 
+------------ TODO ----------- : Can we still change something to make it a tad more precise? And then say that it is precise enough?
+
 > Page 4, lines 21-24. I'm really confused about the degrees of freedom. Are you all loading in all observations from all cells? If so, the assumption of the statistical test that these are independent observations is violated. Many of these values were measured in the same cells with different current levels, so they are clearly not independent measurements. The analysis should essentially contain one observation per cell. (One "gain" value or number of spikes to some stimulus, etc..) Or could do a multi-variate ANOVA...
+
+We did in fact run a linear model with repeated measures that may be vaguely described as multi-variate ANOVA; see responses above.
 
 > Page 4: Lines 27, 28: This sentence is missing conjunctions "in order to map their amplitude transfer function" ?
 
 > Page 4: Lines 27, 28: What exactly is meant by the amplitude transfer function or amplitude tuning? Is there an equation?
+
+-------------------- TODO -------------------: Make sure this piece refers to the equation again.
 
 > Page 4, lines 27 - 33: what figure panels are being described here? 
 
@@ -125,7 +135,15 @@ We now added "we asked" to both sentences, making "we" a subject.
 
 > Page 6, line 22: "homologous to superior colliculus"
 
-> Page 7, line 3: after multi sensory stimulation, "tectal neurons were more excitable than after visual stimulation alone). Many issues. The average number of spikes is reported..is this across all conductance curve conditions or just one of them? Next, in Fig 1E, "sync" and "flash" and "looming" all look pretty similar to each other. What are the degrees of freedom? Again, they seem very high like each condition might be being treated as independent.
+Correction accepted.
+
+> Page 7, line 3: after multi sensory stimulation, "tectal neurons were more excitable than after visual stimulation alone). Many issues. The average number of spikes is reported..is this across all conductance curve conditions or just one of them? 
+
+> Next, in Fig 1E, "sync" and "flash" and "looming" all look pretty similar to each other. 
+
+> What are the degrees of freedom? Again, they seem very high like each condition might be being treated as independent.
+
+See other comments above. Generally, unless a mixed model is used, the second value for degrees of freedom, defining F-distributions, is close to the total number of measurements recorded in a study, even if a multivariate analysis of variance is used, and even for nested non-independent designs, such as blocking or repeated measures analysis. For our study in particular, the only way to bring the second value for degrees of freedom down, making it closer to the number of cells, rather than to the number of measurements, would be to use a mixed model. We used a mixed model in our senstivity / verification test, and observed that it provided qualitatively similar results, as described in the method. We however reported a fixed model everywhere else, as it is more straightforward, and, in our opinion, more consistent.
 
 > More stats: Are these multiple comparisons across conditions done in an unbiased manner, like with a Bonferroni correction or an ANOVA? It seems not.
 
@@ -137,9 +155,13 @@ We now added "we asked" to both sentences, making "we" a subject.
 
 Together, this makes us reasonably confident that a Bonferroni correction would be unnecessarily punitive for this type of analysis.
 
-> Page 8, lines 2-12. "Average firing rate" is a more common term than "spikiness". How about "gain" for amplitude tuning? I see that the authors are using the parameter a to indicate the non-linearity in the tuning curve. For "temporal tuning", why not use "adaptation index" or something like that, that could be plotted in Figure 1F? The "temporal tuning" is a measure of non-linearity, but it is not very intuitive. (It is not "incorrect" as the authors have it now, but I think it would be hard for the interdisciplinary readership of J Neuroscience to get on board easily.)
+> Page 8, lines 2-12. "Average firing rate" is a more common term than "spikiness". 
 
----------- TODO ----------- : Argue that average firing rate is usually applied to actual firing rate (either long-term, or instaneous) in realistic situations (in-vivo, or during spontaneous activity), while we look at a rather artificial excitability index. Gain and adaptation index should be included in the text, when "tunings" are introduced, but I prefer retaining original "tunings" for repeated use.
+Please see our comments above. The term "average firing rate" is typically used to refer to actual average firing rates, either long-term or instaneous, in situations when relatively realistic neural activity is possible, such as in-vivo recordings, or during spontaneous activity. We however looked at a rather artificial excitability index, and we would prefer to stress that by naming this index, and defining it within the study.
+
+> How about "gain" for amplitude tuning? I see that the authors are using the parameter a to indicate the non-linearity in the tuning curve. For "temporal tuning", why not use "adaptation index" or something like that, that could be plotted in Figure 1F? The "temporal tuning" is a measure of non-linearity, but it is not very intuitive. (It is not "incorrect" as the authors have it now, but I think it would be hard for the interdisciplinary readership of J Neuroscience to get on board easily.)
+
+---------- TODO ----------- : Gain and adaptation index should be included in the text, when "tunings" are introduced, but I prefer retaining original "tunings" for repeated use.
 
 > Figure 2: Units needed for Y axis on A, B (units of a are spikes per conductance squared and units of amplitude tuning are spikes/conductance)
 
