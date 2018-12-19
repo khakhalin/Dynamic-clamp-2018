@@ -165,7 +165,7 @@ Please see our comments above. The term "average firing rate" is typically used 
 
 > Figure 2: Units needed for Y axis on A, B (units of a are spikes per conductance squared and units of amplitude tuning are spikes/conductance)
 
----------- TODO ----------- : This is not true, both parameters are dimensionless, as both conductance and amplitude are treated as ordinal values. Reiterate this.
+---------- TODO ----------- : This is not true, both parameters are dimensionless, as both conductance and amplitude are treated as ordinal values. Reiterate this. Also, in the Methods, where we describe that we treated these values as ordinal, explain that this is because of the strong non-linearity of effects, and that treating values as ordinal is equivalent to rank-transform, and is arguably better and simpler than any other artificial transform.
 
 > Page 8, about line 9: It is false that the numerical values are not interpretable, they are in an equation and have units.
 
