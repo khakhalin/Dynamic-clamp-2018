@@ -19,7 +19,10 @@ require(viridis)
 rm(list = ls())  # Clear workspace
 
 # ----- Read the data ----
-d = read.table("Dynamic-clamp-2018-git/Data/data_mainInput.txt",header=T)
+# (Sorry, you'll have to update this one, as R doesn't support relative referencing)
+#d = read.table("Dynamic-clamp-2018-git/Data/data_mainInput.txt",header=T)
+d = read.table("5_Dynamic clamp/Git - Dynamic/Data/data_mainInput.txt",header=T)
+
 d = mutate(d,group = reorder(group, groupid))
 # d_full = d                # Save a copy just in case
 
@@ -28,11 +31,14 @@ d = subset(d,group %in% c('Control','Crash','Flash','Sound','Sync','Async'))
 d = mutate(d, group = recode_factor(group,'Control'='Control','Flash'='Flash','Crash'='Looming',
                                     'Sound'='Sound','Sync'='Sync','Async'='Async'))
 
+# Now let's fix cell coordinates (as they were originally measured a bit weirdly)
 # Estimations from the tectal photo and drawing:
-# Lower lip is has "rostral" of about 325 (which means that original numbers should have been called "caudal")
-# Rostral end of tectum has "rostral" of about 0
-# Tectum edge has "medial" of about 375 (which means that it shold have been called "medial")
-# Tectum midline has "medial" of about -25
+# Lower lip of the tectum has the "rostral" value of about 325 
+# (which means that original numbers should have been actually called "caudal", not "rostral",
+# as larger numbers corresponded to more caudal positioning)
+# Rostral end of tectum has "rostral" of about 0. We'll have to flip it.
+# Tectum side edge has "medial" of about 375 (which means that, again, it shold have been called "medial")
+# Tectum midline has "medial" of about -25. So we flip it, but also shift it.
 
 d$rostral = 1 - d$rostral/325        # Move to true "rostral", and from screen units to %
 d$medial = 1 - (d$medial + 25)/375   # Move to true "medial"
@@ -54,10 +60,10 @@ max(d$medial,na.rm=T)
 
 # Tucking down two extreme outlier cells. Only use for visualizations, not for analysis.
 ggplot(data=d) + theme_bw() + geom_point(aes(samp,sbend))
-d = mutate(d, sbend = ifelse(sbend<0.5,sbend,0.5)) # From 1 to 0.5
-d = mutate(d, samp = ifelse(samp<2.2,samp,2.2)) # From 3 and 4 to 2.2
-ggplot(data=d) + theme_bw() + geom_point(aes(samp,sbend))
-# d$samp = min(d$samp,2.5) # From 3 and 4 to 2.5
+dadj = d
+dadj = mutate(dadj, sbend = ifelse(sbend<0.5,sbend,0.5)) # From 1 to 0.5
+dadj = mutate(dadj, samp = ifelse(samp<2.2,samp,2.2)) # From 3 and 4 to 2.2
+ggplot(data=dadj) + theme_bw() + geom_point(aes(samp,sbend))
 
 # ------- Simple correlations
 ggplot(data=d) + theme_bw() + geom_point(aes(smean,nai))
@@ -365,7 +371,7 @@ ggplot() + theme_bw() + theme(text=element_text(size=8)) +
   facet_wrap(~group)
   
 
-# New 2D CI-based plot of same data
+# 2D CI-based plot of same data
 ggplot() + theme_bw() + theme(text=element_text(size=8)) + 
   geom_point(data=ds,aes(m1,m2,color=group)) +
   geom_errorbar(data=ds,aes(x=m1,ymin=m2-ci2,ymax=m2+ci2,color=group),width=0.02) +
@@ -535,6 +541,29 @@ ggplot(data=dm,aes(group,value,color=group)) + theme_bw() +
   geom_beeswarm(cex=1,alpha=0.3,shape=16,size=2)  +
   stat_summary(fun.y="mean",color="black",geom="point")+
   facet_wrap(~variable,ncol=2,scales="free")
+
+
+### --- Compare models to actual data
+# First dynamic clamp
+dcomp = na.omit(dadj) # We use data that is compensated for position
+fit1 = aov(data=dcomp,smean~nai+kti+ksi+nav+ktv+ksv+cm+rm)
+dcomp$smean_model = predict(fit1,newdata=dcomp)
+ggplot(data=dcomp,aes(smean,smean_model)) + theme_bw() + 
+  geom_point(shape=21) +
+  geom_smooth(method="lm",se=F,size=0.5) +
+  xlab('Observed Spikiness, Dyn.C.') +
+  ylab('Predicted spikiness')
+
+# Now current injections
+fit2 = aov(data=dcomp,stepspike~nai+kti+ksi+nav+ktv+ksv+cm+rm)
+dcomp$stepspike_model = predict(fit2,newdata=dcomp)
+ggplot(data=dcomp,aes(stepspike,stepspike_model)) + theme_bw() + 
+  geom_point(shape=21) +
+  geom_smooth(method="lm",se=F,size=0.5) +
+  xlab('Observed N spikes in CC') +
+  ylab('Predicted N spikes')
+# horse
+
 
 
 ### --------------------- Synaptic stuff ---------------------
