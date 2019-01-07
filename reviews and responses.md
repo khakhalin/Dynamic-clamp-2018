@@ -183,7 +183,7 @@ We initially reported Cohen's d values as a measure of effect sizes, not as a qu
 
 > Figure 3E and G: how can we reconcile these accounts? In each of the groups (3G), there is at best a very weak relationship between temporal tuning and synaptic duration. Somehow, if you take the means of all of these groups, you can fit a line through them (Figure 3E). Why is that the right thing to do? Aren't the field of individual points (partially-transparent background) and the data plotted in 3G the relative quantities?
 
----------- TODO ----------- : Perhaps this will be more clear now, as the Simpson's praradox paragraph is back. Maybe we shoudl also add 1-2 more interpretative sentences to the Simpsons paradox paragraph? Also, do we need a reference there?
+---------- TODO ----------- : Perhaps this will be more clear now, as the Simpson's paradox paragraph is back. Maybe we shoudl also add 1-2 more interpretative sentences to the Simpsons paradox paragraph? Also, do we need a reference there?
 
 > Figure 3C shows that monosynaptic amplitude and synaptic duration are correlated, as one would expect from the definition of synaptic duration (center of mass). Basically, as the monosynaptic amplitude gets bigger, the center of mass will shift earlier and earlier. So what independent information is really being conveyed in the synaptic duration? The correlation in 3C is so strong, I don't see that it is truly an independent quantity that teaches us something beyond the monosynaptic input strength. The monosynaptic input strength is much more defined, why not use that for examining correlation with temporal tuning (or adaptation index), average firing rate, and gain. The "synaptic duration" isn't really a measure of synaptic duration, which makes Page 10, lines 3-23 really hard to interpret.
 
@@ -199,17 +199,13 @@ On the correlation between monosynaptic amplitude and synaptic duration: this is
 
 Or maybe indeed just drop it. Leave two sentences: one listing r values, and another one mentioning that the negative correlation that exists for full data is entirely driven by these 3 groups, but not by those other 3 groups.
 
-> I am very confused by Figure 4. Is it supposed to tell us that average firing rate is correlated with sodium channel conductances? Why is this experiment being done? What do we learn about the brain? I mean this genuinely, I feel I do not understand what the authors are trying to say that is novel. Of course we would expect such a relationship. 
+> I am very confused by Figure 4. Is it supposed to tell us that average firing rate is correlated with sodium channel conductances? Why is this experiment being done? What do we learn about the brain? I mean this genuinely, I feel I do not understand what the authors are trying to say that is novel. Of course we would expect such a relationship. Why not show the 8 parameter model fit of the current tuning curves?
 
----------- TODO ----------- : Change the description; bring attention to the fact that the correlation exists (as predicted), but is also very bad (surprisinigly bad, in fact). Or maybe indeed drop it, and replace it with models predicting temporal and 
-
-> Why not show the 8 parameter model fit of the current tuning curves?
-
----------- TODO ----------- : Do they mean a correlation-like plot that has model projection on X and estimations on Y? That would be interesting: do it.
+In the previous version of this paper we tried to show correlations of 2 types of spiking (those recorded in current and dynamic clamp modes) with Na conductance, to illustrate that one of the correlations is much stronger than the other. We agree however that showing the 8 parameter model fit is much better way of illustrating this point. We now show two scatterplots, for both dynamic and current clamp data, in which values predicted by the 8-parameter model are compared to actual measurements. It is clear to see that one of the models (that for current clamp data) works much better than the other one (for the dynamic clamp data).
 
 > Page 11, "the mechanisms behind temporal intrinsic plasticity". I'm confused. This section and Figure 4 seems to focus on average firing rate / spikiness rather than the temporal tuning parameter. So why the heading?
 
----------- TODO ----------- : The section is mostly about mechanisms, but Fig 4 for now is not; once we introduce new fit-figures, we'll be able to claim it.
+Different fields have different criteria for what level of explanation is low enough to count as "mechanistic". Had we reliably predicted cell phenotypes (spiking) from their low-level electrophysiological properties, especially across treatment groups, we would have comfortably called it a mechanistic explanation. We show that for one type of measurements (current clamp), we have a tolerable level of mechanistic understanding of differences in observed cell excitability, while for more nuanced dynamic clamp experiments this mechanistic understanding is clearly lacking.
 
 
 > Discussion: 
