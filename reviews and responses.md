@@ -107,11 +107,13 @@ Of the two options offered by the reviewer, the first one ("Changes in f-I curve
 
 > Page 3: "traces left by multi sensory stimuli in the tectum of freely behaving tadpoles" -> unclear what is meant by the this sentence until later; suggest re-word
 
-
+---------- TODO ----------- :
 
 > Results
 
 > Page 4, line 6 "the stimuli we used were weaker" What is meant, the stimuli in the previous studies were weaker, or the stimuli in the present study? Maybe say the previous stimuli were very high contrast and did not reflect contrasts used in behavioral studies. Here, we presented a checkerboard"...
+
+---------- TODO ----------- :
 
 > Page 4 line 19 "spiky" again, imprecise
 
@@ -123,21 +125,29 @@ We did in fact run a linear model with repeated measures that may be vaguely des
 
 > Page 4: Lines 27, 28: This sentence is missing conjunctions "in order to map their amplitude transfer function" ?
 
+---------- TODO ----------- :
+
 > Page 4: Lines 27, 28: What exactly is meant by the amplitude transfer function or amplitude tuning? Is there an equation?
 
 -------------------- TODO -------------------: Make sure this piece refers to the equation again.
 
 > Page 4, lines 27 - 33: what figure panels are being described here? 
 
+---------- TODO ----------- :
+
 > Page 6, lines 10-20. The authors point out that the amount of response adaptation in the conductance vs. number of spike curves varies as a function of the stimulus that the animal was exposed to. While it is true that this information can be gleaned by examining Figure 1E, the authors would be well served to make a second index, such as an adaptation index, in a panel F. This would really drive home the points the authors would like the reader to take away from the Figure. (I missed it the first time through, I just saw the reduced gain in Fig. 1E, not the adaptation.)
 
 > Page 6, lines 10-20. Need to cite Figure 1E
+
+---------- TODO ----------- :
 
 > Page 6, line 22: "homologous to superior colliculus"
 
 Correction accepted.
 
 > Page 7, line 3: after multi sensory stimulation, "tectal neurons were more excitable than after visual stimulation alone). Many issues. The average number of spikes is reported..is this across all conductance curve conditions or just one of them? 
+
+---------- TODO ----------- :
 
 > Next, in Fig 1E, "sync" and "flash" and "looming" all look pretty similar to each other. 
 
@@ -212,9 +222,15 @@ Different fields have different criteria for what level of explanation is low en
 
 > Page 13, lines 18 - 24: the authors refer to the questions they asked in the introduction, without re-describing them. The reader cannot possibly remember and is forced to page back and forth. The writing must be so much better.
 
+---------- TODO ----------- :
+
 > "intrinsic plasticity does not simply adjust neuronal spikiness, but can regulate selectivity for inputs of different dynamics". How are the input dynamics different? I only see that monosynaptic magnitude is different across the conditions. The duration parameter does not reflect duration, just a weighted average of where the most input arrives, and is not related to the whole duration of synaptic input in a manner independent of the initial volley of input.)
 
+---------- TODO ----------- :
+
 > "we show that synaptic and intrinsic temporal properties of neurons are homeostatically co-tuned" what does this mean?
+
+---------- TODO ----------- :
 
 
 # Reviews from eLife, 2018 Aug 17 (rejection letter)
