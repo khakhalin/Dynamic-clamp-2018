@@ -5,6 +5,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[top=0.85in,left=1.5in,right=1.5in,footskip=0.75in]{geometry} % For one-column version
+
 %\usepackage[top=0.85in,left=1in,right=1.0in,footskip=0.75in]{geometry} % For two-column version
 % marginparwidth=2in
 
@@ -45,6 +46,10 @@
 % Multicolumns
 \setlength{\columnsep}{1cm}
 
+% Titles
+\usepackage{titlesec}
+\titlespacing{\section}{0pc}{0.5pc}{0pc}
+
 % Headers and footers
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -58,7 +63,7 @@
 % It will ignore everything until the endignore pair, and so on.
 % We need to get down to 4500 words in the main text.
 
-\linenumbers % Comment this to suppress line numbers
+%\linenumbers % Comment this to suppress line numbers
 
 % title goes here:
 %\twocolumn[
@@ -98,7 +103,9 @@ With the recent explosion of work in neural connectivity reconstruction and biol
 
 \section*{Introduction}
 
-% manually sort bib by year, so that citations are also sorted by year, and not alphabetically
+% TODO LIST
+
+% In Discussion, mention that studying post-hyperpolarization currents would be a great next step
 
 % Intro: be more specific that we're not talking about STG or spinal (with refs). That in FF intrinsic is often underplayed, and that the same is tru for neuro-inspired machine learning. Check my own response to elife rejection, draw from there.
 
@@ -194,12 +201,12 @@ Knowing that tectal neurons can tune to inputs of different temporal dynamics, w
 \begin{figure}[!t]
 \centering
 \includegraphics[width=3.2in]{fig4.png}
-\caption{Electrophysiological properties of individual neurons, compared to their spiking in current and dynamic clamp experiments. (\textbf{A}). Sample curves for a voltage step experiment; black bars show the areas used to average Na (bottom) and transient K (top) currents (see Methods). (\textbf{B}). Processing of ionic currents data, with IV-curves translated into two parameters (threshold potential and peak current) for each ionic conductance. (\textbf{C}). Sample data from a current clamp experiment; spikes are marked with black dots. (\textbf{D}). Estimations of spikiness from current clamp experiments (horizontal axis) and dynamic clamp experiments (vertical axis) correlate. (\textbf{E}). The number of spikes registered in current clump mode: values predicted from a linear model, plotted against actually observed values. The model works reasonably well (with 61\% of variance explained). (\textbf{F}). Similar comparison for the dynamic clamp experiments: the model has very low predictive value (13\% of variance explained).}
+\caption{Electrophysiological properties of individual neurons, compared to their spiking in current and dynamic clamp experiments. (\textbf{A}). Sample curves for a voltage step experiment; black bars show the areas used to average Na (bottom) and transient K (top) currents (see Methods). (\textbf{B}). Processing of ionic currents data, with IV-curves translated into two parameters (threshold potential and peak current) for each ionic conductance. (\textbf{C}). Sample data from a current clamp experiment; spikes are marked with black dots. (\textbf{D}). Estimations of spikiness from current clamp experiments (horizontal axis) and dynamic clamp experiments (vertical axis) correlate. (\textbf{E}). The number of spikes registered in current clump mode: values predicted from a linear model, plotted against actually observed values. The model works reasonably well (61\% of variance explained). (\textbf{F}). Similar comparison for the dynamic clamp experiments: the model has very low predictive value (13\% of variance explained). Here and in E, both values are adjusted for position.}
 \end{figure}
 
 We ran a stepwise generalized linear model selection analysis (R package stepAIC, \citealt{venables2013}) to explain the intrinsic tuning of cells recorded in all experimental groups through these eight variables. We found that the average spikiness (after compensation for position within the tectum; see Methods) was best described by a combination of sodium peak current (INa) and membrane resistance (Rm) variables, but these variables explained only 8\% and 2\% of cell-to-cell variance respectively (F(1,130)=11.3, and F(1,130)=4.5; Figure 3E). Together, all eight cellular parameters described only 13\% of variance in average spikiness. The temporal tuning value was best explained by sodium current activation potential and membrane resistance (VNa: 7\%, F(1,147)=10.7; Rm: 2\%, F(1,147)=3.1), with all eight variables explaining only 11\% of total variance. For amplitude tuning, the proposed best model included peak sodium current (INa: 6\%, F(1,163)=10.0) and sodium activation potential (VNa: 2\%, F(1,1,163)=3.5), with all eight variables accounting for 10\% of variance. This very low total explained variance suggests that while ionic currents and their activation potentials clearly affected intrinsic tuning of tectal cells, most cell-to-cell variability in intrinsic phenotypes stemmed from some other properties that were different between cells. In agreement with this assessment, the effect of experimental group on either mean spiking, temporal, or amplitude tuning curves remained significant even after compensating for all 8 intrinsic properties (sequential sum of squares analysis of variance p=0.03, 0.001, and 0.003 respectively), suggesting that changes in tuning across experimental groups was mediated by other factors.
 
-\subsection*{A comparison between dynamic clamp and current clump experiments}
+\subsection*{A comparison between dynamic clamp and current clamp experiments}
 
 The inability to predict spiking of tectal neurons through their isolated electrophysiological properties was unexpected, and stood in a seeming contradiction with our previous study \citep{ciarleglio2015}. Fortunately, in the current study, we recorded spiking traces in response to “classic” current steps (Figure 4C), which allowed a direct comparison between the results of current clamp and dynamic clamp protocols. Across all cells, the maximal number of spikes observed during current step injections correlated with the average number of spikes in dynamic clamp experiments (Figure 4D; r=0.46, p=2e-9, n=152). In agreement with \citep{ciarleglio2015}, spiking in current clamp experiments correlated with peak sodium (INa: r=0.42, p=2e-8, n=152) and stable potassium currents (IKs: r=0.39, p=2e-7), as well as activation potential for sodium current (VNa: r=0.24, p=0.02). Overall, the 8 intrinsic variables described above (Rm, Cm, three peak currents, and three activation potentials) explained 61\% of cell-to-cell variability in the maximal number of spikes from current clamp experiments (Figure 4E), comparable to 49\% reported in our previous study \citep{ciarleglio2015}, and noticeably higher than 13\% for dynamic clamp experiments (Figure 4F).
 
