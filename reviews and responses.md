@@ -1,4 +1,4 @@
-Reviews and Authors' Responses for (Busch Khakhalin 2018)
+Reviews and Authors' Responses for (Busch Khakhalin 2019)
 ======================
 
 This is a collection of reviews and feedbacks, both official and unofficial, for different working copies of this paper. Reviews are split into paragraphs, and Author's responses and comments are shown after each paragraph. Reviews, and responses to these revivews, are given in reverese chronological order.
@@ -228,7 +228,7 @@ We reworded the beginning of the discussion, to make sure that we re-state any q
 
 The "synaptic duration" value is higher for those synaptic inputs that last longer (have a long polysyaptic tail after the original bout of monosynaptic currents), and is smaller for those inputs that are short (mostly limited to monosynaptic currents). Therefore, we believe that duration value does capture and reflect the duration. We chose the "weighted average" approach (the center of mass), as strictly speaking, in the presence of spontaneous activity there is no point when the synaptic resonse is truly over, and one has to go for a different way to quantify it.
 
-While preparing this paper, we actually also tried a different way to estimate synaptic durations: we attempted to fit all synaptic currents with the same curve that we used for simulated conductances in our dynamic clamp experiments ( g*(t/tau)*exp(1-t/tau) ). While this idea seemed good in theory, in practice the synaptic curves were too variable in terms of their shape, decay, latency, and the amount of noise, making most curve fits were really bad, which made us go for a simpler, and a more parsimonuous measure.
+While preparing this paper, we actually also tried a different way to estimate synaptic durations: we attempted to fit all synaptic currents with the same curve that we used for simulated conductances in our dynamic clamp experiments `I = g*(t/tau)*exp(1-t/tau)`. While this idea seemed good in theory, in practice the synaptic curves were too variable in terms of their shape, decay, latency, and the amount of noise, making most curve fits were really bad, which made us go for a simpler, and a more parsimonuous measure.
 
 > "we show that synaptic and intrinsic temporal properties of neurons are homeostatically co-tuned" what does this mean?
 
