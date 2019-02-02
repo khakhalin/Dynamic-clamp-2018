@@ -222,15 +222,17 @@ Different fields have different criteria for what level of explanation is low en
 
 > Page 13, lines 18 - 24: the authors refer to the questions they asked in the introduction, without re-describing them. The reader cannot possibly remember and is forced to page back and forth. The writing must be so much better.
 
----------- TODO ----------- :
+We reworded the beginning of the discussion, to make sure that we re-state any questions before providing the answers.
 
 > "intrinsic plasticity does not simply adjust neuronal spikiness, but can regulate selectivity for inputs of different dynamics". How are the input dynamics different? I only see that monosynaptic magnitude is different across the conditions. The duration parameter does not reflect duration, just a weighted average of where the most input arrives, and is not related to the whole duration of synaptic input in a manner independent of the initial volley of input.)
 
----------- TODO ----------- :
+The "synaptic duration" value is higher for those synaptic inputs that last longer (have a long polysyaptic tail after the original bout of monosynaptic currents), and is smaller for those inputs that are short (mostly limited to monosynaptic currents). Therefore, we believe that duration value does capture and reflect the duration. We chose the "weighted average" approach (the center of mass), as strictly speaking, in the presence of spontaneous activity there is no point when the synaptic resonse is truly over, and one has to go for a different way to quantify it.
+
+While preparing this paper, we actually also tried a different way to estimate synaptic durations: we attempted to fit all synaptic currents with the same curve that we used for simulated conductances in our dynamic clamp experiments ( g*(t/tau)*exp(1-t/tau) ). While this idea seemed good in theory, in practice the synaptic curves were too variable in terms of their shape, decay, latency, and the amount of noise, making most curve fits were really bad, which made us go for a simpler, and a more parsimonuous measure.
 
 > "we show that synaptic and intrinsic temporal properties of neurons are homeostatically co-tuned" what does this mean?
 
----------- TODO ----------- :
+We now made the Discussion section a bit longer, and so used longer, simpler statements, when describing the co-ordination of synaptic and intrinsic properties. For example, the sentece in question was replaced with this sentence: "In answer to our second question, about whether intrinsic and synaptic properties of tectal cells are in any way coordinated, here we show that intrinsic and synaptic temporal properties are co-tuned in the tectum, and moreover, that this co-tuning can be modified by sensory experience."
 
 
 # Reviews from eLife, 2018 Aug 17 (rejection letter)
