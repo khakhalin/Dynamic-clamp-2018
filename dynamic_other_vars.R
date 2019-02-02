@@ -225,7 +225,7 @@ model = aov(data=d,smean~rostral+medial+group); summary(model) # Yes: p=0.01
 TukeyHSD(model,which="group") # CF
 anova(lmer(data=d,smean~rostral+medial+group+(1|animal),na.action=na.omit)) # Verification (yes, 0.047)
 bartlett.test(data=d,smean~group) # Variances are different
-ggplot(data=d,aes(group,smean)) + geom_point(alpha=0.3,position=position_jitter(width=0.1)) + theme_bw()
+ggplot(data=d,aes(group,smean)) + geom_point(alpha=0.3,position=position_jitter(w=0.2,h=0)) + theme_bw()
 
 # Which vars are significantly different?
 var.test(data=subset(d,group %in% c("Control","Flash")), smean~group, alternative = "two.sided") # 2e-6
@@ -240,6 +240,8 @@ t.test(data=subset(d,group %in% c("Control","Looming")),smean~group) # 0.1
 t.test(data=subset(d,group %in% c("Control","Sound")),smean~group) # 0.5
 t.test(data=subset(d,group %in% c("Sync","Flash")),smean~group) # 0.2
 t.test(data=subset(d,group %in% c("Async","Flash")),smean~group) # 0.02
+t.test(data=subset(d,group %in% c("Control","Sync")),smean~group) # 0.06
+t.test(data=subset(d,group %in% c("Control","Async")),smean~group) # 0.4
 
 # ------- Analysis of sbend
 model = aov(data=d,sbend~rostral+medial+group); summary(model) # Yes

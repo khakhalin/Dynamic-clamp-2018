@@ -107,17 +107,17 @@ Of the two options offered by the reviewer, the first one ("Changes in f-I curve
 
 > Page 3: "traces left by multi sensory stimuli in the tectum of freely behaving tadpoles" -> unclear what is meant by the this sentence until later; suggest re-word
 
----------- TODO ----------- :
+Reworded: "for the first time we were able to look at tectal network retuning in response to multisensory stimuli in freely behaving tadpoles."
 
 > Results
 
 > Page 4, line 6 "the stimuli we used were weaker" What is meant, the stimuli in the previous studies were weaker, or the stimuli in the present study? Maybe say the previous stimuli were very high contrast and did not reflect contrasts used in behavioral studies. Here, we presented a checkerboard"...
 
----------- TODO ----------- :
+Changed to "the stimuli we used in the present study were weaker".
 
 > Page 4 line 19 "spiky" again, imprecise
 
------------- TODO ----------- : Can we still change something to make it a tad more precise? And then say that it is precise enough?
+We like the word "spiky", as it captures the phenomelogical effect without making assuptions about underlying mechanisms. It is also intuitive and short, which aids understanding.
 
 > Page 4, lines 21-24. I'm really confused about the degrees of freedom. Are you all loading in all observations from all cells? If so, the assumption of the statistical test that these are independent observations is violated. Many of these values were measured in the same cells with different current levels, so they are clearly not independent measurements. The analysis should essentially contain one observation per cell. (One "gain" value or number of spikes to some stimulus, etc..) Or could do a multi-variate ANOVA...
 
@@ -125,31 +125,35 @@ We did in fact run a linear model with repeated measures that may be vaguely des
 
 > Page 4: Lines 27, 28: This sentence is missing conjunctions "in order to map their amplitude transfer function" ?
 
----------- TODO ----------- :
+Reworded: "We then mapped the amplitude tuning of neurons (also known as amplitude transfer function, or gain), by looking at how an increase in transmembrane conductance translated into increased spike output."
 
 > Page 4: Lines 27, 28: What exactly is meant by the amplitude transfer function or amplitude tuning? Is there an equation?
 
--------------------- TODO -------------------: Make sure this piece refers to the equation again.
+At this point we describe tuning as an empirical curve (something that can be plotted in a figure, and compared from cell to cell), but do not yet use any equations. Later in the text we parameterize these curves, and provide all related equations.
 
 > Page 4, lines 27 - 33: what figure panels are being described here? 
 
----------- TODO ----------- :
+We added a reference to (Fig 1D,E).
 
 > Page 6, lines 10-20. The authors point out that the amount of response adaptation in the conductance vs. number of spike curves varies as a function of the stimulus that the animal was exposed to. While it is true that this information can be gleaned by examining Figure 1E, the authors would be well served to make a second index, such as an adaptation index, in a panel F. This would really drive home the points the authors would like the reader to take away from the Figure. (I missed it the first time through, I just saw the reduced gain in Fig. 1E, not the adaptation.)
 
+We introduce adaptation index (parametrized quantification of temporal tuning) later in the text.
+
 > Page 6, lines 10-20. Need to cite Figure 1E
 
----------- TODO ----------- :
+Done.
 
 > Page 6, line 22: "homologous to superior colliculus"
 
-Correction accepted.
+Fixed.
 
-> Page 7, line 3: after multi sensory stimulation, "tectal neurons were more excitable than after visual stimulation alone). Many issues. The average number of spikes is reported..is this across all conductance curve conditions or just one of them? 
+> Page 7, line 3: after multi sensory stimulation, "tectal neurons were more excitable than after visual stimulation alone). Many issues. The average number of spikes is reported.. Is this across all conductance curve conditions or just one of them? 
 
----------- TODO ----------- :
+The averages were calculated across all testing conditions; we added this info to the sentence: "after four hours of multisensory stimulation, tectal neurons were more excitable than after visual stimulation alone (0.6$\pm$0.4 spikes, F(1,689)=11.2, p=8e-4; and 0.7$\pm$0.6 spikes, F(1,665)=41.7, p=2e-10, for sync and async respectively, across all testing conditions)."
 
 > Next, in Fig 1E, "sync" and "flash" and "looming" all look pretty similar to each other. 
+
+We think that it rather reasonable that effects of going through some stimulation, compared to control, are stonger, than differences between different types of stimulation. We explore this question in detail further in the text.
 
 > What are the degrees of freedom? Again, they seem very high like each condition might be being treated as independent.
 
@@ -197,15 +201,13 @@ We now added a paragraph describing this situation in detail, and reference a te
 
 > Figure 3C shows that monosynaptic amplitude and synaptic duration are correlated, as one would expect from the definition of synaptic duration (center of mass). Basically, as the monosynaptic amplitude gets bigger, the center of mass will shift earlier and earlier. So what independent information is really being conveyed in the synaptic duration? The correlation in 3C is so strong, I don't see that it is truly an independent quantity that teaches us something beyond the monosynaptic input strength. The monosynaptic input strength is much more defined, why not use that for examining correlation with temporal tuning (or adaptation index), average firing rate, and gain. The "synaptic duration" isn't really a measure of synaptic duration, which makes Page 10, lines 3-23 really hard to interpret.
 
-On the correlation between monosynaptic amplitude and synaptic duration: this is a very valid observation, and it is also exactly what we claim in the text:
+When comparing temporal properties of synaptic inputs to that of intrinsic tuning, it is important to make the two measures as similar (matching) as possible, as methodologically it is supposed to increase the power of our comparisons. In practice, if for intrinsic properties we quantify non-linearity of responses to currents of different duration, then we need to estimate current duration for our synaptic inputs. In other words, while synaptic current duration is largerly just a different way to quantify the relative impact of polysynaptic activity, it is a necessary step for a good analysis. We now reworded two sentences at the beginning of paragraph in question, to hopefully make this point more clear:
 
-"As expected, cells with strong monosynaptic inputs had shorter synaptic currents, while polysynaptic activity made synaptic currents longer"
-
----------- TODO ----------- : Add a paragraph to the paper, explaining that synaptic duration is necessary, as it is what allows us to compare apples to apples, as we fit the synaptic currents exactly with a waveform we used to assess temporal tuning in dynamic clamp experiments. Then reiterate, and cite this paragraph here.
+"To better match and compare temporal properties of synaptic inputs to those of intrinsic tuning, we calculated average "synaptic current duration" for each cell as a temporal "center of mass" of currents within the first 700 ms after optic chiasm stimulation (see "Methods"). Neurons with different contribution of early and late synaptic responses naturally had different synaptic current duration: cells with strong monosynaptic inputs had shorter currents, while polysynaptic activity made synaptic currents longer (Figure 3C; p=2e-16, r=$-$0.78, n=168)."
 
 > Figure 3G, page 10 lines 24-40. Creation of "super groups" is totally bogus. This part should be dropped. I see no strong significant relationship between temporal tuning and synaptic duration, and am not convinced synaptic duration is a meaningful quantity.
 
-Removed. We attempted a different, more convincing analysis of the interaction between synaptic and intrinsic properties across groups, but when split by group, our analysis lacks power, so we decided to follow the advice and remove this paragraph.
+We now removed this paragraph. In response to this comment, we initially attempted a different analysis of the interaction between synaptic and intrinsic properties across groups, but while some reasonable types of comparisons were significant, this analysis lacks power, and relies too much on post-hoc reasoning, so we decided to follow the advice and just remove this paragraph entirely. While we still believe that stronger stimulation (in terms of its effect on average intrinsic properties) generally caused stronger disruption of the synaptic-intrinsic correlation, this statement is hard to fully justify with our current data.
 
 > I am very confused by Figure 4. Is it supposed to tell us that average firing rate is correlated with sodium channel conductances? Why is this experiment being done? What do we learn about the brain? I mean this genuinely, I feel I do not understand what the authors are trying to say that is novel. Of course we would expect such a relationship. Why not show the 8 parameter model fit of the current tuning curves?
 
