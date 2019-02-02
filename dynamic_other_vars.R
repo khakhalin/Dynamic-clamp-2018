@@ -5,21 +5,22 @@
 # install.packages("lme4") # This one is required for lmerTest to work
 # install.packages("lmerTest")
 # install.packages("effsize")
-require(effsize)
-require(ggplot2)
-require(dplyr)
-require(ggbeeswarm)
-require(reshape2)
-require(MASS) # Model selection
-#require(lme4); detach("package:lme4",unload=T)
-require(lmerTest)
 #install.packages("viridis")
-require(viridis)
+
+require(dplyr)
+require(ggplot2)
+require(effsize)
+require(ggbeeswarm) # Suddenly stopped working after an update around Dec 2018; may be a version conflict
+require(reshape2) # needed for some old code
+require(MASS) # Model selection. Note that it annoying masks "select" from dplyr
+require(lmerTest) # Random effects model, requires lme4 as a dependency
+require(viridis) # Pretty colors
 
 rm(list = ls())  # Clear workspace
 
 # ----- Read the data ----
-# (Sorry, you'll have to update this one, as R doesn't support relative referencing)
+# (The address below needs to point at the main data file. 
+# Sadly, R doesn't support relative referencing)
 #d = read.table("Dynamic-clamp-2018-git/Data/data_mainInput.txt",header=T)
 d = read.table("5_Dynamic clamp/Git - Dynamic/Data/data_mainInput.txt",header=T)
 
@@ -27,10 +28,12 @@ d = mutate(d,group = reorder(group, groupid))
 # d_full = d                # Save a copy just in case
 
 names(d)
+# Remove groups that weren't used in the paper
 d = subset(d,group %in% c('Control','Crash','Flash','Sound','Sync','Async'))
 d = mutate(d, group = recode_factor(group,'Control'='Control','Flash'='Flash','Crash'='Looming',
                                     'Sound'='Sound','Sync'='Sync','Async'='Async'))
 
+# --- Cell positions ---
 # Now let's fix cell coordinates (as they were originally measured a bit weirdly)
 # Estimations from the tectal photo and drawing:
 # Lower lip of the tectum has the "rostral" value of about 325 
@@ -43,12 +46,11 @@ d = mutate(d, group = recode_factor(group,'Control'='Control','Flash'='Flash','C
 d$rostral = 1 - d$rostral/325        # Move to true "rostral", and from screen units to %
 d$medial = 1 - (d$medial + 25)/375   # Move to true "medial"
 
-d$rm = d$rm/10  # Units mistake in the original dataset. Now it's in GOhm
-
 # Now qplot(medial,rostral) will look like left tectum
 # "medial" is indeed how medial everything is
 # and "rostral" is indeed how rostral it is
 
+# Check mean values and sds:
 mean(d$rostral,na.rm=T)
 sd(d$rostral,na.rm=T)
 min(d$rostral,na.rm=T)
@@ -58,12 +60,14 @@ sd(d$medial,na.rm=T)
 min(d$medial,na.rm=T)
 max(d$medial,na.rm=T)
 
-# Tucking down two extreme outlier cells. Only use for visualizations, not for analysis.
+d$rm = d$rm/10  # The original data file used weird units. Now it's in GOhm
+
+# Tuck down two extreme outlier cells
 ggplot(data=d) + theme_bw() + geom_point(aes(samp,sbend))
-dadj = d
-dadj = mutate(dadj, sbend = ifelse(sbend<0.5,sbend,0.5)) # From 1 to 0.5
-dadj = mutate(dadj, samp = ifelse(samp<2.2,samp,2.2)) # From 3 and 4 to 2.2
-ggplot(data=dadj) + theme_bw() + geom_point(aes(samp,sbend))
+domit = d
+domit = mutate(domit, sbend = ifelse(sbend<0.5,sbend,0.5)) # From 1 to 0.5
+domit = mutate(domit, samp = ifelse(samp<2.2,samp,2.2)) # From 3 and 4 to 2.2
+ggplot(data=domit) + theme_bw() + geom_point(aes(samp,sbend))
 
 # ------- Simple correlations
 ggplot(data=d) + theme_bw() + geom_point(aes(smean,nai))
@@ -130,9 +134,9 @@ fit = lm(data=dtemp,ksi~group); dtemp$proxy1 = resid(fit) + mean(fitted(fit)); c
 # --- Position effects on synaptic
 # On raw data:
 summary(aov(data=d,mono_m~group+medial+rostral)) # medial
-summary(aov(data=d,mono_s~group+medial+rostral)) # no
+summary(aov(data=d,mono_s~group+medial+rostral)) # none
 summary(aov(data=d,poly_m~group+medial+rostral)) # rostral
-summary(aov(data=d,poly_s~group+medial+rostral)) # no
+summary(aov(data=d,poly_s~group+medial+rostral)) # none
 summary(aov(data=d,lat_m~group+medial+rostral)) # medial
 # Drop amplitudes:
 f = lm(data=d,mono_m~group+medial+rostral); coef(f)['medial']*(0.53-0.25) # 25 pA
@@ -185,7 +189,8 @@ ggplot() + theme_bw() + theme(text=element_text(size=8)) +
 
 
 # ------- ------- Adjust variables on position once and for all
-# (This segment NEEDS to be run before all analyses further down)
+# -- This segment NEEDS to be run before all analyses further down
+# -- start of adjuster block
 
 # dadj = na.omit(d) # copy values, improper
 dadj = d # copy values, proper
@@ -211,7 +216,7 @@ dadj$stepspike = resid(model) + mean(fitted(model),na.rm=T); dadj$stepspike = ex
 
 model = aov(data=dadj,lat_m~rostral+medial,na.action=na.exclude);     dadj$lat_m = resid(model) + mean(fitted(model),na.rm=T)
 model = aov(data=dadj,lat_s~rostral+medial,na.action=na.exclude);     dadj$lat_s = resid(model) + mean(fitted(model),na.rm=T)
-
+# -- end of adjuster block
 
 
 # ------- ------- ANOVAs on spiking phenotypes
@@ -268,10 +273,15 @@ cohen.d(data=subset(dadj,group %in% c("Flash","Async")),sbend~group) # 0.30, 0.2
 
 # ------- Analysis for samp
 model = aov(data=d,samp~rostral+medial+group); summary(model)  # Yes
-TukeyHSD(model,which="group")
+TukeyHSD(model,which="group") # CF, CS
+t.test(data=subset(dadj,group %in% c("Control","Sound")),samp~group) # 0.3
+t.test(data=subset(dadj,group %in% c("Control","Looming")),samp~group) # 0.04
+t.test(data=subset(dadj,group %in% c("Control","Async")),samp~group) # 0.07
 bartlett.test(data=dadj,samp~group) # Variances are different, p=6e-10 non-adj, 2e-9 adj
 ggplot(data=d,aes(group,samp)) + theme_bw() + 
-  geom_point(alpha=0.5,position=position_jitter(width=0.1))
+  geom_point(alpha=0.5,position=position_jitter(width=0.1)) # With two outliers
+ggplot(data=d,aes(group,pmin(samp,2.2))) + theme_bw() + 
+  geom_point(alpha=0.5,position=position_jitter(width=0.1)) # With outliers tucked in
 ggplot(data=d,aes(group,samp)) + theme_bw() + 
   geom_beeswarm(cex=1,shape=1,size=1,aes(color=group)) +
   stat_summary(fun.y="mean",color="black",geom="point")
@@ -495,7 +505,7 @@ ggplot(data=dadj,aes(nai,nav,color=log(1+smean))) + geom_point() + theme_bw() +
 
 # -------- Step current injections
 # Now how much variance can be explained for step injection number of spikes?
-dclean = na.omit(d)
+dclean = na.omit(d) # not adjusted for position, to measure position effect
 nrow(dclean) # 135
 fit1 = aov(data=dclean,stepspike~rostral+medial)
 dclean$proxy = resid(fit1) + mean(fitted(fit1))
@@ -505,7 +515,7 @@ s = summary(fit)
 s
 ss = s[[1]]$`Sum Sq` # Sum of squares
 1-sum(ss[1:length(ss)-1])/sum(ss) # 61% explained
-cor.test(data=dadj,~stepspike+nai) # r=0.42, p=2e-8
+cor.test(data=dadj,~stepspike+nai) # r=0.42, p=2e-8 - here and below, adjusted for position
 cor.test(data=dadj,~stepspike+ksi) # 0.39, 2e-7
 cor.test(data=dadj,~stepspike+nav) # 0.24, 0.002
 cor.test(data=dadj,~stepspike+ksv) # -0.14, 0.06
@@ -562,7 +572,6 @@ ggplot(data=dcomp,aes(stepspike,stepspike_model)) + theme_bw() +
   geom_smooth(method="lm",se=F,size=0.5) +
   xlab('Observed N spikes in CC') +
   ylab('Predicted N spikes')
-# horse
 
 
 
@@ -590,33 +599,44 @@ ggplot(data=d,aes(group,log(1-mono_m))) + geom_beeswarm(color="blue",alpha=0.2) 
   stat_summary(fun.y=mean,geom="point")
 ggplot(data=d) + geom_density(aes(log(1-mono_m)))
 ggplot(data=d) + geom_density(aes(log(1+poly_s)))
-# Same plot after compensation:
-ggplot(data=dadj,aes(group,log(1-mono_m))) + geom_beeswarm(color="blue",alpha=0.2) + theme_bw() + 
-  stat_summary(fun.y=mean,geom="point")
+# Same plot after compensation (the order of groups differs from that in the paper):
+ggplot(data=dadj,aes(group,log(1-mono_m))) + theme_bw() + 
+  #geom_beeswarm(color="blue",alpha=0.2) + 
+  geom_point(alpha=0.2, position=position_jitter(w=0.1,h=0)) +
+  stat_summary(fun.y=mean,geom="point") +
+  NULL
 
 # ANCOVAs on transformed:
 # (relies on previouisly compensated dadj dataframe)
-summary(aov(data=d,log(1-mono_m)~medial+rostral+group)) # yes, 0.001
+summary(aov(data=d,log(1-mono_m)~medial+rostral+group)) # yes, 0.009
 TukeyHSD(aov(data=d,log(1-mono_m)~medial+rostral+group),which="group") # CA, CY
-t.test(data=subset(dadj,group %in% c("Control","Flash")),log(1-mono_m)~group) # no
-t.test(data=subset(dadj,group %in% c("Control","Sync")), log(1-mono_m)~group) # no
-t.test(data=subset(dadj,group %in% c("Control","Async")),log(1-mono_m)~group) # no
-cohen.d(data=subset(dadj,group %in% c("Control","Flash")),log(1-mono_m)~group) # 0.45 F>C
-cohen.d(data=subset(dadj,group %in% c("Control","Sync")), log(1-mono_m)~group) # 0.74 Y>C
-cohen.d(data=subset(dadj,group %in% c("Control","Async")),log(1-mono_m)~group) # 0.46 A>C
+t.test(data=subset(dadj,group %in% c("Control","Flash")),log(1-mono_m)~group) # p=0.03
+t.test(data=subset(dadj,group %in% c("Control","Sync")), log(1-mono_m)~group) # 0.003
+t.test(data=subset(dadj,group %in% c("Control","Async")),log(1-mono_m)~group) # 0.004
+t.test(data=subset(dadj,group %in% c("Control","Looming")),log(1-mono_m)~group) # 0.5
+t.test(data=subset(dadj,group %in% c("Control","Sound")),log(1-mono_m)~group) # 0.4
+cohen.d(data=subset(dadj,group %in% c("Control","Flash")),log(1-mono_m)~group) # 0.59 F>C
+cohen.d(data=subset(dadj,group %in% c("Control","Sync")), log(1-mono_m)~group) # 0.92 Y>C
+cohen.d(data=subset(dadj,group %in% c("Control","Async")),log(1-mono_m)~group) # 0.73 A>C
+cohen.d(data=subset(dadj,group %in% c("Control","Sound")),log(1-poly_s)~group) # 0.64, S>C
 summary(aov(data=d,sqrt(1+mono_s)~medial+rostral+group)) # no, p=0.4
 summary(aov(data=d,log(1-poly_m)~medial+rostral+group)) # no 0.1
 summary(aov(data=d,log(1+poly_s)~medial+rostral+group)) # yes, p=0.008
 TukeyHSD(aov(data=d,log(1+poly_s)~medial+rostral+group),which="group") # CS - not too convincing
-cohen.d(data=subset(dadj,group %in% c("Control","Sound")),log(1-poly_s)~group) # 0.63, S<C
+
 
 ggplot(data=d,aes(group,log(1+poly_s))) + geom_beeswarm(color="blue",alpha=0.2) + theme_bw() + 
   stat_summary(fun.y=mean,geom="point")
 
 summary(aov(data=dadj,lat_m~group)) # yes, p=2e-5
 TukeyHSD(aov(data=dadj,lat_m~group)) # CF, CY, CA, (LY, SY)
-ggplot(data=dadj,aes(group,lat_m)) + geom_beeswarm(color="blue",cex=1.5,shape=1) + 
-  theme_bw() + stat_summary(fun.y=mean,geom="point")
+t.test(data=subset(dadj,group %in% c("Control","Sound")),lat_m~group) # 0.3
+t.test(data=subset(dadj,group %in% c("Control","Looming")),lat_m~group) # 0.07
+ggplot(data=dadj,aes(group,lat_m)) + 
+  #geom_beeswarm(color="blue",cex=1.5,shape=1) + 
+  geom_point(alpha=0.3,position=position_jitter(w=0.2,h=0)) +
+  theme_bw() + stat_summary(fun.y=mean,geom="point") +
+  NULL
 dadj %>% group_by(group) %>% summarize(m=mean(lat_m,na.rm=T), s=sd(lat_m,na.rm=T))
 
 # How do various synaptic properties interact?
@@ -633,12 +653,11 @@ summary(aov(data=dadj,poly_m~mono_m)) # Also obviously 2e-16
 
 
 # ----- Do synaptic inputs and intrinsic tuning interact?
-# First temporal
-# and among temporal - lat_m
+# Temporal analysis - first
 ggplot(data=dadj,aes(lat_m,sbend)) + theme_bw() + geom_point(aes(color=group)) + 
   geom_smooth(method="lm",se=F) # All lumped together
 ggplot(data=dadj,aes(lat_m,sbend)) + theme_bw() + geom_point(aes(color=group)) + 
-  geom_smooth(method="lm",se=F) + facet_wrap(~group) # Within-group
+  geom_smooth(method="lm",se=F) + facet_wrap(~group) # All groups separately
 ds = dadj %>% group_by(group) %>% 
   do(lat_mm=mean(.$lat_m,na.rm=T), 
      sbendm=mean(.$sbend,na.rm=T),
@@ -657,28 +676,32 @@ dres$sbend = dres$sbend-dres$sbendm
 ggplot(data=dres,aes(lat_m,sbend,color=group)) + geom_point(shape=1) + 
   theme_bw() +  geom_smooth(method=lm,se=F) # Many lines
 ggplot(data=dres,aes(lat_m,sbend)) + geom_point(aes(color=group),shape=1) + 
-  theme_bw() +  geom_smooth(method=lm,se=F) # One line - for the paper
-cor.test(dadj$lat_m,dadj$sbend) # Total: No: p=0.6, r=-0.05
+  theme_bw() +  geom_smooth(method=lm,se=F) # One line, with two outliers up there
+ggplot(data=dres,aes(lat_m,pmin(0.47,sbend))) + geom_point(aes(color=group),shape=1) + 
+  theme_bw() +  geom_smooth(method=lm,se=F) # One line - for the paper, with outliers tucked in
+cor.test(dadj$lat_m,dadj$sbend) # Total: No: p=0.4, r=-0.07
 cor.test(ds$lat_mm,ds$sbendm) # Between: Yes: 0.02, r=0.89
-cor.test(dres$lat_m,dres$sbend) # Within: Yes: 0.03, r=-0.18 # Simpson's paradox
-summary(aov(data=dadj,sbend~lat_m)) # p=0.6
-summary(aov(data=dadj,sbend~group*lat_m)) # p=0.03, but not interaction p=0.2
-summary(aov(data=dadj,sbend~group+lat_m)) # p=3e-4, 0.03
+cor.test(dres$lat_m,dres$sbend) # Within: Yes: 0.02, r=-0.19 # Simpson's paradox
+summary(aov(data=dadj,sbend~lat_m)) # p=0.4
+summary(aov(data=dadj,sbend~group+lat_m)) # between p=0.01, within p=0.02
+summary(aov(data=dadj,sbend~group*lat_m)) # between p=0.01, within 0.02, but not interaction p=0.1
 lm(data=dadj,sbend~group+lat_m) # k=-0.0005 1/ms, or -0.5 s^-1
 # Per-group correlations:
-cor.test(data=subset(dadj),~lat_m+sbend)                  # p=0.6, df=150, r=-0.04
-cor.test(data=subset(dadj,group=="Control"),~lat_m+sbend) # 0.6, 18,  -0.11
+cor.test(data=subset(dadj),~lat_m+sbend)                  # p=0.4, df=150, r=-0.07
+cor.test(data=subset(dadj,group=="Control"),~lat_m+sbend) # 0.8, 18,  -0.07
 cor.test(data=subset(dadj,group=="Flash"),~lat_m+sbend)   # 0.2, 26,   0.27
 cor.test(data=subset(dadj,group=="Looming"),~lat_m+sbend) # 0.08, 23, -0.36
-cor.test(data=subset(dadj,group=="Sound"),~lat_m+sbend)   # 0.02, 24, -0.47
-cor.test(data=subset(dadj,group=="Sync"),~lat_m+sbend)    # 0.95, 26, -0.01
+cor.test(data=subset(dadj,group=="Sound"),~lat_m+sbend)   # 0.04, 24, -0.42
+cor.test(data=subset(dadj,group=="Sync"),~lat_m+sbend)    # 0.96, 26, -0.01
 cor.test(data=subset(dadj,group=="Async"),~lat_m+sbend)   # 0.97, 23,  0.01
 # Comparison of per-group slopes (not significant)
 ggplot(data=ds,aes(lat_mm,ls)) + theme_bw() + geom_point()
 cor.test(data=ds,~lat_mm+ls) # p=0.2
 
-
-# All flashed vs all unflashed
+# Combine all flashed groups (flash, sync, async), and compare to all "unflashed"
+# (This analysis was included in the first version of the paper, but is now removed,
+# as it is a bit of a strech to combine groups into "supergroups" based on some vague idea of
+# strength, especially as we are no blinded to the result)
 t <- dres
 t %>% group_by(group) %>% summarize(lat_mm=mean(lat_m,na.rm=T)) # Debugging test (yes, it works)
 t$flashed <- is.element(t$group,c('Flash','Sync','Async'))
@@ -690,7 +713,11 @@ summary(aov(data=t,sbend~flashed*lat_m)) # Interaction (difference in slopes) p=
 cor.test(data=subset(t,flashed==1),~lat_m+sbend)   # p=0.5,  df=79,  r=0.08
 cor.test(data=subset(t,flashed==0),~lat_m+sbend)   #   0.01,    69,   -0.29
 
-# Now amplitude
+# Does slope interact with group?
+summary(aov(data=dadj,sbend~group + lat_m))
+
+
+# - Now amplitude analysis
 summary(aov(data=dadj,samp~mono_m)) # Yes; 0.03
 summary(aov(data=dadj,samp~log(1-mono_m))) # no, p=0.1. Suggests effect of extreme values
 ggplot(data=dadj,aes(-mono_m,samp)) + theme_bw() + geom_point(aes(color=group)) + 
