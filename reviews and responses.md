@@ -1,7 +1,7 @@
 Reviews and Authors' Responses for (Busch Khakhalin 2019)
 ======================
 
-This is a collection of reviews and feedbacks, both official and unofficial, for different working copies of this paper. Reviews are split into paragraphs, and Author's responses and comments are shown after each paragraph. Reviews, and responses to these revivews, are given in reverese chronological order.
+This is a collection of peer-reviews for different working copies of this paper, and authors' responses to these pieces of feedbacks. Reviews are split into paragraphs, with  responses and comments given after each paragraph. Reviews are given in reverese chronological order.
 
 # Reviews from J Neurosci, 2018 Nov 01 (rejection letter)
 
@@ -19,7 +19,7 @@ These reviews were received on Nov 1st 2018 from J Neurosci, as this paper was r
 
 &nbsp;
 
-We are grateful for the kind words, and agree with the assessment that our paper is largely phenomenological. Unfortunatelly, in a small teaching-oriented college, we simply cannot run most experiments needed to probe the mechanisms of intrinsic temporal tuning. We cannot perform in-vivo experiments with sensory stimulation; and cannot measure or change gene expression in isolated tectal cells. Even a detailed electrophysiological study of isolated ionic currents would have taken extra 2-3 years, so we decided to publish this phenomenological report, in a hope that the very phenomenon we describe is interesting enough to be followed up by other labs, potentially in different models.
+We are grateful for the kind words, and agree with the assessment that our paper is largely phenomenological. Unfortunatelly, in a small teaching-oriented college, we simply cannot run most experiments needed to dissect the mechanisms of intrinsic temporal tuning. We cannot perform in-vivo experiments with sensory stimulation; and cannot measure or change gene expression in isolated tectal cells. Even a detailed electrophysiological study of isolated ionic currents would have taken extra 2-3 years, so we decided to publish this phenomenological report now, hoping that the very phenomenon we describe is interesting enough to be followed up by other labs, and potentially in different models.
 
 In this, updated version of the paper, we try to be more explicit about possible next steps that may be taken to study the mechanisms behind the exciting phenomenon we discovered.
 
@@ -41,7 +41,7 @@ Corrected.
 
 > 4.	The statistical tests applied throughout the paper are unclear and need more explanation. The number of degrees of freedom (e.g, 667) seems far too high, suggesting that multiple recordings from the same cell under different conditions are being treated as independent N. However recordings from the same cell under different temporal or amplitude conditions are far from independent measurements. It seems that a two-way or even three-way ANOVA might be the best approach for examining the variables of conditioning stimulus and response property. 
 
-The number of degrees of freedom in question comes from a full linear model, and does not mean that we treated different conditions as independent. Typically, to compare the numer of spikes in two conditions we used a 3-way ANCOVA (injection amplitude and duration as ordinal variables; group id as a nominal variable) with interactions, and repeated measures (where cell id included as a nominal variable). For example, for a comparison of "Control" group to "Sound" group we used the following R code (see `dynamic_spikes_plot.R` for the full code):
+The number of degrees of freedom in question comes from a full linear model, and does not mean that we treated different conditions as independent. Typically, to compare the numer of spikes in two conditions we used a 4-way ANCOVA (injection amplitude and duration as ordinal variables; group id as a nominal variable) with interactions, and repeated measures (cell id was included as a nominal variable). For example, for a comparison of "Control" group to "Sound" group we used the following R code (see `dynamic_spikes_plot.R` for the full code):
 
 ```R
 ds = subset(d,is.element(Group,c("Control","Sound")))
@@ -54,9 +54,9 @@ In addition to a full description of our analysis approach, as given in the "Met
 
 > 5.	Page 5 line 19 "This suggests that unlike the change in overall intrinsic excitability, the average temporal retuning was "adaptive" rather than "homeostatic", as neurons exposed to shorter stimuli (flashes) became more equipped to process shorter activation patterns." While it is appealing to give a name to this form of plasticity, the looming stimulus, which can be thought of as slower than the flash nonetheless caused a similar type of shift in response preference in the neurons, which runs counter the notion that there exists a meaningful dichotomy of adaptive vs. homeostatic change here.
 
-We think that there exists a certain dichotomy here, but we agree that our description of it was not clear enough. We now replaced it with the following, longer exposition:
+We think that there exists a certain dichotomy here, but we agree that our description was not clear enough. We now replaced it with the following, longer exposition:
 
-"... This suggests that the change in overall intrinsic excitability, and the change in temporal tuning, follow two different kinds of logic. The overall excitability is homeostatic, as neurons became less excitable in response to stronger stimulation. The temporal retuning however can be better described as “adaptive”, as neurons exposed to shorter stimuli (flashes) became relatively *more* responsive to shorter stimuli, and less responsive to longer stimuli, which is opposite of what one would expect for a homeostatic retuning. We chose to call this type of plasticity "adaptive", as presumably it means that after exposure to faster stimuli, neurons become more equipped to process faster patterns of activation."
+"... This suggests that the change in overall intrinsic excitability, and the change in temporal tuning, follow two different kinds of logic. The overall excitability is homeostatic, as neurons became less excitable in response to stronger stimulation. The temporal retuning however can be better described as "adaptive", as neurons exposed to shorter stimuli (flashes) became relatively *more* responsive to shorter stimuli, and less responsive to longer stimuli, which is opposite of what one would expect for a purely homeostatic retuning. We chose to call this type of plasticity "adaptive", as presumably it means that after exposure to faster stimuli, neurons become more equipped to process faster patterns of activation (Stemmler and Koch, 1999)."
 
 > 6.	Figure 2B Amplitude is misspelled.
 
@@ -70,7 +70,7 @@ We agree that the word "homeostatic" was confusing in this context. We now simpl
 
 > 8.	Page 12 the section on position within the tectum feels like it was just tacked onto the end of the paper. This should be integrated earlier in the paper perhaps to go with figure 1A.
 
-We placed the decription of this effect at the very end of the paper, as we prefer to downplay it a bit, as it was described previously (Khakhalin 2012; Hamodi 2012; Ciarleglio 2015), and we don't want to distract the reader from our other findings. At the same time, we find it important to mention that we observed a strong correlation with position: first, because it provides an independent replication of previously observed patterns, and second, as the dependency of cellular properties on position necessitated an adjustment for position during analysis (see "Methods"), which needed to be justified. The implication for the principle of parameter degeneracy in development (Prinz 2004) is also interesting, and we wanted to point at it, even though within this paper we don't have enough material to fully explore this theme.
+We placed the decription of this effect at the very end of the paper to downplay it a bit, as some aspects of this effect were described previously (Khakhalin 2012; Hamodi 2012; Ciarleglio 2015), and also we don't want to distract the reader from our other findings. At the same time, it is important to mention that we observed a strong correlation with position: first, because it provides an independent replication of previously observed patterns, and second, as the dependency of cellular properties on position necessitated an adjustment for position during analysis (see "Methods"), and this analysis decision needed to be justified. The implication for the principle of parameter degeneracy in development (Prinz 2004) is also interesting, and we wanted to point at it, even though we don't have enough material in our paper to fully explore this theme.
 
 
 ## Reviewer #2
@@ -97,13 +97,13 @@ On synaptic blockers: it is true that we measured intrinsic properties without s
 
 > Page 3, line 23: Sentences that begin "First" and "Second" need subjects
 
-We now added "we asked" to both sentences, which makes "we" a subject.
+Fixed.
 
 > Page 3, line 34: "spikiness" -> not a precise word. "Changes in f-I curve", perhaps? Or "Average firing rate"?
 
-We think that this word well reflects the nature of the property we are describing (the property of being easily excitable, and able to generate spikes), and we also think that we define it rather precisely within thiss paper. We prefer it to other alternatives, as they are rather too general ("intrinsic excitability") or too bulky ("ability to produce spikes in response to stimulation"). 
+We think that this word reflects the nature of the property we are describing rather well (the property of being easily excitable, and able to generate spikes), and we also define it within the paper itself. We prefer it to other alternatives, as they are either too general ("intrinsic excitability") or too bulky ("ability to produce spikes in response to stimulation"). 
 
-Of the two options offered by the reviewer, the first one ("Changes in f-I curve") is both too long, and does not reflect the nature of our measure, as with it we are trying to assess average ability to produce spikes, not a change of any sort. The second one sounds good and standard, but is actually somewhat misleading, as the term "Avereage firing rate" is defined rather precisely as the average rate at which a neuron fires in the network; usually either in the context of in-vivo recordings, or in-vitro spontaneous activity. Accordingly, a true "Average firing rate" for our neurons would depend both on their intrinsic properties (perhaps the measure we call "spikness here"), *and* the strength of their synaptic inputs, as well as their position within the network. In short, while "Average firing rate" is an important property, in this study we did not address it, nor had an opportunity to observe a proxy for it.
+Of the two options offered by the reviewer, the first one ("Changes in f-I curve") is quite long, and also does not reflect the nature of our measure, as with it we are trying to assess average ability to produce spikes, not a change of any sort. The second one sounds good and standard, but would actually be misleading in this particular case, as the term "Avereage firing rate" is defined as the average rate at which a neuron fires in the network; usually either in the context of in-vivo recordings, or in-vitro spontaneous activity. Accordingly, a true "Average firing rate" for our neurons would depend both on their intrinsic properties (the measure we call "spikness here"), *and* the strength of their synaptic inputs, as well as their position within the network (centrality measure). In short, while "Average firing rate" is an important property, we did not address it in this study, and had no opportunity to observe a proxy for it.
 
 > Page 3: "traces left by multi sensory stimuli in the tectum of freely behaving tadpoles" -> unclear what is meant by the this sentence until later; suggest re-word
 
@@ -117,11 +117,11 @@ Changed to "the stimuli we used in the present study were weaker".
 
 > Page 4 line 19 "spiky" again, imprecise
 
-We like the word "spiky", as it captures the phenomelogical effect without making assuptions about underlying mechanisms. It is also intuitive and short, which aids understanding.
+We like the word "spiky" (see above), as it captures the phenomelogical effect without making assuptions about underlying mechanisms. It is also intuitive and short, which aids understanding. If the reviewers insist, we can of course replace it with another term, but with this resubmission we hope to give it another try.
 
 > Page 4, lines 21-24. I'm really confused about the degrees of freedom. Are you all loading in all observations from all cells? If so, the assumption of the statistical test that these are independent observations is violated. Many of these values were measured in the same cells with different current levels, so they are clearly not independent measurements. The analysis should essentially contain one observation per cell. (One "gain" value or number of spikes to some stimulus, etc..) Or could do a multi-variate ANOVA...
 
-We did in fact run a linear model with repeated measures that may be vaguely described as multi-variate ANOVA; see responses above.
+We did in fact run a multivariate linear model with repeated measures that may be described as multi-variate ANOVA; see responses above.
 
 > Page 4: Lines 27, 28: This sentence is missing conjunctions "in order to map their amplitude transfer function" ?
 
@@ -129,11 +129,11 @@ Reworded: "We then mapped the amplitude tuning of neurons (also known as amplitu
 
 > Page 4: Lines 27, 28: What exactly is meant by the amplitude transfer function or amplitude tuning? Is there an equation?
 
-At this point we describe tuning as an empirical curve (something that can be plotted in a figure, and compared from cell to cell), but do not yet use any equations. Later in the text we parameterize these curves, and provide all related equations.
+At this point we describe tuning as the shape of an empirically observed curve (something that can be plotted, and compared from cell to cell), and do not yet use  equations to quantify it. Later in the text we parameterize these curves, to capture key differences between them, and provide all related equations.
 
 > Page 4, lines 27 - 33: what figure panels are being described here? 
 
-We added a reference to (Fig 1D,E).
+We added a reference to Fig 1D,E.
 
 > Page 6, lines 10-20. The authors point out that the amount of response adaptation in the conductance vs. number of spike curves varies as a function of the stimulus that the animal was exposed to. While it is true that this information can be gleaned by examining Figure 1E, the authors would be well served to make a second index, such as an adaptation index, in a panel F. This would really drive home the points the authors would like the reader to take away from the Figure. (I missed it the first time through, I just saw the reduced gain in Fig. 1E, not the adaptation.)
 
@@ -153,21 +153,21 @@ The averages were calculated across all testing conditions; we added this info t
 
 > Next, in Fig 1E, "sync" and "flash" and "looming" all look pretty similar to each other. 
 
-We think that it rather reasonable that effects of going through some stimulation, compared to control, are stonger, than differences between different types of stimulation. We explore this question in detail further in the text.
+We think that it rather reasonable that effects of 4 hours of stimulation, compared to control, are stonger than differences between different types of stimulation. There are differences however, and we explore this question in detail further in the text.
 
 > What are the degrees of freedom? Again, they seem very high like each condition might be being treated as independent.
 
-See other comments above. Generally, unless a mixed model is used, the second value for degrees of freedom, defining F-distributions, is close to the total number of measurements recorded in a study, even if a multivariate analysis of variance is used, and even for nested non-independent designs, such as blocking or repeated measures analysis. For our study in particular, the only way to bring the second value for degrees of freedom down, making it closer to the number of cells, rather than to the number of measurements, would be to use a mixed model. We used a mixed model in our senstivity / verification test, and observed that it provided qualitatively similar results, as described in the method. We however reported a fixed model everywhere else, as it is more straightforward, and, in our opinion, more consistent.
+See other comments above. Generally, unless a mixed model is used, the second value for degrees of freedom, defining F-distributions, is close to the total number of measurements recorded in a study, even if a multivariate analysis of variance is used, and even for nested and non-orthogonal designs, such as blocking or repeated measures analysis. For our study in particular, the only way to bring the second value for degrees of freedom down, making it closer to the number of cells, rather than to the number of measurements, would be to use a mixed model. We used a mixed model (lmer) for a senstivity test, and observed that it provided qualitatively similar results, which is described in the method. Everywhere else we report the results from a fixed model, as it allows more straightforward interpretation, and, in our opinion, is more consistent with the experimental design.
 
 > More stats: Are these multiple comparisons across conditions done in an unbiased manner, like with a Bonferroni correction or an ANOVA? It seems not.
 
-1) As described above, we used a family of similar generalized linear models, followed by F-test for the analysis of variance, to compare across conditions. This type of analysis may be loosely referred to as ANOVA, although most textbooks would not recommend referring our models as an "ANOVA", as it included two ordinal variables, and a factor to account for repeated measures.
+1) As described above, we used a family of similar generalized linear models, followed by F-test for the analysis of variance, to compare across conditions. This type of analysis may be loosely referred to as ANOVA, although it is our understanding that most textbooks would not recommend referring our model as an "ANOVA", as it included two ordinal variables, and a factor to account for repeated measures.
 
-2) It is true that in our analysis we compared several pairs of conditions: Flash to Control, Looming to Control, Flash to Looming, Sound to Control, Flash to Sync, and Flash to Async. However, all of these comparisons were easily interpretable, as they form a logical progression of stimuli. These planned comparisons consistuted a small share of all possible post-hoc comparisons between groups that one could have run on this data (6 out of 30 possible pairs). Typically, for planned comparisons, researchers do not use an adjustment for multiple comparisons.
+2) It is true that in our analysis we compared several pairs of conditions: Flash to Control, Looming to Control, Flash to Looming, Sound to Control, Flash to Sync, and Flash to Async. However, all of these comparisons were easily interpretable, as they form a logical progression of stimuli. These planned comparisons consistuted a small share of all possible post-hoc comparisons between groups that one could have run on this data (6 out of 15 possible pairs). Typically, for planned comparisons, researchers do not use an adjustment for multiple comparisons.
 
-3) Finally, in this paper we report exact numbers all p-values, instead of indicating whether they were above or below any arbitrary threshold. This gives the reader the freedom to interpret our data against any significance threshold of their choice. As expected, some p-values were larger, and some were smaller, but we are confident that our overall conclusions are reasonable, expecially if comparing different pieces of evidence across the entire study.
+3) Finally, in this paper we report exact p-values, instead of indicating whether they were above or below any arbitrary threshold. This gives the reader the freedom to interpret our data against any significance threshold of their choice. As expected, some p-values were larger, and some were smaller, but we are confident that our overall conclusions are reasonable, expecially if combining different pieces of evidence across the entire study.
 
-Together, this makes us reasonably confident that a Bonferroni correction would be unnecessarily punitive for this type of analysis.
+Together, this makes us confident that a Bonferroni correction would be unnecessarily punitive for this type of analysis.
 
 > Page 8, lines 2-12. "Average firing rate" is a more common term than "spikiness". 
 
@@ -175,7 +175,7 @@ Please see our comments above. The term "average firing rate" is typically used 
 
 > How about "gain" for amplitude tuning? I see that the authors are using the parameter a to indicate the non-linearity in the tuning curve. For "temporal tuning", why not use "adaptation index" or something like that, that could be plotted in Figure 1F? The "temporal tuning" is a measure of non-linearity, but it is not very intuitive. (It is not "incorrect" as the authors have it now, but I think it would be hard for the interdisciplinary readership of J Neuroscience to get on board easily.)
 
-We would really prefer to retain terms "amplitude tuning" and "temporal tuning", as they better represent the main message of our paper, as we are trying to think of these values not in terms of abstract properties each neuron has, but as parameters that can tune a neuron to a certain type of synaptic inputs, in terms of their temporal properties, and their amplitude. We however now included words "gain" and "adaptation index" in paragraphs that introduce values of amplitude and temporal tuning, respectively.
+We would really prefer to retain terms "amplitude tuning" and "temporal tuning", as they better represent the main message of our paper, as we are trying to think of these values not in terms of abstract properties each neuron has, but as parameters that can tune a neuron to a certain type of synaptic inputs, in terms of their temporal properties, and their amplitude. We however now included the words "gain" and "adaptation index" in paragraphs that introduce values of amplitude and temporal tuning, respectively.
 
 > Figure 2: Units needed for Y axis on A, B (units of a are spikes per conductance squared and units of amplitude tuning are spikes/conductance)
 
@@ -183,7 +183,7 @@ Both tuning parameters are dimensionless, as both conductance and amplitude were
 
 > Page 8, about line 9: It is false that the numerical values are not interpretable, they are in an equation and have units.
 
-We now replaced "not interpretable" with "not easily interpretable". We wanted our readers to know that a comparison of these values can be interpreted very easily, while exact numbers (say, 0.82) do not carry that much narrative weight.
+We now replaced "not interpretable" with "not easily interpretable". We wanted our readers to know that a comparison of these values can be interpreted very easily, while exact numbers (say, 0.82) do not carry that much narrative weight. As mentioned above, they however do not have units (are dimensionless).
 
 > Page 8, line 16-19: Cohen's D tells the discriminability rather than whether there is a difference between two quantities. A test like the Hoteling-2 test can provide significance measures for whether the means of the data in 2C are significant.
 
@@ -191,9 +191,11 @@ We initially reported Cohen's d values as a measure of effect sizes, not as a qu
 
 > Page 8, lines 26-35: Rather than only saying that groups that were significantly different in average values were also significantly different in variability, name the groups again. (Otherwise the reader has to jump all around.)
 
+Fixed.
+
 > Figure 2B and Figure 3A, 3D don't show any post-hoc comparisons among the groups. Which groups differ? I see it in the text but it is hard to take it home.
 
-We added asterisks to mark significance in figures.
+We added asterisks to mark significance compared to control. As not all pairwise comparisons make sense, we did not include brackets in the figure.
 
 > Figure 3E and G: how can we reconcile these accounts? In each of the groups (3G), there is at best a very weak relationship between temporal tuning and synaptic duration. Somehow, if you take the means of all of these groups, you can fit a line through them (Figure 3E). Why is that the right thing to do? Aren't the field of individual points (partially-transparent background) and the data plotted in 3G the relative quantities?
 
@@ -207,28 +209,28 @@ When comparing temporal properties of synaptic inputs to that of intrinsic tunin
 
 > Figure 3G, page 10 lines 24-40. Creation of "super groups" is totally bogus. This part should be dropped. I see no strong significant relationship between temporal tuning and synaptic duration, and am not convinced synaptic duration is a meaningful quantity.
 
-We now removed this paragraph. In response to this comment, we initially attempted a different analysis of the interaction between synaptic and intrinsic properties across groups, but while some reasonable types of comparisons were significant, this analysis lacks power, and relies too much on post-hoc reasoning, so we decided to follow the advice and just remove this paragraph entirely. While we still believe that stronger stimulation (in terms of its effect on average intrinsic properties) generally caused stronger disruption of the synaptic-intrinsic correlation, this statement is hard to fully justify with our current data.
+We now removed this paragraph. In response to this comment, we initially attempted a different analysis of the interaction between synaptic and intrinsic properties across groups, but while some reasonable types of comparisons were significant, this analysis lacks power with our sample sizes, and also relies too much on post-hoc reasoning, so we decided to follow the advice and just remove this paragraph entirely. While we still suspect that stronger stimulation (in terms of its effect on average intrinsic properties) generally caused stronger disruption of the synaptic-intrinsic correlation, this statement is hard to fully justify with our current data.
 
 > I am very confused by Figure 4. Is it supposed to tell us that average firing rate is correlated with sodium channel conductances? Why is this experiment being done? What do we learn about the brain? I mean this genuinely, I feel I do not understand what the authors are trying to say that is novel. Of course we would expect such a relationship. Why not show the 8 parameter model fit of the current tuning curves?
 
-In the previous version of this paper we tried to show correlations of 2 types of spiking (those recorded in current and dynamic clamp modes) with Na conductance, to illustrate that one of the correlations is much stronger than the other. We agree however that showing the 8 parameter model fit is much better way of illustrating this point. We now show two scatterplots, for both dynamic and current clamp data, in which values predicted by the 8-parameter model are compared to actual measurements. It is clear to see that one of the models (that for current clamp data) works much better than the other one (for the dynamic clamp data).
+In the originally submitted version of this paper, we tried to show correlations betwee two estimations of spikiness (average spiking recorded in current and dynamic clamp modes) with Na conductances, to illustrate that one of the correlations is much stronger than the other. We agree however that showing the 8 parameter model fit is a better way of illustrating this point. We now show two scatterplots, for both dynamic and current clamp data, in which values predicted by the 8-parameter model are compared to actual measurements. It is clear to see that one of the models (that for current clamp data) works much better than the other one (for the dynamic clamp data).
 
 > Page 11, "the mechanisms behind temporal intrinsic plasticity". I'm confused. This section and Figure 4 seems to focus on average firing rate / spikiness rather than the temporal tuning parameter. So why the heading?
 
-Different fields have different criteria for what level of explanation is low enough to count as "mechanistic". Had we reliably predicted cell phenotypes (spiking) from their low-level electrophysiological properties, especially across treatment groups, we would have comfortably called it a mechanistic explanation. We show that for one type of measurements (current clamp), we have a tolerable level of mechanistic understanding of differences in observed cell excitability, while for more nuanced dynamic clamp experiments this mechanistic understanding is clearly lacking.
+Different fields have different criteria for what level of explanation is low enough to count as "mechanistic". We tried to predict cell spiking phenotypes, and responses to different simulated conductances, from their low-level electrophysiological properties. Had we succeeded in that, especially across treatment groups, we would have comfortably called it a mechanistic explanation. We show that for one type of measurements (current clamp), we have a tolerable level of mechanistic understanding of differences in observed cell excitability, while for more nuanced dynamic clamp experiments, we cound not predict neither average spiking, nor tuning parameters. In the figure 4, we mostly concentrate on average spiking, as it allows a visual comparison between the results obtained via two recording techniques.
 
 
 > Discussion: 
 
 > Page 13, lines 18 - 24: the authors refer to the questions they asked in the introduction, without re-describing them. The reader cannot possibly remember and is forced to page back and forth. The writing must be so much better.
 
-We reworded the beginning of the discussion, to make sure that we re-state any questions before providing the answers.
+We reworded the beginning of the discussion, to make sure that we re-state all questions before providing the answers.
 
 > "intrinsic plasticity does not simply adjust neuronal spikiness, but can regulate selectivity for inputs of different dynamics". How are the input dynamics different? I only see that monosynaptic magnitude is different across the conditions. The duration parameter does not reflect duration, just a weighted average of where the most input arrives, and is not related to the whole duration of synaptic input in a manner independent of the initial volley of input.)
 
 The "synaptic duration" value is higher for those synaptic inputs that last longer (have a long polysyaptic tail after the original bout of monosynaptic currents), and is smaller for those inputs that are short (mostly limited to monosynaptic currents). Therefore, we believe that duration value does capture and reflect the duration. We chose the "weighted average" approach (the center of mass), as strictly speaking, in the presence of spontaneous activity there is no point when the synaptic resonse is truly over, and one has to go for a different way to quantify it.
 
-While preparing this paper, we actually also tried a different way to estimate synaptic durations: we attempted to fit all synaptic currents with the same curve that we used for simulated conductances in our dynamic clamp experiments `I = g*(t/tau)*exp(1-t/tau)`. While this idea seemed good in theory, in practice the synaptic curves were too variable in terms of their shape, decay, latency, and the amount of noise, making most curve fits were really bad, which made us go for a simpler, and a more parsimonuous measure.
+While preparing the original version of this paper, we also tried a different way to estimate synaptic durations: we attempted to fit all synaptic currents with the same curve that we used for simulated conductances in our dynamic clamp experiments `I = g*(t/tau)*exp(1-t/tau)`. While this idea seemed good in theory, as it would have offered an "ideal" comparison with the dynamic clamp data, in practice synaptic curves were too variable in terms of their shape, decay, latency, and the amount of noise, making most curve fits really bad. This made us go for a simpler, robust to noise, and parsimonuous measure.
 
 > "we show that synaptic and intrinsic temporal properties of neurons are homeostatically co-tuned" what does this mean?
 
@@ -241,11 +243,11 @@ We now made the Discussion section a bit longer, and so used longer, simpler sta
 
 > The authors pose two questions in the introduction: 1. Is intrinsic plasticity limited to changes in excitability? 2. Whether intrinsic plasticity is a response to synaptic activation? There are data in other systems that make these questions "straw men". We know from the STG that intrinsic plasticity is not limited to change in spikiness alone and that there are several other parameters such as bursts, rebounds, spike widths etc which can and do get altered in the short and long term. There are also plenty of examples where one ion channel expression is co-regulated with another type of ion channel, or by slow action of growth factors, hormones and other neuromodulators. These are examples of intrinsic plasticity not governed by fast synaptic transmission alone.
 
-This is of course true, but while many types of intricate effects of intrinsic plasticity are described in small networks, and especially in oscillatory networks, such as the STG, it is less common to consider these non-trivial effects in large feed-forward excitatory networks, such as networks in the cortex, or superior colliculus. It is natural for researchers to limit the complexity of their conceptual and computational models, and it is probably fair to say that as the number of neurons involved in a model increases, researchers often shift their attention from intrinsic mechanisms to connectomic approaches, approximating neural networks as a collection of nodes, linked with synapses of different strengths (e.g: Cline 2008; Kirby 2013). Even realistic biophysical models that represent neurons as multi compartment systems with active dendritic currents often don't assume that these active currents may be modulated in response to activation (Moldwin 2018). When machine learning approaches are used as a model for brain development, intrinsic excitability is reflected in these models, as a change in activation function of each artificial neuron (Marblestone 2016). This type of modeling implicitly assumes, however, that outside of obviously oscillatory networks (spinal cord, thalamus, etc.), intrisic excitability in biological networks is largely confined to overall changes in neuronal "responsiveness".
+This is of course true, but while many types of intricate effects of intrinsic plasticity are described in small networks, and especially in oscillatory networks, such as the STG, it is less common to consider these non-trivial effects in large feed-forward excitatory networks, such as networks in the cortex, or superior colliculus. It is natural for researchers to limit the complexity of their conceptual and computational models, and it is probably fair to say that as the number of neurons involved in a model increases, researchers often shift their attention from intrinsic mechanisms to connectomic approaches, approximating neural networks as a collection of nodes, linked with synapses of different strengths (e.g: Cline 2008; Kirby 2013). Even realistic biophysical models that represent neurons as multi-compartment systems with active dendritic currents often don't assume that these active currents may be modulated in response to activation (Moldwin 2018). When machine learning approaches are used as a model for brain development, intrinsic excitability is reflected in these models as a change in activation function of each artificial neuron (Marblestone 2016). This type of modeling implicitly assumes, however, that outside of obviously oscillatory networks (spinal cord, thalamus, etc.), intrisic excitability in biological networks is largely confined to overall changes in neuronal "responsiveness".
 
-Here we show that even for large-scale feed-forward networks that do not seem to rely on oscillations, changes in intrinsic excitability go well beyond variations in "spikness". We think that it is an interesting observation, that may have far-reaching effects on network computations, and network development. We also predict that similar effects of temporal tuning may be observed in other systems, such as mammalian cortex.
+Here we show that even for large-scale feed-forward networks that do not seem to rely on oscillations, changes in intrinsic excitability go well beyond variations in "spikness". We think that it is an interesting observation, that may have far-reaching effects on network computations, and network development. We also suggest that similar effects of temporal tuning may be observed in other systems, such as mammalian cortex.
 
-In the new version of this manuscript, we added a few sentences to the introduction, trying to make our message more clear, and also more nuanced.
+In the new version of this manuscript, we expanded the introduction, trying to make our message more clear, and also more nuanced.
 
 &nbsp;
 
