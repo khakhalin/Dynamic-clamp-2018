@@ -265,8 +265,8 @@ We think that a preference or non-preference for a certain synaptic duration can
 
 > There are other methodological issues as well: Did they randomize the order of injections? 
 
-No, the order of injections was always the same; it is now decribed in the "Methods".
+No, the order of injections was always the same; it is now decribed in the "Methods": "Conductance curves were always presented in the order from the shortest to the longest, and this sequence was not randomized."
 
 > Is a syn current that is more than 250 ms long 'monosynaptic' ?
 
-We did not quite understand the question, but generally, for this model, monosynaptic component peaks at about 5-20 ms, and is over by 50-100 ms, as described in the "Methods" section.
+We did not completely understand the question, but generally, for this model, monosynaptic component peaks at about 5-20 ms, and is over by 50-100 ms, as described in the "Methods" section.
