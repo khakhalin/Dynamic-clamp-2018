@@ -1,9 +1,9 @@
 Busch Khakhalin 2019: Temporal tuning of intrinsic plasticity
 ==================
 
-This repository contains all supplementary materials for the paper (as of Feb 02 2019, a pre-print): Busch Khakhalin 2019. "Intrinsic temporal tuning of neurons in the optic tectum is shaped by multisensory experience".
-
-Some important files:
+* Pre-print: [Busch Khakhalin 2019. "Intrinsic temporal tuning of neurons in the optic tectum is shaped by multisensory experience"](https://www.biorxiv.org/content/10.1101/540898v1)
+ 
+This repository contains all supplementary materials for this paper. Some important files:
 
 * [LaTeX version of the paper](main.tex)
 * [Authors' responses to earlier reviews and comments](reviews%20and%20responses.md)
