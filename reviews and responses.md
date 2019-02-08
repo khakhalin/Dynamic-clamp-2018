@@ -1,7 +1,7 @@
 Reviews and Authors' Responses for (Busch Khakhalin 2019)
 ======================
 
-This is a collection of peer-reviews for different working copies of this paper, and authors' responses to these pieces of feedbacks. Reviews are split into paragraphs, with  responses and comments given after each paragraph. Reviews are given in reverese chronological order.
+Here you can see peer-reviews for our paper, and our point-by-point responses to these reviews. Reviews are split into paragraphs, with  responses and comments given after each paragraph. Reviews are given in reverese chronological order.
 
 # Reviews from J Neurosci, 2018 Nov 01 (rejection letter)
 
