@@ -7,7 +7,7 @@ Here you can see peer-reviews for our paper, given in reverse chronological orde
 
 # Reviews from J Neurophysiol, 2019 Mar 04 (revise and resubmit)
 
-We address the concerns of Reviewer 3 first, as they were more critical. Then we respond to the suggestions of Reviewer 2.
+We address the concerns of Reviewer 3 first, as they were more critical overall. Then we respond to the suggestions of Reviewer 2.
 
 ## Reviewer 3
 
@@ -40,6 +40,8 @@ standard format: start with the area the paper clearly contributes to, build the
 for the study, state the hypothesis (or driving question), describe how this was tested
 and what was found, and say why it’s important.
 
+We rewrote the abstract, stressing the big question to which the paper contributes (principles of tuning and learning in biological neural networks), and the main message of the paper. We also made the account of our findings a bit less detailed.
+
 > Introduction:
 
 > I feel the same way about the introduction as I do the abstract; as written, it doesn’t give
@@ -53,6 +55,8 @@ reason to think neurons in their system can tune their responsiveness to differe
 of inputs they receive (a specific hypothesis). This is what the authors actually address,
 but they really don’t provide much of a rationale for their specific experiments, which
 weakens the paper.
+
+We tried to make the introduction more clear, and better organized, from the big problem, to specific questions. We moved the presentation of the questions for the study to the very beginning of the second paragraph, and provide a rationale for these questions in the first paragraph.
 
 > Results and Discussion:
 
@@ -215,7 +219,7 @@ used consistently throughout.
 
 --------------------------
 
-# Reviews from J Neurosci, 2018 Nov 01 (rejection letter)
+# Reviews from J Neurosci, 2018 Nov 01 (rejection)
 
 These reviews were received on Nov 1st 2018 from J Neurosci, as this paper was rejected by the editor. We decided to include these reviews to our next submission, and to this repository, and provide our responses to each of the critiques.
 

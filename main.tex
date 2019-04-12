@@ -56,16 +56,16 @@
 
 % Option with a header:
 
-%\rhead{Busch SE, Khakhalin AS. Temporal tuning in the tectum. Page \thepage}
-%\cfoot{} % To kill footer page numbers
+\rhead{Busch SE, Khakhalin AS. Temporal tuning in the tectum. Page \thepage}
+\cfoot{} % To kill footer page numbers
 
 % Or (for biorxiv) version with a footer:
 
-\rfoot{Busch SE, Khakhalin AS. Temporal tuning in the tectum. Page \thepage}
-\renewcommand{\headrulewidth}{0pt} % To remove top line
-\renewcommand{\footrulewidth}{1pt} % To add bottom line
-\fancyhead{} % Removes all headers
-\cfoot{} % Kills middle footer
+%\rfoot{Busch SE, Khakhalin AS. Temporal tuning in the tectum. Page \thepage}
+%\renewcommand{\headrulewidth}{0pt} % To remove top line
+%\renewcommand{\footrulewidth}{1pt} % To add bottom line
+%\fancyhead{} % Removes all headers
+%\cfoot{} % Kills middle footer
 
 
 \begin{document} % --------------------- Document start ----------------
@@ -75,7 +75,7 @@
 % It will ignore everything until the endignore pair, and so on.
 % We need to get down to 4500 words in the main text.
 
-%\linenumbers % Comment this to suppress line numbers
+\linenumbers % Comment this to suppress line numbers
 
 % title goes here:
 %\twocolumn[
@@ -95,19 +95,21 @@ Arseny S. Khakhalin\textsuperscript{1,*}
 * Correspondence: khakhalin@bard.edu
 
 \section*{Abstract}
-% 150 words (149 as or Aug 07)
+% J Neurophysiol: up to 250 words
+% Currently: 184
 
-Homeostatic intrinsic plasticity is often described as an adjustment of neuronal excitability to maintain stable spiking output. Here we report that intrinsic plasticity in the tectum of Xenopus tadpoles also supports temporal tuning, wherein neurons independently adjust spiking responses to fast and slow patterns of synaptic activation. Using the dynamic clamp technique, and five different types of visual, acoustic, and multisensory conditioning, we show that in tadpoles exposed to light flashes, tectal neurons became selective for fast synaptic inputs, while neurons exposed to looming and multisensory stimuli remained responsive to longer inputs. We also report a homeostatic co-tuning between synaptic and intrinsic temporal properties in tectal cells, as neurons that naturally received fast synaptic inputs tended to be most responsive to long-lasting synaptic conductances, and the other way around. These results expand our understanding of plasticity in the brain, and inform future work on the mechanisms of sensorimotor transformation.
+For a biological neural network to be functional, its neurons need to be connected to each other with synapses of appropriate strength, but also each neuron needs to appropriately respond to its synaptic inputs. This second aspect of network tuning is maintained by intrinsic plasticity; yet it is often considered secondary to changes in connectivity, and mostly limited to adjustments of overall excitability of each neuron. Here we argue that individual neurons are also tuned to inputs of different temporal dynamics, and that they can routinely adjust this tuning to match the statistics of their synaptic activation. Using the dynamic clamp technique, we show that in the tectum of Xenopus tadpoles, neurons become selective for faster inputs in animals that were exposed to fast visual stimulation, but remain responsive to longer inputs in animals exposed to looming or multisensory stimulation. We also report a homeostatic co-tuning between synaptic and intrinsic temporal properties of individual tectal cells. These results expand our understanding of plasticity in the brain, and suggest that there may exist a whole extra dimension of network tuning that was so far overlooked.
+
+%Old version: Homeostatic intrinsic plasticity is often described as an adjustment of neuronal excitability to maintain stable spiking output. Here we report that intrinsic plasticity in the tectum of Xenopus tadpoles also supports temporal tuning, wherein neurons independently adjust spiking responses to fast and slow patterns of synaptic activation. Using the dynamic clamp technique, and five different types of visual, acoustic, and multisensory conditioning, we show that in tadpoles exposed to light flashes, tectal neurons became selective for fast synaptic inputs, while neurons exposed to looming and multisensory stimuli remained responsive to longer inputs. We also report a homeostatic co-tuning between synaptic and intrinsic temporal properties in tectal cells, as neurons that naturally received fast synaptic inputs tended to be most responsive to long-lasting synaptic conductances, and the other way around. These results expand our understanding of plasticity in the brain, and inform future work on the mechanisms of sensorimotor transformation.
 
 % Acoustic stimuli had different effects when delivered alone, or when combined with visual stimuli.
 
 %\textbf{Keywords}: homeostatic plasticity, intrinsic plasticity, temporal tuning, optic tectum, network development, dynamic clamp
 
-\section*{Significance statement}
-% 119 words (limit 120)
-%TC:endignore
-With the recent explosion of work in neural connectivity reconstruction and biologically inspired deep learning, most researchers concentrate on the topology of connections between neurons, rather than on differences in neuronal tuning. Here we show that in a sensory network in Xenopus tadpoles, different neurons are tuned, and respond stronger, to either short or long synaptic inputs. This tuning tended to be opposite to the actual dynamics of synaptic inputs each cell received, such that neurons that normally receive shorter inputs generated stronger spiking in response to longer testing currents, and the other way around. This observation shows that even in networks that don't generate oscillations, neurons reshape their temporal selectivity, to optimize their impact on distributed calculations. 
-%TC:ignore 
+%\section*{Significance statement}
+%%%TC:endignore
+%With the recent explosion of work in neural connectivity reconstruction and biologically inspired deep learning, most researchers concentrate on the topology of connections between neurons, rather than on differences in neuronal tuning. Here we show that in a sensory network in Xenopus tadpoles, different neurons are tuned, and respond stronger, to either short or long synaptic inputs. This tuning tended to be opposite to the actual dynamics of synaptic inputs each cell received, such that neurons that normally receive shorter inputs generated stronger spiking in response to longer testing currents, and the other way around. This observation shows that even in networks that don't generate oscillations, neurons reshape their temporal selectivity, to optimize their impact on distributed calculations. 
+%%%TC:ignore 
 \bigskip
 
 \end{flushleft} % Only relevant for two-column documents, but doesn't hurt
@@ -115,14 +117,13 @@ With the recent explosion of work in neural connectivity reconstruction and biol
 
 \section*{Introduction}
 
-It is often assumed, in fields as diverse as connectomics and machine learning, that the main difference between functional and dysfunctional neural networks lies in their connectivity \citep{takemura2014,hildebrand2017,bassett2017network,reimann2017}. Biological neurons, however, are tuned in ways that go well beyond adjusting one “strength” value per synapse: cells within the same network often demonstrate variability of activation thresholds \citep{kole2012}, production of bursts \citep{popovic2011}, inactivation by strong inputs \citep{bianchi2012}, and more. This diversity of tuning relies on coordinated changes of many parameters across a complex, multivariate landscape \citep{oleary2013}, as neuronal phenotypes are shaped by sensory experiences, and adjusted by modulatory inputs \citep{evans2015}. The dysregulation of intrinsic plasticity affects network dynamics \citep{tien2018}, and can lead to a loss of function \citep{marcelin2009}. And yet, with the obvious exception of oscillatory networks \citep{marder2011,picton2018control}, for many brain areas it is still unclear whether variation of intrinsic phenotypes serves as a defining aspect of network topology and architecture, or whether it is just a consequence of transfer function normalization \citep{titley2017}.
+It is often assumed, in fields as diverse as connectomics and machine learning, that the main difference between functional and dysfunctional neural networks lies in their connectivity \citep{takemura2014,hildebrand2017,bassett2017network,reimann2017}. However, biological neurons also demonstrate complex and multifaceted intrinsic tuning  \citep{oleary2013,evans2015}, with cells within a single network having different activation thresholds \citep{kole2012}, bursting behaviors \citep{popovic2011}, and inactivation profiles \citep{bianchi2012}. Dysregulation of intrinsic plasticity affects the dynamics of networks  \citep{tien2018}, and can lead to a loss of function \citep{marcelin2009}. And yet, with the possible exception of oscillatory networks \citep{marder2011,picton2018control}, the logic of intrinsic plasticity, and its contribution to network tuning, remain unclear. We know that neurons adjust their spikiness to match the levels of synaptic activation they experience \citep{aizenman2003,titley2017}, but biophysically, they often also have the means to become tuned to different temporal patterns of activation \citep{jarvis2018morphology,ohtsuki2018bursting}. Do they rely on this type of tuning in practice?
 
-The optic tectum of the \textit{Xenopus} tadpole is an ideal model for exploring these questions: it is a highly malleable distributed network of about $10^4$ neurons \citep{pratt2013}, involved in stimulus discrimination and sensorimotor transformations \citep{dong2009,khakhalin2014}. In development, tectal neurons acquire diverse intrinsic and synaptic phenotypes that are also shaped by sensory experiences \citep{xu2011,ciarleglio2015}. Circuits in the tectum can learn and reproduce the temporal dynamics of inputs to which they were exposed \citep{pratt2008}: a property that could in principle be achieved through synaptic changes alone \citep{lukovsevivcius2009}, but which is more likely to involve intrinsic temporal tuning \citep{narayanan2008,beatty2014}. Finally, tectal neurons exhibit strong Na channel inactivation, which seems to play a role in collision detection \citep{jang2016}, and is one of the targets for intrinsic plasticity \citep{bianchi2012}.
+In this paper, we investigate whether exposure to sensory stimuli of different temporal dynamics would change intrinsic temporal tuning of sensory neurons in the optic tectum of \textit{Xenopus} tadpoles. Tadpole tectum is an ideal model for exploring this question: it is a highly malleable distributed network of about 10\textsuperscript{4} neurons \citep{pratt2013}, involved in stimulus discrimination and sensorimotor transformations \citep{dong2009,khakhalin2014}. In development, tectal neurons acquire diverse phenotypes, that are then shaped by sensory experiences \citep{xu2011,ciarleglio2015}. Circuits in the tectum can learn and reproduce temporal patterns to which they were exposed \citep{pratt2008}: a property that could in principle be achieved through synaptic changes alone \citep{lukovsevivcius2009}, but which would be easier to achieve through intrinsic temporal tuning \citep{narayanan2008,beatty2014}. Finally, tectal neurons exhibit strong Na channel inactivation, which seems to play a role in collision detection \citep{jang2016}, and is a known target for intrinsic plasticity mechanisms \citep{bianchi2012}.
 
-In this study, we asked two specific questions about the properties of intrinsic plasticity in tectal networks. First, we asked whether intrinsic plasticity is limited to changes in excitability, or whether it is more nuanced and can differentially adjust neuronal responsiveness to inputs with different dynamics. Second, we checked whether changes in intrinsic properties in the tectum are a homeostatic response to each cell's history of synaptic activation, or if they are independent of synaptic properties. In our previous large-scale census of tectal cells \citep{ciarleglio2015}, we observed no interaction between intrinsic and synaptic phenotypes, and despite an extensive search, we did not detect signs of temporal tuning (ibid,  figures 2, 4). However, we propose that the standard current-clamp protocols used in previous studies \citep{pratt2007,hamodi2014} were not adequate to detect important changes in the function of voltage-gated channels (see Discussion). 
+Specifically, we ask two questions about the properties of intrinsic plasticity in tectal networks. First, we check whether intrinsic plasticity is limited to changes in overall excitability, or whether it differentially retunes neuronal responses to faster and slower inputs. Second, we ask whether intrinsic tuning of tectal cells is coordinated with  the typical length of synaptic currents they receive, or whether two types of tuning are independent. In our previously published large-scale census of tectal cells \citep{ciarleglio2015}, we observed no interaction between intrinsic and synaptic phenotypes, and observed no signs of temporal tuning (ibid,  figures 2, 4). We argue however, that the current clamp protocol used in previous studies was not adequate for the task (see Discussion for a rationale).
 
-Here we show that the intrinsic plasticity of tectal neurons goes beyond changes in average spikiness and supports temporal selectivity that can be reshaped by sensory experience. Furthermore, we show that the tuning of intrinsic properties is coordinated with the duration of synaptic inputs received by each cell. These results rely on two methodological innovations. First, instead of using current injections, we employed the dynamic clamp technique, which allowed a more realistic simulation of synaptic conductances \citep{prinz2004}. Unlike more common voltage and current clamp techniques, in dynamic clamp the electric current injected into the cell is dynamically adjusted, based on a predefined formula that depends on cell membrane potential and time. Second, instead of relying on one type of sensory stimulation, we used five different stimulation protocols and compared their effects on intrinsic tuning. The use of different sensory modalities also gave us insight into an unrelated, but equally intriguing question of multisensory integration in the brain \citep{deeg2009,felch2016,truszkowski2017}, as for the first time we were able to look at tectal network retuning in response to multisensory stimuli in freely behaving tadpoles.
-
+Instead, here we rely on two methodological innovations. First, we use the dynamic clamp technique, that allows a more realistic simulation of synaptic conductances \citep{prinz2004}. Unlike more common voltage and current clamp techniques, in dynamic clamp the electric current injected into the cell is dynamically adjusted, based on a predefined formula that depends on cell membrane potential and time. Second, instead of relying on one type of sensory stimulation, we used five different stimulation protocols and compared their effects on intrinsic tuning. We show that the intrinsic plasticity of tectal neurons goes beyond changes in average spikiness, and supports temporal selectivity, that is shaped by sensory experience, and is coordinated with the typical duration of synaptic inputs received by each cell. Moreover, the use of different sensory modalities for stimulation gave us an insight into an unrelated, but intriguing question of multisensory integration in the brain \citep{deeg2009,felch2016,truszkowski2017}, as for the first time we were able to look at tectal retuning in response to multisensory experience in freely behaving tadpoles.
 
 
 \section*{Results}
