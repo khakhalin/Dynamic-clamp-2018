@@ -1,7 +1,219 @@
 Reviews and Authors' Responses for (Busch Khakhalin 2019)
 ======================
 
-Here you can see peer-reviews for our paper, and our point-by-point responses to these reviews. Reviews are split into paragraphs, with  responses and comments given after each paragraph. Reviews are given in reverese chronological order.
+Here you can see peer-reviews for our paper, given in reverse chronological order, and our point-by-point responses to these reviews. Reviews are split into paragraphs, with  responses and comments given after each paragraph.
+
+--------------------------
+
+# Reviews from J Neurophysiol, 2019 Mar 04 (revise and resubmit)
+
+We address the concerns of Reviewer 3 first, as they were more critical. Then we respond to the suggestions of Reviewer 2.
+
+## Reviewer 3
+
+> Busch and Khakhalin use the Xenopus tadpole tectal model to address the question of
+how neurons modify their intrinsic properties when an animal experiences different
+types of sensory input. Animals that underwent different forms of sensory experience
+had tectal neurons that decreased their overall excitability. This is consistent with the
+idea of homeostatic regulation of intrinsic properties. Surprisingly, when the sensory
+experience involved short pulses of light, neurons because more responsive to short
+inputs even though there was an overall decrease in spiking. This adds a layer of
+complexity to the idea of homeostatic control of a firing rate set point because it shows
+neurons can independently regulate total spiking in the opposite direction from their
+responses to synaptic inputs of different durations. This is a really interesting idea. The
+data are sound and well-analyzed (beautiful figures, open source data, etc.). However,
+from top to bottom, this manuscript was incredibly difficult to read. Due to organizational
+issues, lack of a strong rationale, and inconsistent/confusing wording, I’m not entirely
+sure I understand the main message the authors are trying to convey. My summary is
+largely based on what I was able to pick out of the figures. I strongly suggest the
+authors perform a massive rewrite and really emphasize the main points.
+
+### Major Comments
+
+> Abstract:
+
+> It’s hard to follow what was actually done and found in the paper based on the abstract.
+The abstract starts off with a statement about homeostatic regulation through changes
+in intrinsic properties and then gives a detailed account of what was found without any
+context. It would be easier to assimilate the information if the abstract follows a more
+standard format: start with the area the paper clearly contributes to, build the rationale
+for the study, state the hypothesis (or driving question), describe how this was tested
+and what was found, and say why it’s important.
+
+> Introduction:
+
+> I feel the same way about the introduction as I do the abstract; as written, it doesn’t give
+the reader a great sense of what’s to come. If the setup for the paper is that
+“connectivity isn’t everything— intrinsic properties matter,” this is a good start, but it
+could be made much clearer. Further, the questions of the study are not presented until
+the third paragraph, and there is no rationale for these questions. I suggest the authors
+completely revamp the introduction in way that guides the reader from
+regulation/plasticity of intrinsic properties (the big picture question) to why there’s a
+reason to think neurons in their system can tune their responsiveness to different kinds
+of inputs they receive (a specific hypothesis). This is what the authors actually address,
+but they really don’t provide much of a rationale for their specific experiments, which
+weakens the paper.
+
+> Results and Discussion:
+
+> - The rationale for the use of dynamic clamp and the parameters chosen are not clear.
+Is the dynamic clamp current injection protocol mimicking the physiological synaptic
+input? This should be stated.
+
+> - I think the experiment in this study is pretty straightforward, but the description of the
+results is not. As far as I can tell, tadpoles were exposed to different stimuli (flash,
+looming, multisensory, etc.). Then, tectal neurons were stimulated using either 1)
+dynamic clamp or 2) more physiologically through optic chiasm. This allowed the
+investigators to assess firing when they changed the stimulus intensity and stimulus
+duration of the dynamic clamp or the synaptic response to presynaptic stimulation.
+They then looked how the different types of sensory experience influenced firing
+responses. The rest is data analysis that looks at how the duration, amplitude, total
+spiking, and synaptic input is changed in different sensory contexts and sensory
+stimuli might interact. I think the text can be made much simpler so the basic design
+is easier to grasp. I suggest thinking about what the take home point is for each
+figure and craft the results section around those messages.
+
+> - There is also an inconsistent use terminology. For example, “spikiness” and
+“excitability” are sometimes used in attempt to describe distinct cell characteristics,
+but sometimes it seems like they are being used interchangeably. This makes
+interpreting the written results difficult to follow.
+
+> - “Compared to control, neurons from animals exposed to visual stimuli had a flatter
+amplitude tuning curve (Fig 1D,E).” What is the reader supposed to be looking at in
+the figure? Is this referring to larger conductances for a fixed duration? I think this is
+what the authors’ mean, but more intuitive descriptions that matches the figures or
+vice versa is needed to make the whole results section easier to digest.
+
+> - Excessive wordiness makes the results difficult to read and interpret. For example,
+on pg. 9, 4 paragraphs (411 words) are used to describe two graphs, each showing
+a different linear relationship (Fig. 3E-F). Why not simply say, “A positive relationship
+between temporal tuning and synaptic duration implies a co-tuning of these
+parameters.”
+
+> - In reference to the text at the bottom of page10: Is it possible to include a summary
+figure of data from the stepwise generalized linear model in Fig. 4? The purpose of
+this part of the study was to try and identify electrophysiological mechanism(s) that
+explain the tuning variables. The heart of Fig. 4 should be that they don’t, and figure
+that captures this would be helpful.
+
+> - If these data are interpreted as homeostatic (neurons became less excitable
+following sensory experience), is there any evidence that tectal neurons have
+different firing activities during the different kinds of sensory experience? For
+example, does sound engage tectal neurons less than visual stimuli, and might this
+explain some of the trends in the data?
+
+## Reviewer 2
+
+> Busch and Khakhalin use dynamic clamp to generate synaptic conductances of different durations and
+then measure the number of action potentials the neurons fire in response to the different
+conductances. Using this approach it is found that intrinsic excitability of tectal neurons is temporally
+tuned – meaning that they fire best in response to certain durations of synaptic input. This finding is
+interesting and unique because typically intrinsic excitability is quantified by generating “input-output”
+curves which only vary the amplitude of the synaptic drive, not the duration. Furthermore, the authors
+find that various visual stimuli lead to an “adaptive” – not homeostatic – type of temporal tuning of
+intrinsic properties such that neurons exposed to shorter stimuli became more responsive to shorter
+stimuli and less responsive to longer stimuli., and visa versa. In this study, the effects of visual and
+auditory conditioning (and combos thereof) on temporal tuning of both synaptic and intrinsic
+excitability are determined. Overall, this study makes great use of dynamic clamp. The interpretation of
+the results is limited because the ways in which the conditioning stimuli actually activate tectal neurons
+is not empirically established. Clarification, simplification, and consistent use of terms would improve
+this paper.
+
+### Minor
+
+> Page 5, line 45/46: “As one possible explanation, auditory and mechanosensory inputs may have
+different cellular or subcellular 46 targets in the tectum (Bollmann and Engert, 2009).”
+This Bollmann and Engert reference does not address mechanosensory and auditory inputs. This paper
+shows that the RGC inputs form a topographic map along the proximal-distal axis of individual tectal
+neuron dendrites. This reference should be replaced with an appropriate reference.
+Also, how can having different subcellular targets could explain the results? This concept needs to be
+clarified – an example would be helpful.
+
+> Page 13 line 46: The authors use the term “distributed sensory network” . Is a “distributed” network a
+special type of sensory network?
+
+> Page 3, line 26,27,28: “In the tadpole tectum, looming stimuli are known to elicit stronger responses
+compared to instantaneous inversions, yet the suppression yielded by looming stimuli was weaker”.
+The logic of this sentence is not clear. Why exactly would the authors not expect that the looming
+stimuli that is known to elicit stronger (synaptic?) responses would also cause less suppression (of action
+potentials?) than does flashes?
+
+### Major
+
+> Page 5, line 2,3,4 : But do the authors actually know how/if their conditioning stimuli is altering the
+pattern/strength of synaptic input? If so, this data should be shown. If not, it should be made clear that
+this is an assumption/ theoretical prediction.
+
+> Page 5, line 5: “As changes in intrinsic properties seemed homeostatic (increased activation led to
+reduced spiking), by the same logic, one could expect shorter stimuli (flashes) to selectively suppress
+responses (action potential firing or synaptic responses or both?) to shorter synaptic inputs”.
+What intrinsic properties were measured? It appears that only number of spikes was counted. The
+authors report that long-term increase in activation (by visual stimuli) decreased spiking – but was that
+due to a decrease in intrinsic excitability or because the stimuli decreased synaptic strengths – which in
+turn led to the observed decrease in number of spikes fired? This is critical to define.
+Second, do the authors mean to say that shorter stimuli would actually (somehow) suppress responses?
+How would that work?
+
+> Page 5 line 15: Does the word “preferred” (in quotes) mean that the cells fired more action potentials?
+Maybe refrain from personification.
+
+> Bottom of page 5, “Effects of acoustic and multisensory stimulation:
+
+> - Is the Auditory stim conditioning referred to as “click sounds” the same as the “startle-inducing
+sounds” that is mentioned in the very next sentence? If these are indeed the same stimulus it should
+be referred to by the same name, consistently. If they are not the same stimuli, the differences need to
+be explained.
+
+> - Tadpoles are exposed to 4 hours of click sounds and then intrinsic tuning was measured. No difference
+in spiking was observed. This was interpreted to mean that acoustic stimuli did “not strongly activate
+tectal circuits during conditioning”. How can the authors know this? Instead, why not determine this
+directly by recording click-evoked responses from tectal neurons? Or, if tectal cell responses to auditory
+stimuli have been described in previous work, this should be included here.
+
+> Page 6 line 24: Remove the phrase “are not easily interpretable”. Instead, please interpret your data
+clearly.
+
+> Page 9: The authors report that the synaptic data show that “prolonged sensory activation with short,
+frequent stimuli reshaped synaptic transmission in the tectum, making it faster through selective
+potentiation of visual inputs from the eye”.
+How do the authors know the effect is selective for RGC inputs? It appears that they only measured
+RGC-evoked responses. Auditory/mechanosensory -evoked responses were not reported.
+
+> Page 9 line 9: “cells exposed to stronger stimuli preferred shorter synaptic inputs in dynamic clamp…”
+Here, (where “preferred” is not in quotes) does “preferred” mean to fire more action potentials?
+
+> Page 10 (last paragraph): Were action potential thresholds measured? Were there any differences in
+this parameter across groups?
+
+> Page 10 line 8: The “correction for position” is difficult to understand here and in Methods. Why was a
+linear regression used – and how is it determined to generate an accurate “correction”? How do the
+data look without this correction?
+
+> Page 13, line 7: What does “intrinsic spikiness” mean? Is this another term for intrinsic excitability, or is
+this a different parameter? In fact, throughout the manuscript, there are many terms including “intrinsic
+excitability, spikiness, number of spikes, and intrinsic spikiness that probably mean the same thing – or
+maybe not. If these terms all mean the same thing, then one term should be chosen and used
+throughout. If they all refer to different entities, then each one should be clearly defined.
+
+> Page 15 line 34: The average membrane resistance (330 MOhm) seems a bit low for these small immature
+tectal neurons. Were the neurons healthy? What was the average resting membrane potential? Were
+there any set criteria for Rm, Vm, or access resistance?
+
+> Figure 1 D and E: The average number of spikes fired as a function of conductance duration and all at 3
+different peak conductances. Are there any trends at the single cell level? For example, if a given
+control neuron fires relatively few spikes in response to 500 ms duration, does it also tend to fire
+relatively fewer spikes with 1000ms duration? Or maybe if a given neuron fires a relatively high number
+of spikes with 500ms then it will typically fire less at 1000ms duration? Although the individual
+responses are shown in 1D, it is impossible to follow the number of spikes fired by any individual neuron
+in response to the different conductance durations.
+
+> Figure 4 D, E and F: Is “spikiness” synonymous with “N Spikes”? If these terms do not mean the same
+thing, they should be defined. If they do mean the same thing, then one term should be chosen and
+used consistently throughout.
+
+&nbsp;
+
+--------------------------
 
 # Reviews from J Neurosci, 2018 Nov 01 (rejection letter)
 
@@ -236,6 +448,7 @@ While preparing the original version of this paper, we also tried a different wa
 
 We now made the Discussion section a bit longer, and so used longer, simpler statements, when describing the co-ordination of synaptic and intrinsic properties. For example, the sentece in question was replaced with this sentence: "In answer to our second question, about whether intrinsic and synaptic properties of tectal cells are in any way coordinated, here we show that intrinsic and synaptic temporal properties are co-tuned in the tectum, and moreover, that this co-tuning can be modified by sensory experience."
 
+--------------------------
 
 # Reviews from eLife, 2018 Aug 17 (rejection letter)
 
