@@ -5,10 +5,10 @@ Busch Khakhalin 2019: Temporal tuning of intrinsic plasticity
  
 This repository contains all supplementary materials for this paper. Some important files:
 
-* [LaTeX version of the paper](main.tex)
 * [Authors' responses to earlier reviews and comments](reviews%20and%20responses.md)
 * [Description of data files](Data_key.md)
 * [Full list of scripts used in this study](Workflow.md)
+* [LaTeX version of the paper](main.tex)
 
 ## Abstract
 
