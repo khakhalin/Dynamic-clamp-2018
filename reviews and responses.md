@@ -56,13 +56,18 @@ of inputs they receive (a specific hypothesis). This is what the authors actuall
 but they really don’t provide much of a rationale for their specific experiments, which
 weakens the paper.
 
-We tried to make the introduction more clear, and better organized, from the big problem, to specific questions. We moved the presentation of the questions for the study to the very beginning of the second paragraph, and provide a rationale for these questions in the first paragraph.
+We now made the introduction clearer, and better organized, going from the big problem, to specific questions. We moved the presentation of the questions for the study to the very beginning of the second paragraph, and provided a rationale for these questions in the first paragraph.
 
 > Results and Discussion:
 
 > - The rationale for the use of dynamic clamp and the parameters chosen are not clear.
-Is the dynamic clamp current injection protocol mimicking the physiological synaptic
+
+Previously a detailed justification for the use of dynamic clamp was only given in the Discussion; we now added it to the end of Introduction.
+
+> Is the dynamic clamp current injection protocol mimicking the physiological synaptic
 input? This should be stated.
+
+We added this statement to the sentence: "...counted spikes produced during dynamic clamp in response to simulated synaptic conductances of different durations and amplitudes (Figure 1B), **mimicking synaptic conductances typically observed in tadpole brains (see Methods)**"
 
 > - I think the experiment in this study is pretty straightforward, but the description of the
 results is not. As far as I can tell, tadpoles were exposed to different stimuli (flash,
@@ -76,6 +81,8 @@ spiking, and synaptic input is changed in different sensory contexts and sensory
 stimuli might interact. I think the text can be made much simpler so the basic design
 is easier to grasp. I suggest thinking about what the take home point is for each
 figure and craft the results section around those messages.
+
+Thank you; we tried to follow this advice in this revised version of the manuscript!
 
 > - There is also an inconsistent use terminology. For example, “spikiness” and
 “excitability” are sometimes used in attempt to describe distinct cell characteristics,
@@ -130,8 +137,13 @@ different cellular or subcellular 46 targets in the tectum (Bollmann and Engert,
 This Bollmann and Engert reference does not address mechanosensory and auditory inputs. This paper
 shows that the RGC inputs form a topographic map along the proximal-distal axis of individual tectal
 neuron dendrites. This reference should be replaced with an appropriate reference.
-Also, how can having different subcellular targets could explain the results? This concept needs to be
+
+We replaced this sentence with the following sentence: "This was not necessarily surprising, as auditory and mechanosensory inputs are known to have different cellular (Pratt and Aizenman, 2009; Felch et al., 2016) and subcellular (Hiramoto and Cline,2009) targets in the tectum, and thus can recruit tectal networks to a different extent.
+
+> Also, how can having different subcellular targets could explain the results? This concept needs to be
 clarified – an example would be helpful.
+
+TODO: add an explanation here that we addressed this issue in the next paragraph, when the effects of multisensory stimulation are discussed. Because those WERE suprising.
 
 > Page 13 line 46: The authors use the term “distributed sensory network” . Is a “distributed” network a
 special type of sensory network?
@@ -148,6 +160,14 @@ potentials?) than does flashes?
 pattern/strength of synaptic input? If so, this data should be shown. If not, it should be made clear that
 this is an assumption/ theoretical prediction.
 
+In the submitted document, these lines said:
+
+"We then examined whether different types of sensory activation would differentially reshape  
+temporal intrinsic tuning in tectal neurons. As changes in intrinsic properties seemed  
+homeostatic (increased activation led to reduced spiking), by the same logic, one could..."
+
+TODO: make clear that we are not talking about synaptic changes after the fact, but during the stimulation. And that we kind of know from Khakhalin 2014. 
+
 > Page 5, line 5: “As changes in intrinsic properties seemed homeostatic (increased activation led to
 reduced spiking), by the same logic, one could expect shorter stimuli (flashes) to selectively suppress
 responses (action potential firing or synaptic responses or both?) to shorter synaptic inputs”.
@@ -157,6 +177,10 @@ due to a decrease in intrinsic excitability or because the stimuli decreased syn
 turn led to the observed decrease in number of spikes fired? This is critical to define.
 Second, do the authors mean to say that shorter stimuli would actually (somehow) suppress responses?
 How would that work?
+
+All our measurements of the number of spikes relied on the dynamic clamp experiments, that used simulated, and not real synaptic inputs. It means that any changes in spiking we observed in the previous section of the results is necessarily coming from the change in intrinsic properties. While a change in the synaptic strength in response to sensory stimulation is possible, and indeed is investigated below in this paper, it would not have affected the number of spikes we reported in figures 1 and 2, as they were entirely recorded in dynamic clamp experiments.
+
+To make this clearer to the reader, we TODO!
 
 > Page 5 line 15: Does the word “preferred” (in quotes) mean that the cells fired more action potentials?
 Maybe refrain from personification.
