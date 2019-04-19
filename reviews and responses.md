@@ -97,9 +97,9 @@ the figure? Is this referring to larger conductances for a fixed duration? I thi
 what the authors’ mean, but more intuitive descriptions that matches the figures or
 vice versa is needed to make the whole results section easier to digest.
 
-This refers to smaller (flat, not increasing) spiking output as a function of conductance duration. To make it clear, we improved the sentence:
+We improved the sentence:
 
-"Compared to control, neurons from animals exposed to visual stimuli had a flatter **(constant or hill-shaped, rather than increasing)** amplitude tuning curve (Fig 1D,E), **as they** did not increase their spiking as fast in response to larger conductances..."
+Compared to control, neurons from animals exposed to visual stimuli had a flatter amplitude tuning curve (**less of a difference between columns of Figure 1D, or different curves in each panel of Figure 1E**), as they did not increase their spiking as fast in response to larger conductances
 
 > - Excessive wordiness makes the results difficult to read and interpret. For example,
 on pg. 9, 4 paragraphs (411 words) are used to describe two graphs, each showing
@@ -120,6 +120,8 @@ figure of data from the stepwise generalized linear model in Fig. 4? The purpose
 this part of the study was to try and identify electrophysiological mechanism(s) that
 explain the tuning variables. The heart of Fig. 4 should be that they don’t, and figure
 that captures this would be helpful.
+
+TODO: How to make a figure like that? They refer to a text about the stepwise generalized linear model. Is there a good visualization here?
 
 > - If these data are interpreted as homeostatic (neurons became less excitable
 following sensory experience), is there any evidence that tectal neurons have
