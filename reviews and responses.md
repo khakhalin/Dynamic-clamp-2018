@@ -67,7 +67,7 @@ Previously a detailed justification for the use of dynamic clamp was only given 
 > Is the dynamic clamp current injection protocol mimicking the physiological synaptic
 input? This should be stated.
 
-We added this statement to the sentence: "...counted spikes produced during dynamic clamp in response to simulated synaptic conductances of different durations and amplitudes (Figure 1B), **mimicking synaptic conductances typically observed in tadpole brains (see Methods)**"
+We updated the next sentence, by adding a reference to it: "We used conductances of 4 different durations (100, 200, 500, and 1000 ms), and 3 different amplitudes (peak conductances of 0.2, 0.5, and 1.0 nS), matching the range of synaptic currents observed in tectal circuits in vivo (Xu et al. 2011; Khakhalin et al. 2014; Ciarleglio et al. 2015; see Methods)."
 
 > - I think the experiment in this study is pretty straightforward, but the description of the
 results is not. As far as I can tell, tadpoles were exposed to different stimuli (flash,
@@ -89,17 +89,31 @@ Thank you; we tried to follow this advice in this revised version of the manuscr
 but sometimes it seems like they are being used interchangeably. This makes
 interpreting the written results difficult to follow.
 
+In this updated version, we consistently use "spikiness" as a name for the variable, for the first time introduced in Figure 2C. For earlier results section, we replaced "spikiness" with "average number of spikes", and in all instances when we talked about the general idea of neuronal excitability, we called it neuronal excitability. As the only exception to this rule, we opted for the word "spikness" in the first paragraph of Introduction, to prime the reader for the use of this word later in the text.
+
 > - “Compared to control, neurons from animals exposed to visual stimuli had a flatter
 amplitude tuning curve (Fig 1D,E).” What is the reader supposed to be looking at in
 the figure? Is this referring to larger conductances for a fixed duration? I think this is
 what the authors’ mean, but more intuitive descriptions that matches the figures or
 vice versa is needed to make the whole results section easier to digest.
 
+This refers to smaller (flat, not increasing) spiking output as a function of conductance duration. To make it clear, we improved the sentence:
+
+"Compared to control, neurons from animals exposed to visual stimuli had a flatter **(constant or hill-shaped, rather than increasing)** amplitude tuning curve (Fig 1D,E), **as they** did not increase their spiking as fast in response to larger conductances..."
+
 > - Excessive wordiness makes the results difficult to read and interpret. For example,
 on pg. 9, 4 paragraphs (411 words) are used to describe two graphs, each showing
 a different linear relationship (Fig. 3E-F). Why not simply say, “A positive relationship
-between temporal tuning and synaptic duration implies a co-tuning of these
+between temporal tuning and synaptic duration implies a co-tuning of preferr
 parameters.”
+
+Of these four paragraphs, the last one reports a negative result that is not shown in Figure 3. The first three paragraphs are indeed dedicated to panels Figure 3EF, but we cannot replace them with one sentence, as the statement we are making is not that obvious statistically. We believe that an attempt to gloss it over by pushing the statistical analysis to the methods section would not be fair. 
+
+The issue, as we describe in the text, is that while graphs 3E and 3F have very similar axes, and both show a linear dependency, they have opposite slopes. Had the slopes be the same, we would have just reported a correlation, in one sentence. But with the data we have, we need to be more specific, as we observed that the within-group correlation is positive, yet the between-group correlation is negative.
+
+We indeed received some conflicting advice in the past about the level of detail necessary to communicate this message: for example, people who have studied Simpson's paradox in their statistics classes had found our use of this term very helpful, while people who haven't heard it before, found it distracting. For now, we opted to include it, but we are aware that what makes the text more relatable to one group of researchers may make it less transparent for other groups.
+
+Nevertheless, in current version of the paper, we shortened this section from 411 to 294 words.
 
 > - In reference to the text at the bottom of page10: Is it possible to include a summary
 figure of data from the stepwise generalized linear model in Fig. 4? The purpose of
@@ -184,6 +198,10 @@ To make this clearer to the reader, we TODO!
 
 > Page 5 line 15: Does the word “preferred” (in quotes) mean that the cells fired more action potentials?
 Maybe refrain from personification.
+
+We hope that the word "prefer" is intuitive enough to most readers; it is also way shorter than "responded with more spikes", or "produced more action potentials", which allows for easier writing. We also believe that most readers of this article will not be at risk of truly personifying neurons, so while we take care to never personify animals, we are usually a bit more relaxed when talking about cells, channels, receptors etc.
+
+Still, to make this sentence better, we removed the quotes around "preferred", to make it more obvious that it is just our normal word use (we use this word 6 times in the paper), and not an allegory.
 
 > Bottom of page 5, “Effects of acoustic and multisensory stimulation:
 
