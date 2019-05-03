@@ -7,7 +7,7 @@ Here you can see peer-reviews for our paper, given in reverse chronological orde
 
 # Reviews from J Neurophysiol, 2019 Mar 04 (revise and resubmit)
 
-We address the concerns of Reviewer 3 first, as they were more critical overall. Then we respond to the suggestions of Reviewer 2.
+We address the concerns of Reviewer 3 first, as they were overall more critical. Then we respond to the suggestions of Reviewer 2.
 
 ## Reviewer 3
 
@@ -62,7 +62,7 @@ We now made the introduction clearer, and better organized, going from the big p
 
 > - The rationale for the use of dynamic clamp and the parameters chosen are not clear.
 
-Previously a detailed justification for the use of dynamic clamp was only given in the Discussion; we now added it to the end of Introduction.
+Previously a detailed justification for the use of dynamic clamp was only given in the Discussion section; we now added it to the end of Introduction.
 
 > Is the dynamic clamp current injection protocol mimicking the physiological synaptic
 input? This should be stated.
@@ -89,7 +89,7 @@ Thank you; we tried to follow this advice in this revised version of the manuscr
 but sometimes it seems like they are being used interchangeably. This makes
 interpreting the written results difficult to follow.
 
-In this updated version, we consistently use "spikiness" as a name for the variable, for the first time introduced in Figure 2C. For earlier results section, we replaced "spikiness" with "average number of spikes", and in all instances when we talked about the general idea of neuronal excitability, we called it neuronal excitability. As the only exception to this rule, we opted for the word "spikness" in the first paragraph of Introduction, to prime the reader for the use of this word later in the text.
+In this updated version, we consistently use "spikiness" as a name for the variable, for the first time introduced in Figure 2C. For earlier results section, we replaced "spikiness" with "average number of spikes", and in all instances when we talked about the general idea of neuronal excitability, we called it neuronal excitability. As the only exception to this rule, we opted for the word "spikiness" in the first paragraph of Introduction, to prime the reader for the use of this word later in the text.
 
 > - “Compared to control, neurons from animals exposed to visual stimuli had a flatter
 amplitude tuning curve (Fig 1D,E).” What is the reader supposed to be looking at in
@@ -99,7 +99,7 @@ vice versa is needed to make the whole results section easier to digest.
 
 We improved the sentence:
 
-Compared to control, neurons from animals exposed to visual stimuli had a flatter amplitude tuning curve (**less of a difference between columns of Figure 1D, or different curves in each panel of Figure 1E**), as they did not increase their spiking as fast in response to larger conductances
+Compared to control, neurons from animals exposed to visual stimuli had a flatter amplitude tuning curve (**less of a difference between columns of Figure 1D, or between curves in each individual panel of Figure 1E**), as they did not increase their spiking as fast in response to larger conductances
 
 > - Excessive wordiness makes the results difficult to read and interpret. For example,
 on pg. 9, 4 paragraphs (411 words) are used to describe two graphs, each showing
@@ -107,11 +107,9 @@ a different linear relationship (Fig. 3E-F). Why not simply say, “A positive r
 between temporal tuning and synaptic duration implies a co-tuning of preferr
 parameters.”
 
-Of these four paragraphs, the last one reports a negative result that is not shown in Figure 3. The first three paragraphs are indeed dedicated to panels Figure 3EF, but we cannot replace them with one sentence, as the statement we are making is not that obvious statistically. We believe that an attempt to gloss it over by pushing the statistical analysis to the methods section would not be fair. 
+Of these four paragraphs, the last one reports a negative result that is not shown in Figure 3. The first three paragraphs are indeed dedicated to panels Figure 3EF, but we cannot in good faith replace them with one sentence, as the statement we are making is not statistically obvious. We believe that an attempt to gloss it over by pushing the statistical analysis to the methods section would not be fair. The issue, as we describe in the text, is that while graphs 3E and 3F have similar axes, and both show a linear dependency, they have opposite slopes. Had the slopes be the same, we would have just reported a correlation in one sentence. But with the data we have, we need to be more specific, as we observed that the within-group correlation is positive, yet the between-group correlation is negative: a situation that is typical for larger datasets, but that some readers may not be familiar with.
 
-The issue, as we describe in the text, is that while graphs 3E and 3F have very similar axes, and both show a linear dependency, they have opposite slopes. Had the slopes be the same, we would have just reported a correlation, in one sentence. But with the data we have, we need to be more specific, as we observed that the within-group correlation is positive, yet the between-group correlation is negative.
-
-We indeed received some conflicting advice in the past about the level of detail necessary to communicate this message: for example, people who have studied Simpson's paradox in their statistics classes had found our use of this term very helpful, while people who haven't heard it before, found it distracting. For now, we opted to include it, but we are aware that what makes the text more relatable to one group of researchers may make it less transparent for other groups.
+We are aware that this section is read differently by different readers, and we received some conflicting advice in the past about the level of details needed to communicate this message. For example, those who have explicitly discussed Simpson's paradox in their statistics classes typically find our use of this term very helpful, while those who haven't used this term before, may find it distracting. For now, we opt to include it, even though it seems to be appreciated by only one half of our target audience.
 
 Nevertheless, in current version of the paper, we shortened this section from 411 to 294 words.
 
@@ -128,6 +126,8 @@ following sensory experience), is there any evidence that tectal neurons have
 different firing activities during the different kinds of sensory experience? For
 example, does sound engage tectal neurons less than visual stimuli, and might this
 explain some of the trends in the data?
+
+> TODO: that is what we are suggesting in one of the paragraphs. Cite that.
 
 ## Reviewer 2
 
@@ -212,14 +212,24 @@ sounds” that is mentioned in the very next sentence? If these are indeed the s
 be referred to by the same name, consistently. If they are not the same stimuli, the differences need to
 be explained.
 
+These are the same stimuli, and we changes these two sentences to better reflect that:
+
+"To test this question, we exposed tadpoles to four hours of behaviorally salient, startle-inducing “click” sounds, provided at the same frequency (every second) as visual stimuli in the first set of experiments. We found (Fig 1D, E) that exposure to these sounds..."
+
 > - Tadpoles are exposed to 4 hours of click sounds and then intrinsic tuning was measured. No difference
 in spiking was observed. This was interpreted to mean that acoustic stimuli did “not strongly activate
 tectal circuits during conditioning”. How can the authors know this? Instead, why not determine this
 directly by recording click-evoked responses from tectal neurons? Or, if tectal cell responses to auditory
 stimuli have been described in previous work, this should be included here.
 
+Unfortunately, recording of tectal reponses to sounds in tadpoles does not seem to be possible in present, not just in our lab (where we don't posess the technical capability to perform in-vivo experiments), but in most labs. Technically, the problem amounts to two limitations: one, to record from a tadpole, one has to paralyze it with a nicotinic receptor anatagonist, which seems to disrupt hearing. Second, even if this limitation is overcome, the sounds has to be strong enough to stimulate the inner ear, but weak enough not to disrupt a recording. Conceivably, both challenges may be overcocme with the use of high speed calcum imaging in freely moving tadpoles, but this is also challenging, and to our knowledge no lab has attempted these recordings yet.
+
+To show that our statement is just a conjecture, we replaced "suggets" with "may suggest" in this sentence: "This may suggest that acoustic stimuli did not activate tectal circuits strongly enough during conditioning..."
+
 > Page 6 line 24: Remove the phrase “are not easily interpretable”. Instead, please interpret your data
 clearly.
+
+We now removed this phrase from the main text.
 
 > Page 9: The authors report that the synaptic data show that “prolonged sensory activation with short,
 frequent stimuli reshaped synaptic transmission in the tectum, making it faster through selective
@@ -227,15 +237,30 @@ potentiation of visual inputs from the eye”.
 How do the authors know the effect is selective for RGC inputs? It appears that they only measured
 RGC-evoked responses. Auditory/mechanosensory -evoked responses were not reported.
 
+Stimulation in the optic chiam evokes two types of synaptic responses in tectal cells: direct short-latency responses, and delayed recurrent inputs from other cells in the tectum. By looking at average currents early and later after the chiasm shock, we can independently assess the contribution of direct and recurrent inputs. In the paper, in a paragraph before the sentence in question, we report that after stimulation, direct current increased in amplitude, while recurrent currents remained unchanged. This is what we call selective potentiation of direct inputs, as opposed to recurrent inputs. We do not claim that mechanosensory inputs did not change, as we have not recorded auditory responses in this study (recordings of auditory responses are considerably more difficult; see Felch 2016).
+
+To make sure that we are not misunderstood by the reader, we replaced the original sentence with the following two sentences: "This shows that prolonged sensory activation with short, frequent stimuli reshaped synaptic transmission in the tectum, making it faster through selective potentiation of visual inputs from the eye, compared to recurrent inputs within the tectum that remained unchanged. In this study, we did not perform a similar analysis for acoustic projections from the hindbrain."
+
 > Page 9 line 9: “cells exposed to stronger stimuli preferred shorter synaptic inputs in dynamic clamp…”
 Here, (where “preferred” is not in quotes) does “preferred” mean to fire more action potentials?
+
+Yes, as we answered above, we now don't use quotation marks for any of the words that aid writing and understanding, so "preferred" consistently means "responded preferably", or "produced stronger responses".
 
 > Page 10 (last paragraph): Were action potential thresholds measured? Were there any differences in
 this parameter across groups?
 
+We did not measure action potential thresholds, as we knew from the previous study (Ciarleglio Khakhalin 2015) that potential threshold measurements in tadpole tectal neurons are unreliable, in the sence that they strongly depend on the current that is used to evoke the spikes; this is almost certainly due to rapid Na channels inactivation.
+
 > Page 10 line 8: The “correction for position” is difficult to understand here and in Methods. Why was a
 linear regression used – and how is it determined to generate an accurate “correction”? How do the
 data look without this correction?
+
+The linear regression is used because it is the simplest way to compensate for a confounding variable (see ANCOVA, or linear models with confounding variables in general). Linear models are the "default" approach in statistics, and are typically used when the exact relation between two variables is unknown, or when the amount of noise is so high that practically there is no difference between linear and conceivable curvilinear regressions. Both situations apply here.
+
+There is no way for us to determine whether our adjustment is "accurate", as there is no experimental way to make more caudal (and thus younger) cells in the tectum older. This situation is not unique however, as it arises in any study that uses linear models, in any field, from ecology to social sciences. When running a study in a human population, if a variable of interest depends on age, one would typically adjust for age by including age as a covariate in the linear model. Here we perform the same standard procedure. After rereading the manuscript, we realized that we used terms "adjustment", "correction", and, in one case, "compensation" interchangeably, which might have led to some confusion. To stress that we are talking about a basic statistical technique of covarate elimination, we now consistently use the term "adjustment" throughout the manuscript.
+
+In the paper, we do not report how the data would have looked without this adjustment for covariates, as it would not be statistically sound to run a linear model with a known covariate without including it. It would underestimate effects for analyses across groups (as the effect of the covarate would be included in the error), and overestimate effects for explanatory linear models in the second half of the paper (as the covariate would contribute to both the dependent, and the independent variables in the model). If the reviewers would like us to numerically re-run any part of the analysis without a position adjustment, please let us know which part you would like to see. Also, all of our technical visualizations and analyses related to this adjustment are available for inspection at: 
+https://github.com/khakhalin/Dynamic-clamp-2018/blob/master/dynamic_other_vars.R
 
 > Page 13, line 7: What does “intrinsic spikiness” mean? Is this another term for intrinsic excitability, or is
 this a different parameter? In fact, throughout the manuscript, there are many terms including “intrinsic
