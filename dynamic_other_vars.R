@@ -5,12 +5,12 @@
 # install.packages("lme4") # This one is required for lmerTest to work
 # install.packages("lmerTest")
 # install.packages("effsize")
-#install.packages("viridis")
+# install.packages("viridis")
 
 require(dplyr)
 require(ggplot2)
 require(effsize)
-require(ggbeeswarm) # Suddenly stopped working after an update around Dec 2018; may be a version conflict
+# require(ggbeeswarm) # Suddenly stopped working after an update around Dec 2018; may be a version conflict
 require(reshape2) # needed for some old code
 require(MASS) # Model selection. Note that it annoying masks "select" from dplyr
 require(lmerTest) # Random effects model, requires lme4 as a dependency
@@ -103,7 +103,7 @@ summary(aov(data=d,ktv~group+rostral+medial)) # no
 summary(aov(data=d,ksi~group+rostral+medial)) # medial
 summary(aov(data=d,ksv~group+rostral+medial)) # no
 # Drop of values across the entire tectum: 
-f = lm(data=d,cm ~ group+medial+rostral); coef(f)['medial']*(0.53-0.25) # -2.4 pA
+f = lm(data=d,cm ~ group+medial+rostral); coef(f)['medial']*(0.53-0.25) # -2.4 pF
 f = lm(data=d,rm ~ group+medial+rostral); coef(f)['medial']*(0.53-0.25) # 250 kOhm
 f = lm(data=d,nav ~ group+medial+rostral); coef(f)['medial']*(0.53-0.25) # -12 mV
 f = lm(data=d,ksi ~ group+medial+rostral); coef(f)['medial']*(0.53-0.25) # -276 pA
@@ -112,6 +112,7 @@ f = lm(data=d,nai ~ group+medial+rostral); coef(f)['rostral']*(0.69-0.36) # 156 
 # Based on (Hamodi Pratt), they observed ~150 pA change in nai, and ~200 pA in ki (?),
 # while comparing 0-30% and 60-80% of the OT. If ~ 55% of width gave them these differences,
 # with our ~30% of range we can expect ~70-100 pA diff for nai and ki.
+# Our values are a bit higher, but not that higher.
 
 ggplot(data=d) + theme_bw() + geom_point(aes(medial,nav)) # We also see it, but it's not striking
 
@@ -221,11 +222,15 @@ model = aov(data=dadj,lat_s~rostral+medial,na.action=na.exclude);     dadj$lat_s
 
 # ------- ------- ANOVAs on spiking phenotypes
 # ------- Analysis of smean
-model = aov(data=d,smean~rostral+medial+group); summary(model) # Yes: p=0.01
+model = aov(data=d,smean~rostral+medial+group); summary(model) # Yes: p=0.0103
 TukeyHSD(model,which="group") # CF
 anova(lmer(data=d,smean~rostral+medial+group+(1|animal),na.action=na.omit)) # Verification (yes, 0.047)
 bartlett.test(data=d,smean~group) # Variances are different
 ggplot(data=d,aes(group,smean)) + geom_point(alpha=0.3,position=position_jitter(w=0.2,h=0)) + theme_bw()
+
+# Without adjustment (request from reviewer):
+model = aov(data=d,smean~group); summary(model) # p=0.0253
+TukeyHSD(model,which="group") # still CF
 
 # Which vars are significantly different?
 var.test(data=subset(d,group %in% c("Control","Flash")), smean~group, alternative = "two.sided") # 2e-6
@@ -244,10 +249,13 @@ t.test(data=subset(d,group %in% c("Control","Sync")),smean~group) # 0.06
 t.test(data=subset(d,group %in% c("Control","Async")),smean~group) # 0.4
 
 # ------- Analysis of sbend
-model = aov(data=d,sbend~rostral+medial+group); summary(model) # Yes
+model = aov(data=d,sbend~rostral+medial+group); summary(model) # Yes, p=0.0304
 TukeyHSD(model,which="group") # FC, YC
 bartlett.test(data=dadj,sbend~group) # Variances are different, p=7e-12 non-adj, 8e-12 adj
 ggplot(data=d,aes(group,sbend)) + geom_boxplot() + theme_bw()
+
+# Without adjustment (request from reviewer):
+model = aov(data=d,sbend~group); summary(model) # p=0.029
 
 # Meaningful var comparisons:
 var.test(data=subset(d,group %in% c("Control","Flash")), sbend~group, alternative = "two.sided") # 5e-11
@@ -274,7 +282,7 @@ cohen.d(data=subset(dadj,group %in% c("Flash","Sync")),sbend~group) # 0.08, 0.01
 cohen.d(data=subset(dadj,group %in% c("Flash","Async")),sbend~group) # 0.30, 0.26
 
 # ------- Analysis for samp
-model = aov(data=d,samp~rostral+medial+group); summary(model)  # Yes
+model = aov(data=d,samp~rostral+medial+group); summary(model)  # Yes, p=0.002
 TukeyHSD(model,which="group") # CF, CS
 t.test(data=subset(dadj,group %in% c("Control","Sound")),samp~group) # 0.3
 t.test(data=subset(dadj,group %in% c("Control","Looming")),samp~group) # 0.04
@@ -452,6 +460,10 @@ ggplot(data=dadj,aes(nai,rm,color=log(smean))) + geom_point() + theme_bw() +
 summary(aov(data=dadj,smean~nai+rm)) # 10% of SS explained
 summary(aov(data=dadj,log(smean)~nai+rm)) # 8% explained. No help here.
 
+# Same, but not adjusted by position (requested by reviewer):
+fit = aov(data=na.omit(d),smean~nai+kti+ksi+nav+ktv+ksv+cm+rm)
+stepAIC(fit, direction="both") # nai+rm 
+
 
 ### ---- Sbend analysis
 # it's important to use dadj instead of d, as sbend is tricky to position-compensate
@@ -459,7 +471,7 @@ summary(aov(data=dadj,log(smean)~nai+rm)) # 8% explained. No help here.
 drop1(aov(data=dadj,sbend~nai+kti+ksi+cm+rm+nav+ktv+ksv),test="F") # nav wins
 cor.test(dadj$rm,dadj$nav,use="complete.obs") # rm and nav anticorrelate tho
 fit = aov(data=dadj,sbend~nai+kti+ksi+nav+ktv+ksv+cm+rm)
-stepAIC(fit, direction="both") # kti + rm + nav
+stepAIC(fit, direction="both") # ktv + rm + nav
 summary(aov(data=dadj,sbend~kti+nav+rm)) # Variance explained: 2% (p=0.09), 6%, 3%
 summary(aov(data=dadj,sbend~nav+rm)) # Variance explained: 7%, 2%
 summary(aov(data=dadj,sbend~group+rm+nav),test="F") # nav and rm Remain after group
@@ -467,6 +479,12 @@ summary(aov(data=dadj,sbend~rm+nav+group),test="F") # Group remains after them
 summary(aov(data=dadj,
     sbend~rm+cm+nai+nav+kti+ktv+ksi+ksv+group),test="F") # In fact group remains after everything
 summary(aov(data=dadj,sbend~group),test="F") # effect of group alone
+
+# Same, but not adjusted by position (requested by reviewer):
+fit = aov(data=d,sbend~nai+kti+ksi+nav+ktv+ksv+cm+rm)
+stepAIC(fit, direction="both") # ktv + rm + nav
+summary(aov(data=d,
+            sbend~rm+cm+nai+nav+kti+ktv+ksi+ksv+group),test="F") # In fact group remains after everything
 
 ### ---- Samp analysis
 drop1(aov(data=na.omit(d),samp~rostral+medial+nai+kti+ksi+cm+rm+nav+ktv+ksv),test="F") # nai
@@ -484,9 +502,15 @@ summary(aov(data=na.omit(d),samp~rostral+medial+nai+nav+ktv),test="F") # ktv is 
 summary(aov(data=dadj,samp~nai+nav)) # 6%, 2%
 summary(aov(data=na.omit(d),samp~rostral+medial+group+nai+nav),test="F") # only nav remains after group
 summary(aov(data=na.omit(d),samp~rostral+medial+nai+nav+group),test="F") # group remains after both
-summary(aov(data=na.omit(d),
-            samp~rostral+medial+rm+cm+nai+nav+kti+ktv+ksi+ksv+group)) # and after full
+summary(aov(data=na.omit(dadj),
+            samp~rm+cm+nai+nav+kti+ktv+ksi+ksv+group)) # and after full
 summary(aov(data=na.omit(d),samp~rostral+medial+group),test="F") # effect of group alone
+
+# Same, but not adjusted by position (requested by reviewer):
+fit = aov(data=na.omit(d),samp~rostral+medial+nai+kti+ksi+nav+ktv+ksv+cm+rm)
+stepAIC(fit, direction="both") # nai + nav + ktv
+summary(aov(data=na.omit(d),
+            samp~rm+cm+nai+nav+kti+ktv+ksi+ksv+group),test="F") # In fact group remains after everything
 
 
 # Potential pics for the figure
