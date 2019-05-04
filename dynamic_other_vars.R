@@ -104,7 +104,7 @@ summary(aov(data=d,ksi~group+rostral+medial)) # medial
 summary(aov(data=d,ksv~group+rostral+medial)) # no
 # Drop of values across the entire tectum: 
 f = lm(data=d,cm ~ group+medial+rostral); coef(f)['medial']*(0.53-0.25) # -2.4 pF
-f = lm(data=d,rm ~ group+medial+rostral); coef(f)['medial']*(0.53-0.25) # 250 kOhm
+f = lm(data=d,rm ~ group+medial+rostral); coef(f)['medial']*(0.53-0.25) # 2.5 GOhm
 f = lm(data=d,nav ~ group+medial+rostral); coef(f)['medial']*(0.53-0.25) # -12 mV
 f = lm(data=d,ksi ~ group+medial+rostral); coef(f)['medial']*(0.53-0.25) # -276 pA
 f = lm(data=d,nai ~ group+medial+rostral); coef(f)['rostral']*(0.69-0.36) # 156 pA
@@ -115,6 +115,7 @@ f = lm(data=d,nai ~ group+medial+rostral); coef(f)['rostral']*(0.69-0.36) # 156 
 # Our values are a bit higher, but not that higher.
 
 ggplot(data=d) + theme_bw() + geom_point(aes(medial,nav)) # We also see it, but it's not striking
+ggplot(data=d) + theme_bw() + geom_point(aes(medial,rm))
 
 # Different stories for 2 types of spiking
 summary(aov(data=d,stepspike~group+rostral+medial)) # medial

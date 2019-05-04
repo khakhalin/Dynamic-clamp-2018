@@ -27,11 +27,11 @@ Experiment design:
   * 6\. SlowC: Crashes, but delivered NOT once every second, as in groups 1-5, but once every 3 seconds. These cells were not included in the final analysis.
   * 7\. SlowF: Flashes, but delivered NOT once every second, as in gropu 2, but once every 3 seconds. These cells were not included in the final analysis.
   * 8\. Naive: cells that went through no conditioning; essentially, an incorrect control group. These cells were not included in the final analysis.
-* stage - tadpole stage. 48 for stage 48; 49 for young stage 49; 50 for older, larger stage 49 (even though they would still be classified as stage 50, according to Nieuwkoop and Faber, 1994)
+* stage - tadpole stage. 48 for stage 48; 49 for young stage 49; 50 for older, larger stage-49 tadpoles (they would still be classified as stage 49, according to Nieuwkoop and Faber, 1994)
 
 Cell basic properties:
 * ra - access resistance, mOhm
-* rm - membrane resistance, 2 digits in GOhm (e.g. 15 would correpond to 1.5 GOhm)
+* rm - membrane resistance, GOhm
 * cm - membrane capacicty, pF
 * ihold	- current required to bring the cell to -60 mV, in pA
 * rostral - how caudal the cell was, in arbitrary "screen units". In the script 'dynamic_other_vars.R' this value is then recalcualted to true "rostral", and measured in percent. The reason for this weird way of measurement is an unfortuante suboptimal choice that was made early, and then maintained during the whole data collection period.

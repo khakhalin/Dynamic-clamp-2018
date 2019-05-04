@@ -7,127 +7,7 @@ Here you can see peer-reviews for our paper, given in reverse chronological orde
 
 # Reviews from J Neurophysiol, 2019 Mar 04 (revise and resubmit)
 
-We address the concerns of Reviewer 3 first, as they were overall more critical. Then we respond to the suggestions of Reviewer 2.
-
-## Reviewer 3
-
-> Busch and Khakhalin use the Xenopus tadpole tectal model to address the question of
-how neurons modify their intrinsic properties when an animal experiences different
-types of sensory input. Animals that underwent different forms of sensory experience
-had tectal neurons that decreased their overall excitability. This is consistent with the
-idea of homeostatic regulation of intrinsic properties. Surprisingly, when the sensory
-experience involved short pulses of light, neurons because more responsive to short
-inputs even though there was an overall decrease in spiking. This adds a layer of
-complexity to the idea of homeostatic control of a firing rate set point because it shows
-neurons can independently regulate total spiking in the opposite direction from their
-responses to synaptic inputs of different durations. This is a really interesting idea. The
-data are sound and well-analyzed (beautiful figures, open source data, etc.). However,
-from top to bottom, this manuscript was incredibly difficult to read. Due to organizational
-issues, lack of a strong rationale, and inconsistent/confusing wording, I’m not entirely
-sure I understand the main message the authors are trying to convey. My summary is
-largely based on what I was able to pick out of the figures. I strongly suggest the
-authors perform a massive rewrite and really emphasize the main points.
-
-### Major Comments
-
-> Abstract:
-
-> It’s hard to follow what was actually done and found in the paper based on the abstract.
-The abstract starts off with a statement about homeostatic regulation through changes
-in intrinsic properties and then gives a detailed account of what was found without any
-context. It would be easier to assimilate the information if the abstract follows a more
-standard format: start with the area the paper clearly contributes to, build the rationale
-for the study, state the hypothesis (or driving question), describe how this was tested
-and what was found, and say why it’s important.
-
-We rewrote the abstract, stressing the big question to which the paper contributes (principles of tuning and learning in biological neural networks), and the main message of the paper. We also made the account of our findings a bit less detailed.
-
-> Introduction:
-
-> I feel the same way about the introduction as I do the abstract; as written, it doesn’t give
-the reader a great sense of what’s to come. If the setup for the paper is that
-“connectivity isn’t everything— intrinsic properties matter,” this is a good start, but it
-could be made much clearer. Further, the questions of the study are not presented until
-the third paragraph, and there is no rationale for these questions. I suggest the authors
-completely revamp the introduction in way that guides the reader from
-regulation/plasticity of intrinsic properties (the big picture question) to why there’s a
-reason to think neurons in their system can tune their responsiveness to different kinds
-of inputs they receive (a specific hypothesis). This is what the authors actually address,
-but they really don’t provide much of a rationale for their specific experiments, which
-weakens the paper.
-
-We now made the introduction clearer, and better organized, going from the big problem, to specific questions. We moved the presentation of the questions for the study to the very beginning of the second paragraph, and provided a rationale for these questions in the first paragraph.
-
-> Results and Discussion:
-
-> - The rationale for the use of dynamic clamp and the parameters chosen are not clear.
-
-Previously a detailed justification for the use of dynamic clamp was only given in the Discussion section; we now added it to the end of Introduction.
-
-> Is the dynamic clamp current injection protocol mimicking the physiological synaptic
-input? This should be stated.
-
-We updated the next sentence, by adding a reference to it: "We used conductances of 4 different durations (100, 200, 500, and 1000 ms), and 3 different amplitudes (peak conductances of 0.2, 0.5, and 1.0 nS), matching the range of synaptic currents observed in tectal circuits in vivo (Xu et al. 2011; Khakhalin et al. 2014; Ciarleglio et al. 2015; see Methods)."
-
-> - I think the experiment in this study is pretty straightforward, but the description of the
-results is not. As far as I can tell, tadpoles were exposed to different stimuli (flash,
-looming, multisensory, etc.). Then, tectal neurons were stimulated using either 1)
-dynamic clamp or 2) more physiologically through optic chiasm. This allowed the
-investigators to assess firing when they changed the stimulus intensity and stimulus
-duration of the dynamic clamp or the synaptic response to presynaptic stimulation.
-They then looked how the different types of sensory experience influenced firing
-responses. The rest is data analysis that looks at how the duration, amplitude, total
-spiking, and synaptic input is changed in different sensory contexts and sensory
-stimuli might interact. I think the text can be made much simpler so the basic design
-is easier to grasp. I suggest thinking about what the take home point is for each
-figure and craft the results section around those messages.
-
-Thank you; we tried to follow this advice in this revised version of the manuscript!
-
-> - There is also an inconsistent use terminology. For example, “spikiness” and
-“excitability” are sometimes used in attempt to describe distinct cell characteristics,
-but sometimes it seems like they are being used interchangeably. This makes
-interpreting the written results difficult to follow.
-
-In this updated version, we consistently use "spikiness" as a name for the variable, for the first time introduced in Figure 2C. For earlier results section, we replaced "spikiness" with "average number of spikes", and in all instances when we talked about the general idea of neuronal excitability, we called it neuronal excitability. As the only exception to this rule, we opted for the word "spikiness" in the first paragraph of Introduction, to prime the reader for the use of this word later in the text.
-
-> - “Compared to control, neurons from animals exposed to visual stimuli had a flatter
-amplitude tuning curve (Fig 1D,E).” What is the reader supposed to be looking at in
-the figure? Is this referring to larger conductances for a fixed duration? I think this is
-what the authors’ mean, but more intuitive descriptions that matches the figures or
-vice versa is needed to make the whole results section easier to digest.
-
-We improved the sentence:
-
-Compared to control, neurons from animals exposed to visual stimuli had a flatter amplitude tuning curve (**less of a difference between columns of Figure 1D, or between curves in each individual panel of Figure 1E**), as they did not increase their spiking as fast in response to larger conductances
-
-> - Excessive wordiness makes the results difficult to read and interpret. For example,
-on pg. 9, 4 paragraphs (411 words) are used to describe two graphs, each showing
-a different linear relationship (Fig. 3E-F). Why not simply say, “A positive relationship
-between temporal tuning and synaptic duration implies a co-tuning of preferr
-parameters.”
-
-Of these four paragraphs, the last one reports a negative result that is not shown in Figure 3. The first three paragraphs are indeed dedicated to panels Figure 3EF, but we cannot in good faith replace them with one sentence, as the statement we are making is not statistically obvious. We believe that an attempt to gloss it over by pushing the statistical analysis to the methods section would not be fair. The issue, as we describe in the text, is that while graphs 3E and 3F have similar axes, and both show a linear dependency, they have opposite slopes. Had the slopes be the same, we would have just reported a correlation in one sentence. But with the data we have, we need to be more specific, as we observed that the within-group correlation is positive, yet the between-group correlation is negative: a situation that is typical for larger datasets, but that some readers may not be familiar with.
-
-We are aware that this section is read differently by different readers, and we received some conflicting advice in the past about the level of details needed to communicate this message. For example, those who have explicitly discussed Simpson's paradox in their statistics classes typically find our use of this term very helpful, while those who haven't used this term before, may find it distracting. For now, we opt to include it, even though it seems to be appreciated by only one half of our target audience.
-
-Nevertheless, in current version of the paper, we shortened this section from 411 to 294 words.
-
-> - In reference to the text at the bottom of page10: Is it possible to include a summary
-figure of data from the stepwise generalized linear model in Fig. 4? The purpose of
-this part of the study was to try and identify electrophysiological mechanism(s) that
-explain the tuning variables. The heart of Fig. 4 should be that they don’t, and figure
-that captures this would be helpful.
-
-TODO: How to make a figure like that? They refer to a text about the stepwise generalized linear model. Is there a good visualization here?
-
-> - If these data are interpreted as homeostatic (neurons became less excitable
-following sensory experience), is there any evidence that tectal neurons have
-different firing activities during the different kinds of sensory experience? For
-example, does sound engage tectal neurons less than visual stimuli, and might this
-explain some of the trends in the data?
-
-> TODO: that is what we are suggesting in one of the paragraphs. Cite that.
+The reviews included Reviewer 2, and Reviwer 3, but no Reviewer 1.
 
 ## Reviewer 2
 
@@ -222,7 +102,7 @@ tectal circuits during conditioning”. How can the authors know this? Instead, 
 directly by recording click-evoked responses from tectal neurons? Or, if tectal cell responses to auditory
 stimuli have been described in previous work, this should be included here.
 
-Unfortunately, recording of tectal reponses to sounds in tadpoles does not seem to be possible in present, not just in our lab (where we don't posess the technical capability to perform in-vivo experiments), but in most labs. Technically, the problem amounts to two limitations: one, to record from a tadpole, one has to paralyze it with a nicotinic receptor anatagonist, which seems to disrupt hearing. Second, even if this limitation is overcome, the sounds has to be strong enough to stimulate the inner ear, but weak enough not to disrupt a recording. Conceivably, both challenges may be overcocme with the use of high speed calcum imaging in freely moving tadpoles, but this is also challenging, and to our knowledge no lab has attempted these recordings yet.
+Unfortunately, recording of tectal reponses to sounds in tadpoles does not seem to be possible at present, not just in our lab (where we don't posess the technical capability to perform in-vivo experiments), but in most labs. Technically, the problem amounts to two limitations: one, to record from a tadpole, one has to paralyze it with a nicotinic receptor anatagonist, which seems to disrupt hearing. Second, even if this limitation is overcome, the sounds has to be strong enough to stimulate the inner ear, but weak enough not to disrupt a recording. Conceivably, both challenges may be overcocme with the use of high speed calcum imaging in freely moving tadpoles, but this is also challenging, and to our knowledge no lab has attempted these recordings yet.
 
 To show that our statement is just a conjecture, we replaced "suggets" with "may suggest" in this sentence: "This may suggest that acoustic stimuli did not activate tectal circuits strongly enough during conditioning..."
 
@@ -259,7 +139,9 @@ The linear regression is used because it is the simplest way to compensate for a
 
 There is no way for us to determine whether our adjustment is "accurate", as there is no experimental way to make more caudal (and thus younger) cells in the tectum older. This situation is not unique however, as it arises in any study that uses linear models, in any field, from ecology to social sciences. When running a study in a human population, if a variable of interest depends on age, one would typically adjust for age by including age as a covariate in the linear model. Here we perform the same standard procedure. After rereading the manuscript, we realized that we used terms "adjustment", "correction", and, in one case, "compensation" interchangeably, which might have led to some confusion. To stress that we are talking about a basic statistical technique of covarate elimination, we now consistently use the term "adjustment" throughout the manuscript.
 
-In the paper, we do not report how the data would have looked without this adjustment for covariates, as it would not be statistically sound to run a linear model with a known covariate without including it. It would underestimate effects for analyses across groups (as the effect of the covarate would be included in the error), and overestimate effects for explanatory linear models in the second half of the paper (as the covariate would contribute to both the dependent, and the independent variables in the model). If the reviewers would like us to numerically re-run any part of the analysis without a position adjustment, please let us know which part you would like to see. Also, all of our technical visualizations and analyses related to this adjustment are available for inspection at: 
+In the paper, we do not report how the data would have looked without this adjustment for covariates, as it would not be statistically sound to run a linear model with a known covariate without including it. In most cases, it may be expected to underestimate effects for analyses across groups (as the effect of the covarate would be included in the error), and overestimate effects for explanatory linear models in the second half of the paper (as the covariate would contribute to both the dependent, and the independent variables in the model). For each particular comparison, however, both d, F and p values would differ by a small random value. For example, when the measure of "spikness" (one of the three tuning parameters) is compared across groups, a correct analysis with adjustment for position (smean~rostral+medial+group) produces a p-value of 0.01. Without adjustment (smean~group) we get a p-value of 0.03. For temporal tuning, correct analysis (sbend~rostral+medial+group) gives p=0.0304, and if covariate is left unadjusted (sbend~gropu) we get p=0.029. Similarly, for amplitude tuning, we get p=0.00209 for correct analysis, and p=0.0024 for unadjusted analysis. For the analyses in which temporal tuning and ampliltude coefficients were explained through intrinsic parameters, the optimal models were not qualitatively different between adjusted and unadjusted data, but all values in the table were slightly different.
+
+If you would like us to numerically re-run any part of the analysis without a position adjustment, please let us know which part you would like to see. Also, all of our technical visualizations and analyses related to this adjustment are available for inspection at: 
 https://github.com/khakhalin/Dynamic-clamp-2018/blob/master/dynamic_other_vars.R
 
 > Page 13, line 7: What does “intrinsic spikiness” mean? Is this another term for intrinsic excitability, or is
@@ -268,9 +150,27 @@ excitability, spikiness, number of spikes, and intrinsic spikiness that probably
 maybe not. If these terms all mean the same thing, then one term should be chosen and used
 throughout. If they all refer to different entities, then each one should be clearly defined.
 
+In this updated version, we consistently use "spikiness" as a name for the variable that is for the first time introduced in Figure 2C. For earlier results section, we replaced "spikiness" with "average number of spikes", and in all instances when we talked about the general idea of neuronal excitability, we called it neuronal excitability. As the only exception to this rule, we opted for the word "spikiness" in the first paragraph of Introduction, to prime the reader for the use of this word later in the text. 
+
+"Intrinsic spikiness" is no longer used. 
+
+"Intrinsic excitability" is used as a name for the phenomenon, that in this particular study we assess mostly using the "spikness" variable, although arguably the number of spikes observed in current clamp experiments can also be considered a different quantification of the same variable. In the text, we say "intrinsic excitability" when we make inferences about the actual properties of the neuron, and "spikiness" when we are talking about the actual value we calculated to assess and quantify this intrinsic excitability.
+
+
 > Page 15 line 34: The average membrane resistance (330 MOhm) seems a bit low for these small immature
 tectal neurons. Were the neurons healthy? What was the average resting membrane potential? Were
 there any set criteria for Rm, Vm, or access resistance?
+
+Thank you for noticing that: we have an order of magnitude mistake here (and we are duly ashamed of it). The average membrane resistance was 3.30 GOhm. 
+
+TODO: is it even true? Or are these the Gigaseal values, pre-patch?
+
+Smallest membrane resistance observed was 1 GOhm, maximal access resistance 110 MOhm, with the average of 30 MOhm. We did not measure Vm, but measured the holding current necessary to bring the cell to -60 mV; the mean value of this I_hold is -8.16 pA, the resting membrane potential can be estimated from this value with a formula Vm = -60 mV + Rm*I_hold.
+
+All data for all cells is available at:
+https://github.com/khakhalin/Dynamic-clamp-2018/blob/master/Data/data_mainInput.txt
+(In this dataset, groups "Naive", "SlowF", and "SlowC" should be ignored, as they were not included in the study. Note also that github doesn't show columns correctly, so it may be better to download the file if you want to study it closerly)
+
 
 > Figure 1 D and E: The average number of spikes fired as a function of conductance duration and all at 3
 different peak conductances. Are there any trends at the single cell level? For example, if a given
@@ -283,6 +183,126 @@ in response to the different conductance durations.
 > Figure 4 D, E and F: Is “spikiness” synonymous with “N Spikes”? If these terms do not mean the same
 thing, they should be defined. If they do mean the same thing, then one term should be chosen and
 used consistently throughout.
+
+## Reviewer 3
+
+> Busch and Khakhalin use the Xenopus tadpole tectal model to address the question of
+how neurons modify their intrinsic properties when an animal experiences different
+types of sensory input. Animals that underwent different forms of sensory experience
+had tectal neurons that decreased their overall excitability. This is consistent with the
+idea of homeostatic regulation of intrinsic properties. Surprisingly, when the sensory
+experience involved short pulses of light, neurons because more responsive to short
+inputs even though there was an overall decrease in spiking. This adds a layer of
+complexity to the idea of homeostatic control of a firing rate set point because it shows
+neurons can independently regulate total spiking in the opposite direction from their
+responses to synaptic inputs of different durations. This is a really interesting idea. The
+data are sound and well-analyzed (beautiful figures, open source data, etc.). However,
+from top to bottom, this manuscript was incredibly difficult to read. Due to organizational
+issues, lack of a strong rationale, and inconsistent/confusing wording, I’m not entirely
+sure I understand the main message the authors are trying to convey. My summary is
+largely based on what I was able to pick out of the figures. I strongly suggest the
+authors perform a massive rewrite and really emphasize the main points.
+
+### Major Comments
+
+> Abstract:
+
+> It’s hard to follow what was actually done and found in the paper based on the abstract.
+The abstract starts off with a statement about homeostatic regulation through changes
+in intrinsic properties and then gives a detailed account of what was found without any
+context. It would be easier to assimilate the information if the abstract follows a more
+standard format: start with the area the paper clearly contributes to, build the rationale
+for the study, state the hypothesis (or driving question), describe how this was tested
+and what was found, and say why it’s important.
+
+We rewrote the abstract, stressing the big question to which the paper contributes (principles of tuning and learning in biological neural networks), and the main message of the paper. We also made the account of our findings a bit less detailed.
+
+> Introduction:
+
+> I feel the same way about the introduction as I do the abstract; as written, it doesn’t give
+the reader a great sense of what’s to come. If the setup for the paper is that
+“connectivity isn’t everything— intrinsic properties matter,” this is a good start, but it
+could be made much clearer. Further, the questions of the study are not presented until
+the third paragraph, and there is no rationale for these questions. I suggest the authors
+completely revamp the introduction in way that guides the reader from
+regulation/plasticity of intrinsic properties (the big picture question) to why there’s a
+reason to think neurons in their system can tune their responsiveness to different kinds
+of inputs they receive (a specific hypothesis). This is what the authors actually address,
+but they really don’t provide much of a rationale for their specific experiments, which
+weakens the paper.
+
+We now made the introduction clearer, and better organized, going from the big problem, to specific questions. We moved the presentation of the questions for the study to the very beginning of the second paragraph, and provided a rationale for these questions in the first paragraph.
+
+> Results and Discussion:
+
+> - The rationale for the use of dynamic clamp and the parameters chosen are not clear.
+
+Previously a detailed justification for the use of dynamic clamp was only given in the Discussion section; we now moved it to the end of Introduction.
+
+> Is the dynamic clamp current injection protocol mimicking the physiological synaptic
+input? This should be stated.
+
+We updated the next sentence, by adding a reference to it: "We used conductances of 4 different durations (100, 200, 500, and 1000 ms), and 3 different amplitudes (peak conductances of 0.2, 0.5, and 1.0 nS), matching the range of synaptic currents observed in tectal circuits in vivo (Xu et al. 2011; Khakhalin et al. 2014; Ciarleglio et al. 2015; see Methods)."
+
+> - I think the experiment in this study is pretty straightforward, but the description of the
+results is not. As far as I can tell, tadpoles were exposed to different stimuli (flash,
+looming, multisensory, etc.). Then, tectal neurons were stimulated using either 1)
+dynamic clamp or 2) more physiologically through optic chiasm. This allowed the
+investigators to assess firing when they changed the stimulus intensity and stimulus
+duration of the dynamic clamp or the synaptic response to presynaptic stimulation.
+They then looked how the different types of sensory experience influenced firing
+responses. The rest is data analysis that looks at how the duration, amplitude, total
+spiking, and synaptic input is changed in different sensory contexts and sensory
+stimuli might interact. I think the text can be made much simpler so the basic design
+is easier to grasp. I suggest thinking about what the take home point is for each
+figure and craft the results section around those messages.
+
+Thank you; we tried to follow this advice in this revised version of the manuscript!
+
+> - There is also an inconsistent use terminology. For example, “spikiness” and
+“excitability” are sometimes used in attempt to describe distinct cell characteristics,
+but sometimes it seems like they are being used interchangeably. This makes
+interpreting the written results difficult to follow.
+
+As described in our responses to Reviewer 2, in this updated version, we consistently use "spikiness" as a name for the variable, for the first time introduced in Figure 2C. For earlier results section, we replaced "spikiness" with "average number of spikes", and in all instances when we talked about the general idea of neuronal excitability, we called it neuronal excitability. As the only exception to this rule, we opted for the word "spikiness" in the first paragraph of Introduction, to prime the reader for the use of this word later in the text.
+
+> - “Compared to control, neurons from animals exposed to visual stimuli had a flatter
+amplitude tuning curve (Fig 1D,E).” What is the reader supposed to be looking at in
+the figure? Is this referring to larger conductances for a fixed duration? I think this is
+what the authors’ mean, but more intuitive descriptions that matches the figures or
+vice versa is needed to make the whole results section easier to digest.
+
+We improved the sentence:
+
+Compared to control, neurons from animals exposed to visual stimuli had a flatter amplitude tuning curve (**less of a difference between columns of Figure 1D, or between curves in each individual panel of Figure 1E**), as they did not increase their spiking as fast in response to larger conductances
+
+> - Excessive wordiness makes the results difficult to read and interpret. For example,
+on pg. 9, 4 paragraphs (411 words) are used to describe two graphs, each showing
+a different linear relationship (Fig. 3E-F). Why not simply say, “A positive relationship
+between temporal tuning and synaptic duration implies a co-tuning of preferr
+parameters.”
+
+Of these four paragraphs, the last one reports a negative result that is not shown in Figure 3. The first three paragraphs are indeed dedicated to panels Figure 3EF, but we cannot in good faith replace them with one sentence, as the statement we are making is not statistically obvious. We believe that an attempt to gloss it over by pushing the statistical analysis to the methods section would not be fair. The issue, as we describe in the text, is that while graphs 3E and 3F have similar axes, and both show a linear dependency, they have opposite slopes. Had the slopes be the same, we would have just reported a correlation in one sentence. But with the data we have, we need to be more specific, as we observed that the within-group correlation is positive, yet the between-group correlation is negative: a situation that is typical for larger datasets, but that some readers may not be familiar with.
+
+We are aware that this section is read differently by different readers, and we received some conflicting advice in the past about the level of details needed to communicate this message. For example, those who have explicitly discussed Simpson's paradox in their statistics classes typically find our use of this term very helpful, while those who haven't used this term before, may find it distracting. For now, we opt to include it, even though it seems to be appreciated by only one half of our target audience.
+
+Nevertheless, in current version of the paper, we shortened this section from 411 to 294 words.
+
+> - In reference to the text at the bottom of page10: Is it possible to include a summary
+figure of data from the stepwise generalized linear model in Fig. 4? The purpose of
+this part of the study was to try and identify electrophysiological mechanism(s) that
+explain the tuning variables. The heart of Fig. 4 should be that they don’t, and figure
+that captures this would be helpful.
+
+We are not sure how this fact can be illustrated. We searched for papers that use stepwise linear models, and it seems they do not usually include summary figures to describe these models. (They often include tables, listing R-squared, F, df, and p-values for every component, but as in this paper we are not particularly concerned by the precise composition of our models, we doubt a table like that would be useful here). Do you have any specific type of illustration in mind, in which case, could you provide a reference, or maybe describe it? The only type of illustration we could come up with is a scatterplot that compares values predicted from the model to actual values, but it is already shown in the paper, as Figure 4E.
+
+> - If these data are interpreted as homeostatic (neurons became less excitable
+following sensory experience), is there any evidence that tectal neurons have
+different firing activities during the different kinds of sensory experience? For
+example, does sound engage tectal neurons less than visual stimuli, and might this
+explain some of the trends in the data?
+
+> TODO: that is what we are suggesting in one of the paragraphs. Cite that.
 
 &nbsp;
 
