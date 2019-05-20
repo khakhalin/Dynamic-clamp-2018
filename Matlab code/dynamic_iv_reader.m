@@ -8,7 +8,9 @@ function dynamic_iv_reader()
 folderName = 'C:\_Data\_Silas\';
 showFigures = 1;                    % Whether figures are to be shown
 consoleOutput = 1;                  % Whether reading files should be reported
-doFit = 0;                          % If fancy exponential fit is to be used. Set to 0 if averaging is enough
+doFit = 1;                          % Use fancy exponential fit to estimate passive properties
+
+showFitFigure = 1;                  % If we want to see passive fit figure
 
 map = dynamic_what_is_where();      % Retrieve a hard-coded map of file names
 % S has the following fields that are all arrays:
@@ -16,7 +18,7 @@ map = dynamic_what_is_where();      % Retrieve a hard-coded map of file names
 % iv, minis, istep, dynamic, synaptic - these all contain the file number
 
 nCells = length(map.id);
-cellList=1:nCells;
+cellList = 1:nCells;
 
 cellList = 51; % Uncomment for testing. First 2 rows don't have an iv file
 
@@ -59,14 +61,23 @@ for(iCell=cellList)
         x = ds.data(iCh).x;
         zero = mean(y(z_l(1):z_l(2),:));
         y = bsxfun(@plus,y,-zero);                              % Zero baselines
-        passiveCurve = -mean(y(prestep_l(1):prestep_l(2),:),2);
+        passiveCurve = -mean(y(prestep_l(1):prestep_l(2),:),2); % Reflect to have is positive
         if(doFit)
+            maxValue = max(passiveCurve);
+            maxPoint = find(passiveCurve==maxValue);            % In case jump isn't sudden
+            passiveCurve = passiveCurve(maxPoint:end);          % Leave only the exponential part
             [coeff,gof2] = fit((1:length(passiveCurve))',passiveCurve,fit_f,fit_s);
-            if(1)
-                figure; hold on; plot(passiveCurve,'b-'); plot(exp(-(1:(prestep_l(2)-prestep_l(1)))/coeff.a)*coeff.b + coeff.c,'r-'); hold off;
-                error();
+            if(showFitFigure)
+                figure; hold on; 
+                plot(passiveCurve,'b-'); 
+                plot(exp(-(1:(prestep_l(2)-prestep_l(1)))/coeff.a)*coeff.b + coeff.c,'r-'); 
+                hold off;                
             end
-            passivePrediction = exp(-(1:(step_l(2)-step_l(1)))/coeff.a)*coeff.b+coeff.c;        
+            Ra = 10/coeff.b*1e3         % 10 mV (e-3) divided by pA (e-12), expressed in MOhm (e6): -3+12-6=3
+            Rm = 10/coeff.c - Ra/1000   % GOhm
+            Cm = coeff.a*(Rm*1000 + Ra)/(Rm*1000*Ra)*1e2 % 0.1ms (e-4) divided by MOhm (e6), expressed in pA (e12): -4-6+12=2
+            error()
+            % passivePrediction = exp(-(1:(step_l(2)-step_l(1)))/coeff.a)*coeff.b+coeff.c;        
         else
             passivePrediction = [passiveCurve; mean(passiveCurve((end-100):end))*ones(step_l(2)-step_l(1)-length(passiveCurve)+1,1)];
         end
