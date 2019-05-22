@@ -6,11 +6,12 @@ function dynamic_iv_reader()
 % Oct 29 2017: last improved
 
 folderName = 'C:\_Data\_Silas\';
-showFigures = 1;                    % Whether figures are to be shown
-consoleOutput = 1;                  % Whether reading files should be reported
-doFit = 1;                          % Use fancy exponential fit to estimate passive properties
+flagConsoleOutput = 1;              % Whether reading files should be reported
+flagFitPassiveParams = 0;           % Use fancy exponential fit to estimate passive properties
+flagRunIVAnalysis = 0;              % Once I(V) are calculated, whether they should be fit, for each cell
 
-showFitFigure = 1;                  % If we want to see passive fit figure
+showFigPassive = 0;                 % If we want to see passive fit figure
+showFigActive = 1;                  % Whether figures are to be shown
 
 map = dynamic_what_is_where();      % Retrieve a hard-coded map of file names
 % S has the following fields that are all arrays:
@@ -20,7 +21,7 @@ map = dynamic_what_is_where();      % Retrieve a hard-coded map of file names
 nCells = length(map.id);
 cellList = 1:nCells;
 
-cellList = 51; % Uncomment for testing. First 2 rows don't have an iv file
+cellList = 51; % Uncomment for testing, Comment for a normal run. First 2 rows don't have an iv file
 
 z_l =  [100 450];           % Zero level
 prestep_l =  [504 1000];    % Test step area
@@ -43,7 +44,7 @@ nCells = length(cellList);
 for(iCell=cellList)
     if(~isnan(map.iv(iCell)))
         fileName = [folderName map.folder{iCell} '\' num2str(map.prefix(iCell)) '_' sprintf('%03d',map.iv(iCell)) '.cfs'];
-        if(consoleOutput)
+        if(0)
             fprintf('%4d \t%4d \t%10s \t%s\n',iCell,map.id(iCell),map.folder{iCell},fileName);
         end
         ds = cfsload(fileName);         % Data structure with all data and info from the file
@@ -62,25 +63,32 @@ for(iCell=cellList)
         zero = mean(y(z_l(1):z_l(2),:));
         y = bsxfun(@plus,y,-zero);                              % Zero baselines
         passiveCurve = -mean(y(prestep_l(1):prestep_l(2),:),2); % Reflect to have is positive
-        if(doFit)
+        if(flagFitPassiveParams)
             maxValue = max(passiveCurve);
             maxPoint = find(passiveCurve==maxValue);            % In case jump isn't sudden
             passiveCurve = passiveCurve(maxPoint:end);          % Leave only the exponential part
             [coeff,gof2] = fit((1:length(passiveCurve))',passiveCurve,fit_f,fit_s);
-            if(showFitFigure)
+            if(showFigPassive)
                 figure; hold on; 
-                plot(passiveCurve,'b-'); 
-                plot(exp(-(1:(prestep_l(2)-prestep_l(1)))/coeff.a)*coeff.b + coeff.c,'r-'); 
-                hold off;                
+                %plot(passiveCurve,'b-'); 
+                timeFrame = (prestep_l(1)-10):(prestep_l(2)+10);
+                plot(timeFrame,mean(y(timeFrame,:),2),'b-');
+                plot((prestep_l(1):prestep_l(2))+maxPoint-1,-(exp(-(1:(prestep_l(2)-prestep_l(1)+1))/coeff.a)*coeff.b + coeff.c),'r-'); 
+                hold off; title(sprintf('Cell %d,  %d',map.id(iCell),map.prefix(iCell)));
+                drawnow();
             end
-            Ra = 10/coeff.b*1e3         % 10 mV (e-3) divided by pA (e-12), expressed in MOhm (e6): -3+12-6=3
-            Rm = 10/coeff.c - Ra/1000   % GOhm
-            Cm = coeff.a*(Rm*1000 + Ra)/(Rm*1000*Ra)*1e2 % 0.1ms (e-4) divided by MOhm (e6), expressed in pA (e12): -4-6+12=2
-            error()
-            % passivePrediction = exp(-(1:(step_l(2)-step_l(1)))/coeff.a)*coeff.b+coeff.c;        
-        else
-            passivePrediction = [passiveCurve; mean(passiveCurve((end-100):end))*ones(step_l(2)-step_l(1)-length(passiveCurve)+1,1)];
+            Ra = 10/coeff.b*1e3;                            % 10 mV (e-3) divided by pA (e-12), expressed in MOhm (e6): -3+12-6=3
+            Rm = 10/coeff.c - Ra/1000;                      % GOhm
+            Cm = coeff.a*(Rm*1000 + Ra)/(Rm*1000*Ra)*1e2;   % 0.1ms (e-4) divided by MOhm (e6), expressed in pA (e12): -4-6+12=2            
+            
+            % passivePrediction = exp(-(1:(step_l(2)-step_l(1)))/coeff.a)*coeff.b+coeff.c; % In the past I tried to use exp fit instead of a simple average
+            
+            if(flagConsoleOutput)
+                fprintf('%d\t%4.0f\t%4.1f\t%4.1f\n',map.id(iCell),Ra,Rm,Cm);
+            end
         end
+        passivePrediction = [passiveCurve; mean(passiveCurve((end-100):end))*ones(step_l(2)-step_l(1)-length(passiveCurve)+1,1)];
+        
         for(iSweep=1:nSweeps)
             y(step_l(1):step_l(2),iSweep) = y(step_l(1):step_l(2),iSweep) - passivePrediction/-v_prestep*v(iSweep); % Minus here coz I inverted passiveCurve above
         end
@@ -96,7 +104,7 @@ for(iCell=cellList)
             temp = size(na);
             fprintf('Bag size: %d %d ; new line size: %d %d\n',size(bag),temp(1),temp(2)*3+1);            
         end        
-        if(showFigures)
+        if(showFigActive)
             figure('Color','white'); subplot(3,4,[1 2 3 5 6 7 9 10 11]); plot(y); ylim([-200 inf]);
             xlabel('Time ticks, 0.1 ms each'); ylabel('pA'); title(sprintf('Cell %d,  %d',map.id(iCell),map.prefix(iCell)));
             ha = subplot(3,4,4); plot(v,na,'.-'); ylabel('Na current'); set(ha,'FontSize',8);
@@ -112,9 +120,12 @@ id = bag(:,1);
 na = bag(:,(0:10) + 02);    % That's how the "bag" is created above, in the main function.
 kt = bag(:,(0:10) + 13);    % It starts with an id, and then we have 11 different levels of v
 ks = bag(:,(0:10) + 24);
-res = analyze(na,kt,ks,v_baseline + v, nCells, id);          % Run the analysis
 
-% if(consoleOutput)
+if(flagRunIVAnalysis)
+    res = analyze(na,kt,ks,v_baseline + v, nCells, id);          % Run the analysis
+end
+
+% if(flagConsoleOutput)
 %     fprintf('----------- Output:\n');
 %     fprintf('cell id, then Na, Kt, and Ks; %d of each:\n',length(v));
 %     dispf(round(bag),'%5d');
