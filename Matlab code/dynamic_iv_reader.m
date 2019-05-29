@@ -1,17 +1,16 @@
 function dynamic_iv_reader()
 % function dynamic_iv_reader
 %
-% reads and processes IV curve files for Silas' data.
+% Reads and processes IV curve files for Silas' data.
 
-% Oct 29 2017: last improved
 
 folderName = 'C:\_Data\_Silas\';
 flagConsoleOutput = 1;              % Whether reading files should be reported
-flagFitPassiveParams = 0;           % Use fancy exponential fit to estimate passive properties
+flagFitPassiveParams = 1;           % Use fancy exponential fit to estimate passive properties
 flagRunIVAnalysis = 0;              % Once I(V) are calculated, whether they should be fit, for each cell
 
-showFigPassive = 0;                 % If we want to see passive fit figure
-showFigActive = 1;                  % Whether figures are to be shown
+showFigPassive = 1;                 % If we want to see passive fit figure
+showFigActive = 0;                  % Whether figures are to be shown
 
 map = dynamic_what_is_where();      % Retrieve a hard-coded map of file names
 % S has the following fields that are all arrays:
@@ -21,7 +20,7 @@ map = dynamic_what_is_where();      % Retrieve a hard-coded map of file names
 nCells = length(map.id);
 cellList = 1:nCells;
 
-cellList = 51; % Uncomment for testing, Comment for a normal run. First 2 rows don't have an iv file
+% cellList = 51; % Uncomment for testing, Comment for a normal run. First 2 rows don't have an iv file
 
 z_l =  [100 450];           % Zero level
 prestep_l =  [504 1000];    % Test step area
@@ -69,9 +68,9 @@ for(iCell=cellList)
             passiveCurve = passiveCurve(maxPoint:end);          % Leave only the exponential part
             [coeff,gof2] = fit((1:length(passiveCurve))',passiveCurve,fit_f,fit_s);
             if(showFigPassive)
-                figure; hold on; 
+                figure('Color','w'); hold on; 
                 %plot(passiveCurve,'b-'); 
-                timeFrame = (prestep_l(1)-10):(prestep_l(2)+10);
+                timeFrame = (prestep_l(1)-10):(prestep_l(2)+100);
                 plot(timeFrame,mean(y(timeFrame,:),2),'b-');
                 plot((prestep_l(1):prestep_l(2))+maxPoint-1,-(exp(-(1:(prestep_l(2)-prestep_l(1)+1))/coeff.a)*coeff.b + coeff.c),'r-'); 
                 hold off; title(sprintf('Cell %d,  %d',map.id(iCell),map.prefix(iCell)));
@@ -84,7 +83,7 @@ for(iCell=cellList)
             % passivePrediction = exp(-(1:(step_l(2)-step_l(1)))/coeff.a)*coeff.b+coeff.c; % In the past I tried to use exp fit instead of a simple average
             
             if(flagConsoleOutput)
-                fprintf('%d\t%4.0f\t%4.1f\t%4.1f\n',map.id(iCell),Ra,Rm,Cm);
+                fprintf('%d\t%4.0f\t%4.1f\t%4.1f\t%4.1f\n',map.id(iCell),Ra,Rm,Cm,coeff.c);
             end
         end
         passivePrediction = [passiveCurve; mean(passiveCurve((end-100):end))*ones(step_l(2)-step_l(1)-length(passiveCurve)+1,1)];

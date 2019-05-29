@@ -35,6 +35,8 @@ function res = big_array()
 % 256	4	193	201	20160322	34	35	36	37	38 - dynamic removed (crashes the reader)
 % 258	4	183	223	20160322	44	45	46	47	48 - dynamic removed (crashes the reader)
 
+%                           iv  min ist dyn syn
+
 res = [
 1	8	121	188	20151009	NaN	NaN	NaN	NaN	NaN
 2	8	117	183	20151009	NaN	NaN	NaN	NaN	NaN

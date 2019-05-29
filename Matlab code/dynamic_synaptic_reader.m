@@ -1,10 +1,8 @@
 function dynamic_synaptic_reader()
 % function dynamic_synaptic_reader
 %
-% reads and processes synaptic files from Silas' data.
+% Reads and processes synaptic files from Silas' data.
 
-% Dec 20 17: Modified from dynamic_iv_reader
-% Jan 09 18: Curve fit for the alpha curve
 
 folderName = 'C:\_Data\_Silas\';
 showFigures = 1;                    % Whether figures are to be shown
