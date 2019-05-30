@@ -5,7 +5,7 @@ function dynamic_steps_reader()
 
 
 folderName = 'C:\_Data\_Silas\';
-showFigures = 1;                    % Whether figures are to be shown
+showFigures = 0;                    % Whether figures are to be shown
 figureType = 'pile';                % 'full', 'pile', or 'train'
 consoleOutput = 0;                  % Whether reading files should be reported
 flagFitCurrent = 1;                 % Whether the depolarization curve needs to be measured (dV/dt)
@@ -22,7 +22,7 @@ cellList=1:nCells;
 badCells = [];                              % 84: recorded in CC
 cellList = setdiff(cellList,badCells);
 % cellList = 180:190;                         % Uncomment for testing (to work with selected few recordings only)
-cellList = [141 198 205];                 % Some random cells for testing
+% cellList = [141 198 205];                 % Some random cells for testing
 % cellList = 198;
 nCells = length(cellList);
 
@@ -59,21 +59,43 @@ for(iCell=cellList)
         y = bsxfun(@plus,y,-zero);                              % Set baseline to zero
         
         [fb,fa] = butter(3,0.2);                                % Low-pass filter
-        temp = y;
-        temp = filter(fb,fa,temp);
-        d1 = diff(temp); d1 = [d1(ones(1,nSweeps)); d1];        % First derivative
+        yFiltered = y;
+        yFiltered = filter(fb,fa,yFiltered);
+        d1 = diff(yFiltered); d1 = [d1(ones(1,nSweeps)); d1];   % First derivative
         
         if(flagFitCurrent)
             K = mean(d1(xSignal(1)+(1:30),2))*1e4/1000;         % Multiplied by 1e4 because 1tick = 0.1 ms; then translated from mV/s to V/s
             stepSize = mean(ds.data(2).y(xSignal(1)+(1:10),2)) - mean(ds.data(2).y(30+(1:10),2));
             
-            % fprintf("%4d\t%f\t%3.0f\n", map.id(iCell) , K , stepSize);
+            if(0) % This approach doesn't work as average resistance goes down obviously as channels close
+                avRtot = 0;
+                for(iSweep=1:length(ds.data))
+                    avRtot = avRtot + ds.data(iSweep).vars(35).value;
+                    temp(iSweep) = ds.data(iSweep).vars(35).value;
+                end
+                avRtot = avRtot/length(ds.data);
+                figure; plot(temp);
+
+                fprintf("%4d\t%f\t%3.0f\t%f\n", map.id(iCell) , K , stepSize , avRtot);
+            end
             
-            fprintf("%4d\t%f\t%s\t%f\t%3.0f\n", map.id(iCell) , ds.data(1).vars(35).value , ds.data(1).vars(35).units , K , stepSize);            
+            % fprintf("%4d\t%f\t%3.0f\n", map.id(iCell) , K , stepSize);            
+            % fprintf("%4d\t%f\t%s\t%f\t%3.0f\n", map.id(iCell) , ds.data(1).vars(35).value , ds.data(1).vars(35).units , K , stepSize);       
+            %fprintf("%4d\t%f\t%3.0f\t%f\n", map.id(iCell) , K , stepSize , ds.data(1).vars(35).value ); % This one is great though, exactly because sweep 1 is empty
+            
+            if(length(bag)==0) % First run
+                fprintf("   id    Vprime     Rtotal\n");
+            end
+            fprintf("%4d\t%f\t%f\n", map.id(iCell) , K , ds.data(1).vars(35).value ); % This one is great though, exactly because sweep 1 is empty
+            
             % ds.data(1).vars(35).value is supposedly a total R, stored in the file itself
-            % I used this nano-script to look into this metadata (once the file is loaded). Most are empty, but number 35 seems ot have R total:
-            % 35	RTot1	MOhm	2.676699e+03
+            %
+            % I used this nano-script to look into this metadata (once the file is loaded). Most are empty, but number 35 seems ot have R total:            
             % for(i=1:76); fprintf("%d\t%s\t%s\t%s\n", i, ds.data(1).vars(i).info , ds.data(1).vars(i).units , ds.data(1).vars(i).value ); end;
+            %
+            % And there seems to be a line here about some sort of total resistance: 35	RTot1	MOhm	2.676699e+03
+            %
+            % Interestingly, it also contains this row: 71	Amp 1 Ch 1 XCmd sens	A/V	4.000000e-10
         end
         
         for(iSweep=1:nSweeps) % Find maxima (probably spikes)
