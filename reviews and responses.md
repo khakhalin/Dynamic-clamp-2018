@@ -161,15 +161,13 @@ In this updated version, we consistently use "spikiness" as a name for the varia
 tectal neurons. Were the neurons healthy? What was the average resting membrane potential? Were
 there any set criteria for Rm, Vm, or access resistance?
 
-Thank you for noticing that: we have an order of magnitude mistake here (and we are duly ashamed of it). The average membrane resistance was 3.30 GOhm. 
+Thank you for catching this error! We had an order of magnitude typo here, and the average membrane resistance was in fact 3.2±1.5 GOhm. This value is a bit higher than reported earlier (1.2±0.8 GOhm in Ciarleglio Khakhalin 2015; ~1.1 in Khakhalin 2011), but within what can be reasonably expected for healthy neurons of this size. To make sure that this number reflects our observations, for the purpose of this response, we verified this value by reanalyzing our data offline, and obtained a similar estimation for the average membrane resistance (2.9±1.4 GOhm). We have several reasons to believe that the cells included in this study were healthy. First, the access resistances obtained were good (30±14 MOhm, which is similar to benchmark 50±23 in Ciarleglio Khakhalin 2015, and ~20-30 MOhm in Khakhalin 2011), indicating that higher membrane resistance is not likely to be due to poor access. Second, our neurons reliably produced spikes in current clamp mode, and active currents in response to membrane depolarization in voltage clamp mode, and the quantification of these active conductances yielded numbers similar to those reported before (Ciarleglio Khakhalin 2015). The quality of voltage clamp, as judged by the absence of escaping active currents in IV protocols, was good in the majority of neurons (82% of all neurons recorded). Finally, a few cells that had their membrane resistance change drastically during the recording session, were discarded at the data collection stage. We did not measure the resting potential directly, but measured the holding current necessary to bring the cell to -60 mV in voltage clamp mode, and the mean value of this I_hold value was -8.2±4.8 pA, which is not higher tha what was previously recorded in the literature (19.8±16.6 in Ciearleglio Khakhalin 2015). 
 
-TODO: is it even true? Or are these the Gigaseal values, pre-patch?
-
-Smallest membrane resistance observed was 1 GOhm, maximal access resistance 110 MOhm, with the average of 30 MOhm. We did not measure Vm, but measured the holding current necessary to bring the cell to -60 mV; the mean value of this I_hold is -8.16 pA, the resting membrane potential can be estimated from this value with a formula Vm = -60 mV + Rm*I_hold.
-
-All data for all cells is available at:
+Overall, these arguments make us believe that the quality of our patches was good enough to draw the conclusions reported in the study. Note that all data for all cells is available at the following address:
 https://github.com/khakhalin/Dynamic-clamp-2018/blob/master/Data/data_mainInput.txt
-(In this dataset, groups "Naive", "SlowF", and "SlowC" should be ignored, as they were not included in the study. Note also that github doesn't show columns correctly, so it may be better to download the file if you want to study it closerly)
+In this dataset, groups "Naive", "SlowF", and "SlowC" should be ignored, as they were not included in the study. Note also that github doesn't show columns correctly, so if you want to inspect the data, we recommend that you download it and open it in a spreadsheet.
+
+As the mistake your noticed (thank you again for being so thorough!) was a typo in the text, and not a mistake in the data, it does not affect any other calculations reported in this paper.
 
 
 > Figure 1 D and E: The average number of spikes fired as a function of conductance duration and all at 3

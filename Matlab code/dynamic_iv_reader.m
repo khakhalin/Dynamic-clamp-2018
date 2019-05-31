@@ -6,11 +6,11 @@ function dynamic_iv_reader()
 
 folderName = 'C:\_Data\_Silas\';
 flagConsoleOutput = 1;              % Whether reading files should be reported
-flagFitPassiveParams = 1;           % Use fancy exponential fit to estimate passive properties
+flagFitPassiveParams = 0;           % Use fancy exponential fit to estimate passive properties
 flagRunIVAnalysis = 0;              % Once I(V) are calculated, whether they should be fit, for each cell
 
-showFigPassive = 1;                 % If we want to see passive fit figure
-showFigActive = 0;                  % Whether figures are to be shown
+showFigPassive = 0;                 % If we want to see passive fit figure
+showFigActive = 1;                  % Whether figures are to be shown
 
 map = dynamic_what_is_where();      % Retrieve a hard-coded map of file names
 % S has the following fields that are all arrays:
@@ -41,7 +41,7 @@ fit_s = fitoptions('Method','NonlinearLeastSquares',...
 
 nCells = length(cellList);
 for(iCell=cellList)
-    if(~isnan(map.iv(iCell)))
+    if(~isnan(map.iv(iCell)) & map.group(iCell)<=5)     % This time, only analyze those groups that matter for the study (not Naive and slow ones)
         fileName = [folderName map.folder{iCell} '\' num2str(map.prefix(iCell)) '_' sprintf('%03d',map.iv(iCell)) '.cfs'];
         if(0)
             fprintf('%4d \t%4d \t%10s \t%s\n',iCell,map.id(iCell),map.folder{iCell},fileName);

@@ -1,6 +1,5 @@
 # Dynamic study of intrinsic plasticity:
 # Analysis of everything that isn't raw spike data.
-# Version Dec 09 2018
 
 # install.packages("lme4") # This one is required for lmerTest to work
 # install.packages("lmerTest")
@@ -60,9 +59,20 @@ sd(d$medial,na.rm=T)
 min(d$medial,na.rm=T)
 max(d$medial,na.rm=T)
 
-d$rm = d$rm/10  # The original data file used weird units. Now it's in GOhm
+# --- Passive values, basics ---
+mean(d$ra, na.rm=T) # 30 MOhm
+sd(d$ra, na.rm=T) # 14 MOhm
 
-# Tuck down two extreme outlier cells
+mean(d$rm, na.rm=T) # 3.19 GOhm
+sd(d$rm, na.rm=T) # 1.46
+min(d$rm, na.rm=T) # 1
+ggplot(data=d,aes(rm)) + theme_minimal() + geom_bar()
+
+mean(d$ihold)
+sd(d$ihold)
+ggplot(data=d,aes(ihold)) + theme_minimal() + geom_bar(width=1)
+
+# Tuck down two extreme cells with outlier values of estimated tuning (but preserve ranks)
 ggplot(data=d) + theme_bw() + geom_point(aes(samp,sbend))
 domit = d
 domit = mutate(domit, sbend = ifelse(sbend<0.5,sbend,0.5)) # From 1 to 0.5
