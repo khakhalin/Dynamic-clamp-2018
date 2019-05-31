@@ -1,16 +1,16 @@
 # Dynamic Clamp spiking data analyzer
-# version Dec 09 2018
 
 require(ggplot2)
 require(dplyr)
 require(reshape2)
+require(tidyr)
 # install.packages("lmerTest") # Mixed ANOVAs
 require(lmerTest)
 
 rm(list = ls())  # Clear workspace
 
 # ----- Read and prepare spike data ----
-d = read.table("Dynamic-clamp-2018-git/Data/data_outDataset.txt",header=T) # Update the path as necessary
+d = read.table("5_Dynamic clamp/Git - Dynamic/Data/data_outDataset.txt",header=T) # Update the path as necessary
 d = subset(d,is.element(Group,c(0,1,2,3,4,5))) # Remove slow and naive
 d = mutate(d,Group = recode_factor(Group,"0"="Control","2"="Flash","1"="Looming",
                 "3"="Sound","4"="Sync","5"="Async","6"="Slowc","7"="Slowf","8"="Naive"))
@@ -42,9 +42,18 @@ d1 = d %>% group_by(Cell) %>%
   summarize(Cell=Cell,ms=ms,sa=coef(fsa)[2],ss=coef(fss)[3],ms2=coef(fsa)[1])
 head(d1)
 
-
-# Sence-check if mean term is too different from simple mean (they are almost the same)
+# Sence-check if mean term is too different from simple mean (they are pretty similar)
 ggplot() + theme_bw() + geom_point(data=d1,aes(ms,ms2)) # Basically the same, doesn't matter
+
+# One of reviewres asked whether spiking at 500 ms is a predictor for spiking at 1000 ms
+head(d)
+temp <- d %>% filter(Shape %in% c(3,4)) %>% 
+  group_by(Cell,Shape) %>% 
+  summarize(m=mean(Spikes))
+temp <- spread(temp,Shape,m)
+temp <- temp %>% dplyr::select(Cell,t3=2,t4=3) # These 2 and 3 here are col numbers, not col names
+head(temp)
+cor.test(temp$t3,temp$t4)
 
 # Testbed for quadratic lm formulas we use:
 t = c(1,2,3,4)-1

@@ -178,9 +178,15 @@ of spikes with 500ms then it will typically fire less at 1000ms duration? Althou
 responses are shown in 1D, it is impossible to follow the number of spikes fired by any individual neuron
 in response to the different conductance durations.
 
+At least for high-spiking neurons, the answer to this question can actually be inferred from Figure 1D: those curves that are placed high on the graph for duration of 500 ms, also tend to remain high for 1000 ms, indicating that high-spiking neurons tend to be high-spiking across the range of durations. Numerically, the correlation coefficient between the average number of spikes in response to 500 and 1000 ms, across all neurons, is r=0.94. Arguably, this was to be expected as intrinsic excitability of neurons (whether the neuron is spiky or not) is a much stronger feature than the temporal tuning. (Temporal tuning in the tectum was not even described until this paper, while the variation in intrinsic excitability in the tectum is well known for more than 20 years).
+
+
 > Figure 4 D, E and F: Is “spikiness” synonymous with “N Spikes”? If these terms do not mean the same
 thing, they should be defined. If they do mean the same thing, then one term should be chosen and
 used consistently throughout.
+
+As described above, "spikiness" is now consistently used across the manuscript as the name of one of three variables used to quantify intrinsic tuning of tectal neurons.
+
 
 ## Reviewer 3
 
