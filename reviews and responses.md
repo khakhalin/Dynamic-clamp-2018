@@ -34,19 +34,17 @@ This Bollmann and Engert reference does not address mechanosensory and auditory 
 shows that the RGC inputs form a topographic map along the proximal-distal axis of individual tectal
 neuron dendrites. This reference should be replaced with an appropriate reference.
 
-We replaced this sentence with the following sentence: "This was not necessarily surprising, as auditory and mechanosensory inputs are known to have different cellular targets in the tectum (Pratt and Aizenman, 2009; Felch et al., 2016; Truszkowski et al., 2017), and thus can recruit tectal excitatory and inhibitory networks to a different extent."
-
 > Also, how can having different subcellular targets could explain the results? This concept needs to be
 clarified – an example would be helpful.
 
-We now added the following sentence to the text: "Alternatively, acoustic stimuli may be inherently weaker in triggering plasticity effects in tectal neurons, as compared to visual inputs, they arrive at different subcellular compartments within the dendritic tree (Hiramoto and Cline, 2009; Deeg et al., 2009), which can affect their influence on neuronal plasticity (Richards and Lillicrap, 2019)."
+We replaced this sentence with the following one: "This was not necessarily surprising, as mechanosensory and visual inputs have different cellular targets in the tectum (Pratt and Aizenman, 2009; Felch et al., 2016; Truszkowski et al., 2017), potentially leading to different recruitment of tectal excitatory and inhibitory circuits. Acoustic stimuli may also be inherently weaker than visual stimuli in triggering plasticity effects in tectal neurons, as they arrive at different compartments within the dendritic tree (Hiramoto and Cline, 2009; Deeg et al., 2009), which may shape their influence on neuronal plasticity (Richards and Lillicrap, 2019)."
 
-The actual rationale here is that inputs to different parts of the dentritic tree can trigger action potentials of different shape, and differentially affect calcium dynamics in the neuron, which, together with non-linear processing in dendrites may make different types of inputs unequal in terms of their effects on neuronal activity at one hand, and their impact on their tuning on the other. Two extreme examples of this effect would be the impact of climbing fibers on the activity of Purkinje cells in the cerebellum, and inputs to the apical dendrites of pyramidal cells in the cortex. However, we feel that this topic is really deep, yet somewhat tangential to the main message of the paper, so we tried to limit our exposition to this short sentence with a reference.
+Here, the actual rationale for the second explanation (a difference in subcellular targets) is that inputs to different parts of the dentritic tree can trigger action potentials of different shape, and differentially affect calcium dynamics in the neuron, which, together with non-linear processing in dendrites may make different types of inputs unequal in terms of their effects on neuronal activity, and neuronal tuning, respectively. Two extreme examples of this effect would be the impact of climbing fibers on the activity of Purkinje cells in the cerebellum, and the impact of inputs to the apical dendrites of pyramidal cells in the cortex. We feel, however, that this topic is really deep, yet somewhat tangential to the main message of the paper, so we tried to limit our exposition to it by short sentence and a good recent reference.
 
 > Page 13 line 46: The authors use the term “distributed sensory network” . Is a “distributed” network a
 special type of sensory network?
 
-Technically, even two neurons form a network (a true mathematician would probably argue that even one neuron forms a network!), so we tried to remind the reader that the tectal network is a relatively large one, with broad recurrent excitation, and in which different parts of the sensory input are processed in parallel. Thus we used the word "distributed", as in "distributed computations", as opposed to more local and covergent networks, such as, for example, the Mauthner cell network in the hindbrain. If you think that this word is not appropriate here, please let us know, and we'll remove it.
+Technically, even two neurons form a network (and a true mathematician would probably argue that even one neuron forms a network!), yet the tectal network is a relatively large one, with broad recurrent excitation, and in which different parts of the sensory input are processed in parallel. To subtly remind the reader about that, we used a word "distributed", as in "distributed computations", as opposed to more local and covergent networks, such as, for example, the Mauthner cell network in the hindbrain. This word is often used in writing (a Google Scholar search for `"distributed network" brain` returns 27000 hits), but admittedly it is not a precisely defined term, but rather a useful qualifier. If you think that this word is not appropriate here, please let us know, and we will remove it.
 
 > Page 3, line 26,27,28: “In the tadpole tectum, looming stimuli are known to elicit stronger responses
 compared to instantaneous inversions, yet the suppression yielded by looming stimuli was weaker”.
@@ -54,9 +52,9 @@ The logic of this sentence is not clear. Why exactly would the authors not expec
 stimuli that is known to elicit stronger (synaptic?) responses would also cause less suppression (of action
 potentials?) than does flashes?
 
-This was unexpected as intrinsic plasticity is typically described as a homeostatic mechanism, and thus a stronger stimulus should, in principle, cause stronger suppression of spiking. To make it more clear, we now changed this sentence:
+This was unexpected as intrinsic plasticity is typically described as a homeostatic mechanism, and thus a stronger stimulus could, in principle, cause stronger suppression of spiking. To make this point more clear, we now changed this sentence:
 
-"This was likewise unexpected, as compared to flashes, looming stimuli are known to elicit stronger tectal responses (Khakhalin et al., 2014; Khakhalin, 2019), yet their effect on neuronal excitability was weaker, seemingly violating the principle of homeostatic plasticity (Pratt and Aizenman, 2007; Turrigiano, 2007)."
+"This was likewise unexpected, as compared to flashes, looming stimuli are known to elicit stronger tectal responses (Khakhalin et al., 2014; Khakhalin, 2019), yet their effect on neuronal excitability was weaker, seemingly in contradiction with the principle of homeostatic plasticity (Pratt and Aizenman, 2007; Turrigiano, 2007)."
 
 ### Major
 
@@ -64,18 +62,18 @@ This was unexpected as intrinsic plasticity is typically described as a homeosta
 pattern/strength of synaptic input? If so, this data should be shown. If not, it should be made clear that
 this is an assumption/ theoretical prediction.
 
-In the submitted document, these lines said:
+In the originally submitted pdf, lines 2 to 5 read:
 
 "We then examined whether different types of sensory activation would differentially reshape  
 temporal intrinsic tuning in tectal neurons. As changes in intrinsic properties seemed  
 homeostatic (increased activation led to reduced spiking), by the same logic, one could
 expect shorter stimuli (flashes) to selectively suppress responses to shorter synaptic inputs."
 
-Here we are not talking about our conditional stimuli alterning the pattern of synaptic inputs; we just refer to the fact that during the stimulation, shorter stimuli (such as instantaneous flashes, that are technically the shortest stimuli possible) would cause faster visual inputs to the tectum, compared to longer stimuli (second-long continuous transitions) that would cause slower inputs. In this study, we did not measure actual synaptic responses in the tectum during conditioning, but from previous studies we know that responses to flashes are actually much shorter than responses to looming stimuli (Khakhalin 2014), as described in the beginning of the "Results" section, and then again in the "Methods".
+Here we are not implying that our conditional stimuli altered the pattern of synaptic inputs; rather, we refer to the fact that _during_ the stimulation, shorter stimuli (such as instantaneous flashes, which technically makes them the shortest stimuli possible) would cause faster visual inputs to the tectum, compared to longer, continuous transitions (second-long looms). Within this study, we did not measure actual synaptic responses in the tectum during conditioning, but from previous studies, we know that responses to flashes are indeed much shorter than responses to looming stimuli (Khakhalin 2014, Khakhalin 2019). We refer to these studies in the beginning of the "Results" section, and then again in the "Methods".
 
-We now changed the wording of this sentence, to make this logic clearer.
+For page 5, we now changed the wording, to make this logic clearer.
 
-"As changes in intrinsic properties seemed homeostatic (increased activation led to reduced spiking), by the same logic, one could expect that exposure to shorter sensory stimuli (flashes; Khakhalin et al. 2014) would selectively suppress spiking in repsonse to shorter synaptic inputs."
+"As changes in intrinsic properties seemed homeostatic (increased activation led to reduced spiking), by the same logic, one could expect that exposure to shorter sensory stimuli (instantaneous flashes; Khakhalin et al. 2014) would selectively suppress spiking in response to faster synaptic inputs."
 
 
 > Page 5, line 5: “As changes in intrinsic properties seemed homeostatic (increased activation led to
@@ -88,17 +86,17 @@ turn led to the observed decrease in number of spikes fired? This is critical to
 Second, do the authors mean to say that shorter stimuli would actually (somehow) suppress responses?
 How would that work?
 
-All our measurements of the number of spikes relied on the dynamic clamp experiments, that used simulated synaptic inputs, and not real synaptic stimulation. It means that any changes in spiking we observed in the previous section of the results is necessarily coming from the change in intrinsic properties. While a change in the synaptic strength in response to sensory stimulation is possible, and indeed is investigated below in this paper, it would not have affected the number of spikes we reported in figures 1 and 2, as they were recorded in dynamic clamp experiments.
+Our measurements of spiking output relied on dynamic clamp experiments, in which we used simulated synaptic inputs, and not real synaptic stimulation. It means that any changes in spiking output we report in this paper are necessarily coming from the change in intrinsic properties. While a change in the strength of synaptic inputs  in response to sensory stimulation is possible, and indeed was observed and investigated in later sections of this paper, it would not have affected the number of spikes we reported in figures 1 and 2, as they were recorded in dynamic clamp experiments.
 
-As described above, to make this point more clear, we now reworded this sentence:
+With the new wording of this sentence, we tried to make this point more clear:
 
-"As changes in intrinsic properties seemed homeostatic (increased activation led to reduced spiking), by the same logic, one could expect that exposure to shorter sensory stimuli (flashes; Khakhalin et al. 2014) would selectively suppress spiking in repsonse to shorter synaptic inputs."
+"As changes in intrinsic properties seemed homeostatic (increased activation led to reduced spiking), by the same logic, one could expect that exposure to shorter sensory stimuli (instantaneous flashes; Khakhalin et al. 2014) would selectively suppress spiking in response to faster synaptic inputs."
 
 
 > Page 5 line 15: Does the word “preferred” (in quotes) mean that the cells fired more action potentials?
 Maybe refrain from personification.
 
-We hope that the word "prefer" is intuitive enough to most readers, and it is also way shorter than "responded with more spikes", or "produced more action potentials", which allows for easier writing, and hopefully better reading. Realistically, we believe that most readers of this article will not be at risk of truly personifying neurons, so while we take care to never personify animals, we are intentionally a bit more relaxed when writing about cells, channels, receptors etc. Still, to make this sentence better, we removed the quotes around "preferred", to make it more obvious that it is not an antropomorphic allegory, but just a normal word use. Overall, we use the word "prefer" 6 times in the paper, always in the same way, when comparing spiking responses to different stimuli.
+We hope that the word "prefer" is intuitive, and it has a benefit of being way shorter than "responded with more spikes", or "produced more action potentials", which hopefully makes reading easier. Realistically, we hope that most readers of this article will not be at risk of truly personifying neurons, so while we take care to never personify animals, we are intentionally a bit more relaxed when writing about cells, channels, receptors etc. Still, to make this sentence better, we removed the quotes around "preferred", to make it more obvious that it is not an antropomorphic allegory, but just a normal word use. Overall, we use the word "prefer" 6 times in the paper, always in the same way: when comparing spiking responses to different stimuli, to describe the stimulus that produced sronger outputs in a given set of neurons.
 
 
 > Bottom of page 5, “Effects of acoustic and multisensory stimulation:
@@ -119,7 +117,7 @@ tectal circuits during conditioning”. How can the authors know this? Instead, 
 directly by recording click-evoked responses from tectal neurons? Or, if tectal cell responses to auditory
 stimuli have been described in previous work, this should be included here.
 
-Unfortunately, recording of tectal reponses to sounds in tadpoles does not seem to be possible at present, not just in our lab (where we don't posess the technical capability to perform in-vivo experiments), but in most labs. Technically, the problem amounts to two limitations: one, to record from a tadpole, one has to paralyze it with a nicotinic receptor anatagonist, which seems to disrupt hearing. Second, even if this limitation is overcome, the sounds has to be strong enough to stimulate the inner ear, but weak enough not to disrupt a recording. Conceivably, both challenges may be overcocme with the use of high speed calcum imaging in freely moving tadpoles, but this is also challenging, and to our knowledge no lab has attempted these recordings yet.
+Unfortunately, electrophysiological recording of tectal reponses to sounds in tadpoles does not seem to be technically feasible, not just in our lab (where we don't even have the technical capability to perform in-vivo experiments), but in most labs. From the technical point of view, the problem amounts to two limitations: one, to record from a tadpole, one has to paralyze it with a nicotinic receptor anatagonist, which seems to disrupt hearing. Second, even if this limitation could be overcome, the sounds have to be strong enough to stimulate the inner ear, but weak enough not to mechanically disrupt the recording. Conceivably, both challenges may circumvented with the use of high speed calcum imaging in freely moving tadpoles, but to our knowledge no lab has attempted these recordings yet.
 
 To show that our statement is just a conjecture, we replaced "suggets" with "may suggest" in this sentence: "This may suggest that acoustic stimuli did not activate tectal circuits strongly enough during conditioning..."
 
@@ -127,7 +125,7 @@ To show that our statement is just a conjecture, we replaced "suggets" with "may
 > Page 6 line 24: Remove the phrase “are not easily interpretable”. Instead, please interpret your data
 clearly.
 
-We removed this phrase from the main text.
+We removed this phrase.
 
 
 > Page 9: The authors report that the synaptic data show that “prolonged sensory activation with short,
@@ -136,34 +134,33 @@ potentiation of visual inputs from the eye”.
 How do the authors know the effect is selective for RGC inputs? It appears that they only measured
 RGC-evoked responses. Auditory/mechanosensory -evoked responses were not reported.
 
-Stimulation in the optic chiam evokes two types of synaptic responses in tectal cells: direct short-latency responses, and delayed recurrent inputs from other cells in the tectum. By looking at average currents early and later after the chiasm shock, we can independently assess the contribution of direct and recurrent inputs. In the paper, in a paragraph before the sentence in question, we report that after stimulation, direct current increased in amplitude, while recurrent currents remained unchanged. This is what we call selective potentiation of direct inputs, as opposed to recurrent inputs. We do not claim that mechanosensory inputs did not change, as we have not recorded auditory responses in this study (recordings of auditory responses are considerably more difficult; see Felch 2016).
+Stimulation in the optic chiam evokes two types of synaptic responses in tectal cells: direct short-latency responses, and delayed recurrent inputs from other cells in the tectum. By looking at average currents early and later after the chiasm shock, we can independently assess the contribution of direct and recurrent inputs. In the paper, in a paragraph before the sentence in question, we report that after stimulation, direct current increased in amplitude, while recurrent currents remained unchanged. This is what we call selective potentiation of direct inputs, as opposed to recurrent inputs. We do not claim that mechanosensory inputs did not change, as we have not recorded auditory responses in this study (recording of auditory responses is considerably more difficult; see Felch 2016).
 
-To make sure that we are not misunderstood by the reader, we replaced the original sentence with the following two sentences: "This shows that prolonged sensory activation with short, frequent stimuli reshaped synaptic transmission in the tectum, making it faster through selective potentiation of visual inputs from the eye, compared to recurrent inputs within the tectum that remained unchanged. In this study, we did not perform a similar analysis for acoustic projections from the hindbrain."
+To make sure that we are not misunderstood by the reader, we replaced the original sentence with the following two sentences: "This shows that prolonged sensory activation with short, frequent stimuli reshaped synaptic transmission in the tectum, making it faster through selective potentiation of visual inputs from the eye, compared to recurrent inputs within the tectum, that remained unchanged. In this study, we did not probe changes in acoustic and mechanosensory projections from the hindbrain."
 
 
 > Page 9 line 9: “cells exposed to stronger stimuli preferred shorter synaptic inputs in dynamic clamp…”
 Here, (where “preferred” is not in quotes) does “preferred” mean to fire more action potentials?
 
-Yes, as we answered above, we now don't use quotation marks for any of the words that aid writing and understanding, so "preferred" consistently means "responded preferably", or "produced stronger responses".
+As described above, we now don't use quotation marks for any basic words, so "preferred" is used without quotation marks, and consistently means "responded preferably", or "produced stronger responses".
 
 
 > Page 10 (last paragraph): Were action potential thresholds measured? Were there any differences in
 this parameter across groups?
 
-We did not measure action potential thresholds, as we knew from the previous study (Ciarleglio Khakhalin 2015) that potential threshold measurements in tadpole tectal neurons are unreliable, in the sence that they strongly depend on the current that is used to evoke the spikes; this is almost certainly due to rapid Na channels inactivation.
+We did not measure action potential thresholds, as we know from the previous study (Ciarleglio Khakhalin 2015) that threshold measurements in tadpole tectal neurons are highly sensitive to the current that is used to evoke the spikes, due to rapid Na channels inactivation (Azouz 2000; Fontaine 2014).
 
 
 > Page 10 line 8: The “correction for position” is difficult to understand here and in Methods. Why was a
 linear regression used – and how is it determined to generate an accurate “correction”? How do the
 data look without this correction?
 
-The linear regression is used because it is the simplest way to compensate for a confounding variable (see ANCOVA, or linear models with confounding variables in general). Linear models are the "default" approach in statistics, and are typically used when the exact relation between two variables is unknown, or when the amount of noise is so high that practically there is no difference between linear and conceivable curvilinear regressions. Both situations apply here.
+It was a mental typo: we should have used the standard term "adjusted for position"; thank you for noticing that! We performed a standard adjustment for a covariate, as used in ANCOVA and other types of general linear model analysis. We used a linear model, as it is a "default" approach when the exact relation between two variables is unknown, and the amount of noise is high enough to make the difference between linear and curvilinear regressions negligible (both cases apply here).
 
-There is no way for us to determine whether our adjustment is "accurate", as there is no experimental way to make more caudal (and thus younger) cells in the tectum older. This situation is not unique however, as it arises in any study that uses linear models, in any field, from ecology to social sciences. When running a study in a human population, if a variable of interest depends on age, one would typically adjust for age by including age as a covariate in the linear model. Here we perform the same standard procedure. After rereading the manuscript, we realized that we used terms "adjustment", "correction", and, in one case, "compensation" interchangeably, which might have led to some confusion. To stress that we are talking about a basic statistical technique of covarate elimination, we now consistently use the term "adjustment" throughout the manuscript.
+There is no way for us to determine whether our adjustment is "accurate", as there is no clear way to make more caudal (and thus developmentally younger) cells in the tectum older. This situation is not unique however, as it arises in any field that uses linear models, from ecology to social sciences. When running a study in a human population, if a variable of interest depends on age, one would typically adjust for age by including age as a covariate in the linear model. Here we perform the same standard procedure. After rereading the manuscript, we realized that we used terms "adjustment", "correction", and, in one case, "compensation" interchangeably, which obviously led to confusion. We now consistently use the term "adjustment" throughout the manuscript.
 
-In the paper, we do not report how the data would have looked without this adjustment for covariates, as it would not be statistically sound to run a linear model with a known covariate without including it. In most cases, it may be expected to underestimate effects for analyses across groups (as the effect of the covarate would be included in the error), and overestimate effects for explanatory linear models in the second half of the paper (as the covariate would contribute to both the dependent, and the independent variables in the model). For each particular comparison, however, both d, F and p values would differ by a small random value. For example, when the measure of "spikness" (one of the three tuning parameters) is compared across groups, a correct analysis with adjustment for position (`smean~rostral+medial+group`) produces a p-value of 0.01. Without adjustment (`smean~group`) we get a p-value of 0.03. For temporal tuning, correct analysis (`sbend~rostral+medial+group`) gives p=0.0304, and if covariate is left unadjusted (`sbend~group`) we get p=0.029. Similarly, for amplitude tuning, we get p=0.00209 for correct analysis, and p=0.0024 for unadjusted analysis. For the analyses in which temporal tuning and ampliltude coefficients were explained through intrinsic parameters, the optimal models were not qualitatively different between adjusted and unadjusted data, but all values in the table were slightly different.
-
-If you would like us to numerically re-run any part of the analysis without a position adjustment, please let us know which part you would like to see. All scripts that produce technical checks, visualizations, and analyses related to this adjustment are available for inspection at: 
+In the paper, we do not report how the data would have looked without an adjustment for covariates, as it would not be statistically sound to run a linear model with a known covariate without including this covariate in the analysis. For this response, we ran some of the analyses without a covariate, and did not find qualitative differences, although numerical values of "uncorrected" d, F and p values were of course different from those reported in the paper. For example, when the measure of "spikness" (one of the three tuning parameters) is compared across groups, a correct analysis with adjustment for position (`smean~rostral+medial+group`) produces a p-value of 0.01. Without adjustment (`smean~group`) we get a p-value of 0.03. For temporal tuning, correct analysis (`sbend~rostral+medial+group`) gives p=0.030, and if covariate is left unadjusted (`sbend~group`) we get p=0.029. For amplitude tuning, we get p=0.0021 for correct analysis, and p=0.0024 for unadjusted analysis. For the analyses in which temporal tuning and ampliltude coefficients were explained through intrinsic parameters, optimal models were not different between adjusted and unadjusted data, but all values in the table were slightly different. If you would like us to numerically re-run any other part of the analysis without a position adjustment, please let us know which part you would like to see. Also, all scripts that produce technical checks, visualizations, and analyses related to this adjustment are available for inspection at:
+ 
 https://github.com/khakhalin/Dynamic-clamp-2018/blob/master/dynamic_other_vars.R
 
 
@@ -173,24 +170,26 @@ excitability, spikiness, number of spikes, and intrinsic spikiness that probably
 maybe not. If these terms all mean the same thing, then one term should be chosen and used
 throughout. If they all refer to different entities, then each one should be clearly defined.
 
-In this updated version, we consistently use "spikiness" as a name for the variable that is for the first time introduced in Figure 2C. For earlier results section, we replaced "spikiness" with "average number of spikes", and in all instances when we talked about the general idea of neuronal excitability, we called it neuronal excitability. As the only exception to this rule, we opted for the word "spikiness" in the first paragraph of Introduction, to prime the reader for the use of this word later in the text. 
-
-The expression "Intrinsic spikiness" is no longer used in the text.
-
-The expression "Intrinsic excitability" is now used only as a name for the general phenomenon, that technically may be probed with different alternative protocols and measures. In this  study, we mostly assess it using a more narrowly defined "spikness" variable, and then, towards the end, using a less informative measure of the number of spikes observed in current clamp experiments. In the text, we now consistely use "intrinsic excitability" when we make inferences about the actual properties of the neuron, and use "spikiness" when we talk about the actual value we calculated to assess and quantify intrinsic excitability.
+Thank you for making us get more consistent here! In this updated version, we consistently use "spikiness" as a name for the variable that is for the first time introduced in Figure 2C. When writing about the average number of spikes, we now just call it the "average number of spikes", and not "spikiness". As the only exception to this rule, we opted for the word "spikiness" in the first paragraph of Introduction, to prime the reader for the use of this word later in the text, even though strictly speaking it is a sentence about intrinsic excitability. The expression "intrinsic spikiness" is no longer used. The expression "intrinsic excitability" is now used only as a name for the underlying property of the neuron, that may be probed with different alternative protocols and measures. In this study, we mostly assess intrinsic excitability using a more narrowly defined "spikiness" variable, but towards the end of the paper, we also compare it to a less informative measure of the number of spikes observed in current clamp experiments. We use "intrinsic excitability" when we make inferences about the actual properties of the neuron, and use "spikiness" when we talk about the actual numerical value calculated to assess and quantify intrinsic excitability.
 
 
 > Page 15 line 34: The average membrane resistance (330 MOhm) seems a bit low for these small immature
 tectal neurons. Were the neurons healthy? What was the average resting membrane potential? Were
 there any set criteria for Rm, Vm, or access resistance?
 
-Thank you for catching this error! We had an order of magnitude typo here, and the average membrane resistance was in fact 3.2±1.5 GOhm. This value is a bit higher than reported earlier (1.2±0.8 GOhm in Ciarleglio Khakhalin 2015; about 1.1 in Khakhalin 2011), but within what can be reasonably expected for healthy neurons of this size. To make sure that this number reflects our observations, for the purpose of this response, we verified this value by reanalyzing our data offline, and obtained a similar estimation for the average membrane resistance (2.9±1.4 GOhm). We have several reasons to believe that the cells included in this study were healthy. First, the access resistances obtained were good (30±14 MOhm, which is similar to benchmark 50±23 in Ciarleglio Khakhalin 2015, and about 20-30 MOhm in Khakhalin 2011), indicating that higher membrane resistance is not likely to be due to poor access. Second, our neurons reliably produced spikes in current clamp mode, and active currents in response to membrane depolarization in voltage clamp mode, and the quantification of these active conductances yielded numbers similar to those reported before (Ciarleglio Khakhalin 2015). The quality of voltage clamp, as judged by the absence of escaping active currents in IV protocols, was good in the majority of neurons (82% of all neurons recorded). Finally, a few cells that had their membrane resistance change drastically during the recording session, were discarded at the data collection stage. We did not measure the resting potential directly, but measured the holding current necessary to bring the cell to -60 mV in voltage clamp mode, and the mean value of this I_hold value was -8.2±4.8 pA, which is not higher tha what was previously recorded in the literature (19.8±16.6 in Ciearleglio Khakhalin 2015). 
+Thank you for catching this error! We had an order of magnitude typo here, as the average membrane resistance was in fact 3.2 GOhm. This value is a bit higher than reported in earlier studies (1.2±0.8 GOhm in Ciarleglio Khakhalin 2015; about 1.1 in Khakhalin 2011), but within what can be reasonably expected for healthy neurons of this size. To make sure that this number is right, for the purpose of this response, we also verified it by reanalyzing our data offline, and obtained a similar estimation for the average membrane resistance (2.9±1.4 GOhm). 
 
-Overall, these arguments make us believe that the quality of our patches was good enough to draw the conclusions reported in the study. Note that all data for all cells is available at the following address:
+We have several reasons to believe that the cells included in this study were healthy. First, the access resistances obtained were good (30±14 MOhm, which is similar to benchmarks of 50±23 in Ciarleglio Khakhalin 2015, and about 20-30 MOhm in Khakhalin 2011), indicating that higher membrane resistance is not likely to be due to poor access. Second, our neurons reliably produced spikes in current clamp mode, and active currents in response to membrane depolarization in voltage clamp mode. Moreover, our quantification of these active conductances yielded numbers similar to those reported before (Ciarleglio Khakhalin 2015). The quality of voltage clamp, as judged by the absence of escaping active currents in IV protocols, was good in the majority of neurons (82% of all neurons recorded). Finally, a few cells that had their membrane resistance change drastically during the recording, were discarded at the data collection stage, and not included in this study. 
+
+We did not measure the resting membrane potential directly, but measured the holding current necessary to bring the cell to -60 mV in voltage clamp mode, and the mean value of this I_hold value was -8.2±4.8 pA, which is similar (most importnatly, not higher) than what was previously reported in the literature (-19.8±16.6 in Ciearleglio Khakhalin 2015). 
+
+Together, these arguments make us believe that the quality of our patches was good enough to draw the conclusions reported in the study. Note that all data for all cells is available here:
+
 https://github.com/khakhalin/Dynamic-clamp-2018/blob/master/Data/data_mainInput.txt
-In this dataset, groups "Naive", "SlowF", and "SlowC" should be ignored, as they were not included in the study. Note also that github doesn't show columns correctly, so if you want to inspect the data, we recommend that you download it and open it in a spreadsheet.
 
-As the mistake your noticed (thank you again for being so thorough!) was a typo in the text, and not a mistake in the data, it does not affect any other calculations reported in this paper.
+In this full dataset, groups "Naive", "SlowF", and "SlowC" should be ignored, as they were not included in the study. Note also that if you open this file on github, the columns may look misplaced, as github does not render tab-separated files correctly, so if you want to inspect the data, we recommend that you download it and open it in a spreadsheet.
+
+As the mistake your noticed (thank you again for being so thorough!) was a typo in the text, and not a mistake in the data, it does not affect any calculations reported in this paper.
 
 
 > Figure 1 D and E: The average number of spikes fired as a function of conductance duration and all at 3
@@ -201,14 +200,14 @@ of spikes with 500ms then it will typically fire less at 1000ms duration? Althou
 responses are shown in 1D, it is impossible to follow the number of spikes fired by any individual neuron
 in response to the different conductance durations.
 
-At least for high-spiking neurons, the answer to this question can actually be inferred from Figure 1D: those curves that are placed high on the graph for duration of 500 ms, also tend to remain high for 1000 ms, indicating that high-spiking neurons tend to be high-spiking across the range of durations. Numerically, the correlation coefficient between the average number of spikes in response to 500 and 1000 ms, across all neurons, is r=0.94. Arguably, this was to be expected as intrinsic excitability of neurons (whether the neuron is spiky or not) is a much stronger feature than the temporal tuning. (Temporal tuning in the tectum was not even described until this paper, while the variation in intrinsic excitability in the tectum is well known for more than 20 years).
+At least for high-spiking neurons, the answer to this question can be inferred from Figure 1D: those curves that are placed high on the graph for duration of 500 ms, also tend to remain high for 1000 ms, indicating that high-spiking neurons tend to be high-spiking across the range of durations. Numerically, the correlation coefficient between the average number of spikes in response to 500 and 1000 ms, across all neurons, is r=0.94. This is to be expected, as intrinsic excitability of neurons (whether the neuron is spiky or not) is a much stronger feature than the temporal tuning. (Temporal tuning in the tectum was not even described until this paper, while the variation in intrinsic excitability in the tectum is well known for more than 20 years).
 
 
 > Figure 4 D, E and F: Is “spikiness” synonymous with “N Spikes”? If these terms do not mean the same
 thing, they should be defined. If they do mean the same thing, then one term should be chosen and
 used consistently throughout.
 
-As described above, "spikiness" is now consistently used across the manuscript as the name of one of three variables used to quantify intrinsic tuning of tectal neurons.
+As described above, "spikiness" is now consistently used across the manuscript as the name of one of three variables used to quantify intrinsic tuning of tectal neurons (alongside with temporal tuning and amplitude tuning).
 
 
 ## Reviewer 3
@@ -264,12 +263,12 @@ We now made the introduction clearer, and better organized, going from the big p
 
 > - The rationale for the use of dynamic clamp and the parameters chosen are not clear.
 
-Previously a detailed justification for the use of dynamic clamp was only given in the Discussion section; we now moved it to the end of Introduction.
+Previously a justification for the use of dynamic clamp was only given in the Discussion section; we now moved it to the end of Introduction.
 
 > Is the dynamic clamp current injection protocol mimicking the physiological synaptic
 input? This should be stated.
 
-We updated the next sentence, by adding a reference to it: "We used conductances of 4 different durations (100, 200, 500, and 1000 ms), and 3 different amplitudes (peak conductances of 0.2, 0.5, and 1.0 nS), matching the range of synaptic currents observed in tectal circuits in vivo (Xu et al. 2011; Khakhalin et al. 2014; Ciarleglio et al. 2015; see Methods)."
+We updated next sentence, stressing that the dynamic clamp protocol mimicked physiological synaptic inputs: "We used conductances of 4 different durations (100, 200, 500, and 1000 ms), and 3 different amplitudes (peak conductances of 0.2, 0.5, and 1.0 nS), matching the range of synaptic currents observed in tectal circuits in vivo (Xu et al. 2011; Khakhalin et al. 2014; Ciarleglio et al. 2015; see Methods)."
 
 > - I think the experiment in this study is pretty straightforward, but the description of the
 results is not. As far as I can tell, tadpoles were exposed to different stimuli (flash,
@@ -291,7 +290,7 @@ Thank you; we tried to follow this advice in this revised version of the manuscr
 but sometimes it seems like they are being used interchangeably. This makes
 interpreting the written results difficult to follow.
 
-As described in our responses to Reviewer 2, in this updated version, we consistently use "spikiness" as a name for the variable, for the first time introduced in Figure 2C. For earlier results section, we replaced "spikiness" with "average number of spikes", and in all instances when we talked about the general idea of neuronal excitability, we called it neuronal excitability. As the only exception to this rule, we opted for the word "spikiness" in the first paragraph of Introduction, to prime the reader for the use of this word later in the text.
+As described in our responses to Reviewer 2, in this updated version, we consistently use "spikiness" as a name for the high-level variable, for the first time introduced in Figure 2C; we use "average number of spikes" for the average number of spikes; and "neuronal excitability" in all instances when we talk about the general, undelying idea of neuronal excitability. As the only exception to this rule, we opt for the word "spikiness" in the first paragraph of Introduction, to prime the reader for the use of this word later in the text.
 
 
 > - “Compared to control, neurons from animals exposed to visual stimuli had a flatter
@@ -302,7 +301,7 @@ vice versa is needed to make the whole results section easier to digest.
 
 We improved the sentence:
 
-Compared to control, neurons from animals exposed to visual stimuli had a flatter amplitude tuning curve (**less of a difference between columns of Figure 1D, or between curves in each individual panel of Figure 1E**), as they did not increase their spiking as fast in response to larger conductances
+"Compared to control, neurons from animals exposed to visual stimuli had a flatter amplitude tuning curve (less of a difference between columns of Figure 1D, or between curves in each individual panel of Figure 1E), as they did not increase their spiking as fast in response to larger conductances."
 
 
 > - Excessive wordiness makes the results difficult to read and interpret. For example,
@@ -311,11 +310,9 @@ a different linear relationship (Fig. 3E-F). Why not simply say, “A positive r
 between temporal tuning and synaptic duration implies a co-tuning of preferr
 parameters.”
 
-Of these four paragraphs, the last one reports a negative result that is not shown in Figure 3. The first three paragraphs are indeed dedicated to panels Figure 3EF, but we cannot in good faith replace them with one sentence, as the statement we are making is not statistically obvious. We believe that an attempt to gloss it over by pushing the statistical analysis to the methods section would not be fair. The issue, as we describe in the text, is that while graphs 3E and 3F have similar axes, and both show a linear dependency, they have opposite slopes. Had the slopes be the same, we would have just reported a correlation in one sentence. But with the data we have, we need to be more specific, as we observed that the within-group correlation is positive, yet the between-group correlation is negative: a situation that is typical for larger datasets, but that some readers may not be familiar with.
+Of these four paragraphs, the last one reports a negative result that is not shown in Figure 3. The first three paragraphs are indeed dedicated to panels Figure 3EF, but we cannot in a good faith replace them with one sentence, as the statement we make there is not statistically obvious. We believe that an attempt to gloss it over by pushing the statistical analysis to the methods section would not be fair. The issue, as we describe it, is that while graphs 3E and 3F have similar axes, and both show a linear dependency, they have opposite slopes. Had the slopes be the same, we would have just reported a correlation in one sentence. But with the data we have, we need to be more specific, as we observed that the within-group correlation is positive, yet the between-group correlation is negative: a situation that is not uncommon for large datasets, but that some readers may not be intimately familiar with.
 
-We are aware that this section is read differently by different readers, and we received some conflicting advice in the past about the level of details needed to communicate this message. For example, those who have explicitly discussed Simpson's paradox in their statistics classes typically find our use of this term very helpful, while those who haven't used this term before, may find it distracting. For now, we opt to include it, even though it seems to be appreciated by only one half of our target audience.
-
-Nevertheless, in current version of the paper, we shortened this section from 411 to 294 words.
+We are aware that this section may read differently for different readers, and we received some conflicting advice in the past, about the level of details that is optimal for communicating this message. For example, readers who remember discussing Simpson's paradox in their statistics classes typically find our mentioning of this term helpful, while those who haven't encountered this term before, tend to find it distracting. For now, we opt to include it, even though it seems to be appreciated by only one half of our target audience. Nevertheless, in this new version of the paper, we shortened this section from 411 to 294 words.
 
 
 > - In reference to the text at the bottom of page10: Is it possible to include a summary
@@ -324,7 +321,9 @@ this part of the study was to try and identify electrophysiological mechanism(s)
 explain the tuning variables. The heart of Fig. 4 should be that they don’t, and figure
 that captures this would be helpful.
 
-We are not sure how this fact can be illustrated. We searched for papers that use stepwise linear models, and it seems they do not usually include summary figures to describe these models. (They often include tables, listing R-squared, F, df, and p-values for every component, but as in this paper we are not particularly concerned by the precise composition of our models, we doubt a table like that would be useful here). Do you have any specific type of illustration in mind, in which case, could you provide a reference, or maybe describe it? The only type of illustration we could come up with is a scatterplot that compares values predicted from the model to actual values, but it is already shown in the paper, as Figure 4E.
+We are not sure how this fact can be illustrated. We searched for papers that use stepwise linear models, and it seems that researchers do not typically include summary figures to describe combinatorial model optimization. Some papers that use this method include tables, listing R-squared, F, df, and p-values for every component, but as in our paper we are not particularly concerned with the precise composition of the model, we are not sure that a table like that would be useful. If you have some specific type of illustration in mind, please kindly describe it, or reference it. The only type of illustration we could come up with is a scatterplot that compares values predicted by the model to actual values, as shown on Figure 4E. Some technical papers sometimes also present the model information factor penalty as a function of the number of terms included in the model, but again, we are not sure how useful this type of presentation would be for our paper, as we are not particularly concerned with the composition of the model, and the quality of the information criterion minimum, as our main point here is that the prediction quality of this whole family of models is not great, and we cannot even overfit, as temporal tuning cannot be predicted from standard voltage-clamp-based electrophysiological variables.
+
+For references, see for example: Stine, R. A. (2004). Model selection using information theory and the MDL principle. Sociological Methods & Research, 33(2), 230-260.
 
 
 > - If these data are interpreted as homeostatic (neurons became less excitable
@@ -333,11 +332,9 @@ different firing activities during the different kinds of sensory experience? Fo
 example, does sound engage tectal neurons less than visual stimuli, and might this
 explain some of the trends in the data?
 
-This may indeed explain some of the trends in the data, but unfortately, as we described above, recording of tadpole tectal reponses to sounds does not seem to be possible in our lab, and is fundamentally technically problematic in principle. We can only guess that stimuli so different as flashes, looms, and sound clicks, would produce different responses in the tectum, as their dynamics is drastically different, as they engage different circuits before they rich the tectum (retinal for visual stimuli, hindbrain for acoustic), which undoubtedly shapes the dynamics of tectal activation (based on Khakhalin 2014, Felch 2016, Truszkowski 2017, Khakhalin 2019).
+This may indeed explain some of the trends in the data, but unfortately, as we described above, recording of tadpole tectal reponses to sounds does not seem to be possible in our lab, and is fundamentally technically problematic in principle. We can only guess that stimuli so different as flashes, looms, and sound clicks, would produce different responses in the tectum, as their dynamics is drastically different, and as they engage different circuits before reaching the tectum (retinal circuits for visual stimuli, hindbrain for acoustic), which undoubtedly shapes the dynamics of tectal activation (based on Khakhalin 2014, Felch 2016, Truszkowski 2017, Khakhalin 2019). We now make this point more clear by referencing it in the beginning of the paper (as described above), and then again, at the very end of Discussion, by describing how our observations can be used to predict actual, unobserved activation of the tectum during multisensory stimulation in vivo:
 
-We now make this point more clear by referencing it in the beginning of the paper (as described above), and then again, at the very end of Discussion, by describing how our observations can be used to predict actual, and yet unobserved, activation of the tectum during multisensory stimulation in vivo:
-
-"Finally, based on the multisensory phenomena reported in this paper, we predict that even though multisensory stimulation tends to increase tectal responses in vitro (Felch et al., 2016; Truszkowski et al., 2017), it would be likely to reduce peak activation in vivo."
+"Finally, based on the multisensory phenomena reported in this paper, we predict that even though multisensory stimulation tends to increase tectal responses in vitro (Felch et al., 2016; Truszkowski et al., 2017), it may reduce peak activation in vivo."
 
 &nbsp;
 
