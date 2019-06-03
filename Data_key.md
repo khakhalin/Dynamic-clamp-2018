@@ -60,6 +60,7 @@ Synaptic block:
 
 Current step injections:
 * stepspike - number of spikes in response to current step injections
+* thslope - a slope of spike threshold increase with increasing current injections, in current clamp mode, mV/pA
 
 ### data_manualCounting.txt	
 

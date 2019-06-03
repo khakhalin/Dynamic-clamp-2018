@@ -7,9 +7,9 @@ function dynamic_steps_reader()
 folderName = 'C:\_Data\_Silas\';
 showFigures = 0;                    % Whether figures are to be shown
 figureType = 'pile';                % 'full', 'pile', or 'train'
-consoleOutput = 0;                  % Whether reading files should be reported
-flagFitCurrent = 1;                 % Whether the depolarization curve needs to be measured (dV/dt)
-flagFinalOutput = 0;                % Whether final table is to be shown
+consoleOutput = 1;                  % Report files as they are read
+flagFitCurrent = 0;                 % Measure depolarizatoin curve (dV/dt), report Rtotal from the metadata
+flagFinalOutput = 1;                % Show final table (variable "bag");
 
 
 map = dynamic_what_is_where();      % Retrieve a hard-coded map of file names
@@ -24,6 +24,7 @@ cellList = setdiff(cellList,badCells);
 % cellList = 180:190;                         % Uncomment for testing (to work with selected few recordings only)
 % cellList = [141 198 205];                 % Some random cells for testing
 % cellList = 198;
+% cellList = [48 55 63 68];               % A selection of cells with very different threshold dynamics
 nCells = length(cellList);
 
 xZero =  [30 4900];                         % Region ot measure zero level
@@ -108,6 +109,8 @@ for(iCell=cellList)
         points = [];
         maxSpikes = 0;   
         minInflectionV = NaN;
+        firstSpikeSize = NaN;
+        thresholds = nan(1,nSweeps); 
         for(iSweep=1:nSweeps)
             points{iSweep} = find((z(2:end,iSweep)>=zThreshold)&(z(1:end-1,iSweep)<zThreshold)); % kink points (only positive)
             points{iSweep} = points{iSweep}(points{iSweep}>xSignal(1) & points{iSweep}<xSignal(2));
@@ -115,15 +118,21 @@ for(iCell=cellList)
                 closestPoint = max(points{iSweep}(points{iSweep}<firstMax(iSweep)));    % Last kink point before max
                 points{iSweep} = points{iSweep}(points{iSweep}>=closestPoint);          % Drop all other kink points before this poine
             end
-            if(maxSpikes==0 && length(points{iSweep})>0)        % First sweep to have a spike
-                minInflectionV = y(min(points{iSweep}),iSweep);
-                firstSpikeSize = y(firstMax(iSweep),iSweep) - minInflectionV;  % Max y minus kink point
+            if(length(points{iSweep})>0)                                    % There was a spike
+                thresholds(iSweep) = y(points{iSweep}(1),iSweep);           % Remember threshold for this sweep
+                if(maxSpikes==0)                                            % And it was the first sweep to have a spike
+                    minInflectionV = y(min(points{iSweep}),iSweep);
+                    firstSpikeSize = y(firstMax(iSweep),iSweep) - minInflectionV;  % Max y minus kink point
+                end
             end
             maxSpikes = max(maxSpikes,length(points{iSweep}));            
         end
+        v = (0:(nSweeps-1))*20;                                             % Voltages, mV
+        coefs = polyfit(v(~isnan(thresholds)),thresholds(~isnan(thresholds)),1);
+        threshSlope = coefs(1);
         %locMin = find((d1(2:end)>0)&(d1(1:end-1)<=0));  % Local minima
         
-        bag = [bag; map.id(iCell) maxSpikes minInflectionV firstSpikeSize];
+        bag = [bag; map.id(iCell) maxSpikes minInflectionV firstSpikeSize threshSlope];
            
         if(showFigures)
             figure('Color','white');
@@ -138,16 +147,21 @@ for(iCell=cellList)
                     hold off
                     title(sprintf('Cell %d : %d spikes',map.id(iCell),maxSpikes));
                 case 'pile'
-                    hold on;
-                    set(gca,'ColorOrder',bsxfun(@plus,get(gca,'ColorOrder')*0.3,[1 1 1]*0.5));    % Make colors lighter
+                    subplot(2,3,[1 2 4 5]); hold on;
+                    set(gca,'ColorOrder',bsxfun(@plus,get(gca,'ColorOrder')*0.3,[1 1 1]*0.5));  % Make colors lighter
                     plot(t,y);      
-                    xlim((xSignal+[-100 0])/10);    
+                    xlim((xSignal+[-100 0])/10);
+                                                           % Vector of thresholds
                     for(iSweep=1:nSweeps)
                         plot(t(points{iSweep}),y(points{iSweep},iSweep),'r.');
                     end
                     % plot(t(xSignal(1)+10),y(xSignal(1)+10,2),'ro');
                     hold off;
                     title(sprintf('Cell %d : %d spikes',map.id(iCell),maxSpikes));
+                    ha = subplot(2,3,3);
+                    plot((0:(nSweeps-1))*20,thresholds,'ko');
+                    set(ha,'FontSize',8);
+                    xlabel('I hold, pA'); ylabel('Threshold, mV'); title(threshSlope);
                 case 'train'
                     subplot(2,1,1);
                     hold on;                    
