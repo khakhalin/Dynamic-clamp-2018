@@ -60,7 +60,8 @@ Synaptic block:
 
 Current step injections:
 * stepspike - number of spikes in response to current step injections
-* thslope - a slope of spike threshold increase with increasing current injections, in current clamp mode, mV/pA
+* thslope - a slope of spike threshold increase with increasing current injections, in current clamp mode, mV/pA. This measure is not reported the paper, as this variable was not proved to be useful in earlier studies, and it clearly lacked explanatory value in this study. Suggesting that it may be a bad way to measure Na channels inactivation.
+* mininflection - lowest observed action potential threshold (mV) for this neuron. In practice, calculated as the minimal value of membrane voltage across all inflection points detection in current clamp experiments. Not reported in the paper.
 
 ### data_manualCounting.txt	
 

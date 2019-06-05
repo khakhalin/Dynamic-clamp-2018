@@ -148,7 +148,15 @@ As described above, we now don't use quotation marks for any basic words, so "pr
 > Page 10 (last paragraph): Were action potential thresholds measured? Were there any differences in
 this parameter across groups?
 
-We did not measure action potential thresholds, as we know from the previous study (Ciarleglio Khakhalin 2015) that threshold measurements in tadpole tectal neurons are highly sensitive to the current that is used to evoke the spikes, due to rapid Na channels inactivation (Azouz 2000; Fontaine 2014).
+The paragraph in question read: "We ran a stepwise generalized linear model selection analysis (R package stepAIC,
+Venables and Ripley 2013) to explain the intrinsic tuning of cells recorded in all
+experimental groups through these eight variables. We found that the average spikiness
+(after compensation for position within the tectum; see Methods) was best described by a
+combination of sodium peak current (INa) and membrane resistance (Rm) variables, but
+these variables explained only 8% and 2% of cell-to-cell variance respectively
+F(1,130)=11.3, and F(1,130)=4.5; Figure 3E)." etc.
+
+We measured action potential thresholds, but did not report them, as we know from earlier studies (Ciarleglio Khakhalin 2015) that AP threshold measurements in tectal neurons are highly sensitive to the current that is used to evoke the spikes, due to rapid Na channels inactivation. At the analysis phase, we briefly tried to use AP thresholds from current clamp experiments to estimate the prominence of Na channels inactivation in individual tectal neurons (Azouz 2000; Fontaine 2014), but these attempts did not lead to conclusive results, and as they are also not based on established analysis methods, they are not reported in the paper. Neither minimal threshold for generating an action potential, nor the slope of AP threshold with increase in holding current, different across groups (ANOVA p=0.7 and 0.3 respectively).
 
 
 > Page 10 line 8: The “correction for position” is difficult to understand here and in Methods. Why was a

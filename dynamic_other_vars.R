@@ -330,8 +330,8 @@ cohen.d(data=subset(dadj,group %in% c("Flash","Async")),samp~group) # 0.65, 0.64
 # -------------- Big flexible visualizations
 # Full analysis plot of each one variable
 # Set the variable & its name in two rows below
-d$best = d$smean # Put any value from names() here
-valName = 'smean' # How to label y-axis below
+d$best = d$thslope # Put any value from names() here
+valName = 'thslope' # How to label y-axis below
 transformNeeded = F # Transformation; set to T for sbend
 dclean = na.omit(d)
 if(transformNeeded) {
@@ -351,9 +351,18 @@ d_sum = summarize(group_by(dclean,group),
              m=mean(proxy,na.rm=T),
              n=n(),
              ci=sd(proxy,na.rm=T)/sqrt(n)*qt(0.025,df=n-1))
+# Version with beeswarm that stopped working for some reason:
 ggplot(data=d_sum, aes(group,m)) + 
   theme_bw() + theme(text=element_text(size=8)) + 
   geom_beeswarm(data=dclean,aes(group,proxy,color=group),cex=1,alpha=0.5,shape=16,size=2) +
+  geom_point(shape=1) +
+  geom_errorbar(aes(ymin=m-ci,ymax=m+ci),width=0.1) +
+  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
+  xlab('Group') + ylab(valName)
+# Similar thing, but with jitter:
+ggplot(data=d_sum, aes(group,m)) + 
+  theme_bw() + theme(text=element_text(size=8)) + 
+  geom_jitter(data=dclean,aes(group,proxy,color=group),alpha=0.5,shape=16,size=2,height=0,width=0.2) +
   geom_point(shape=1) +
   geom_errorbar(aes(ymin=m-ci,ymax=m+ci),width=0.1) +
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
@@ -479,7 +488,7 @@ stepAIC(fit, direction="both") # nai+rm
 ### ---- Sbend analysis
 # it's important to use dadj instead of d, as sbend is tricky to position-compensate
 # because of non-normality, but we've done it properly above.
-drop1(aov(data=dadj,sbend~nai+kti+ksi+cm+rm+nav+ktv+ksv),test="F") # nav wins
+drop1(aov(data=na.omit(d),sbend~rostral+medial+nai+kti+ksi+cm+rm+nav+ktv+ksv),test="F") # none
 cor.test(dadj$rm,dadj$nav,use="complete.obs") # rm and nav anticorrelate tho
 fit = aov(data=dadj,sbend~nai+kti+ksi+nav+ktv+ksv+cm+rm)
 stepAIC(fit, direction="both") # ktv + rm + nav
@@ -498,7 +507,7 @@ summary(aov(data=d,
             sbend~rm+cm+nai+nav+kti+ktv+ksi+ksv+group),test="F") # In fact group remains after everything
 
 ### ---- Samp analysis
-drop1(aov(data=na.omit(d),samp~rostral+medial+nai+kti+ksi+cm+rm+nav+ktv+ksv),test="F") # nai
+drop1(aov(data=na.omit(d),samp~rostral+medial+nai+kti+ksi+cm+rm+nav+ktv+ksv),test="F") # none
 fit = aov(data=na.omit(d),samp~rostral+medial+nai+kti+ksi+nav+ktv+ksv+cm+rm)
 stepAIC(fit, direction="both") # nai + nav + ktv
 # Correct analysis:
@@ -810,4 +819,37 @@ ggplot(data=d,aes(lat_m,lat_s)) + theme_bw() + geom_point(aes(color=group)) +
   facet_wrap(~group) # No obvious shape, and not much diff in spread
 
 
+### ---- Checking whether threshold V slope makes any sense whatsoever
+dtemp <- d %>% mutate(thslope=pmin(0.25,thslope,na.rm=T)) # Tuck one outlier in, to avoid influential points
 
+# Change across groups:
+summary(aov(data=dtemp,thslope~rostral+medial+group)) # no
+
+# Change in space:
+summary(aov(data=d,thslope~rostral+medial+group)) # no
+
+# Explanation value for other variables:
+drop1(aov(data=na.omit(d),
+          smean~rostral+medial+nai+kti+ksi+nav+ktv+ksv+cm+rm+thslope),test="F") # thslope isn't.
+drop1(aov(data=na.omit(d),
+          sbend~rostral+medial+nai+kti+ksi+nav+ktv+ksv+cm+rm+thslope),test="F") # thslope isn't.
+drop1(aov(data=na.omit(d),
+          samp~rostral+medial+nai+kti+ksi+nav+ktv+ksv+cm+rm+thslope),test="F") # thslope isn't.
+
+# Simple correlations with other variables:
+ggplot(data=dtemp,aes(thslope,smean)) + theme_bw() + geom_point()
+ggplot(data=dtemp,aes(thslope,sbend)) + theme_bw() + geom_point()
+ggplot(data=dtemp,aes(thslope,nai)) + theme_bw() + geom_point() # weak negative
+ggplot(data=dtemp,aes(thslope,kti)) + theme_bw() + geom_point() # weak negative
+ggplot(data=dtemp,aes(thslope,ksi)) + theme_bw() + geom_point() # weak negative
+cor.test(data=dtemp,~thslope+nai) # r=-0.26
+cor.test(data=dtemp,~thslope+kti) # r=-0.25
+ggplot(data=dtemp,aes(thslope,nav)) + theme_bw() + geom_point() # nothing
+ggplot(data=dtemp,aes(thslope,ktv)) + theme_bw() + geom_point() # no
+cor.test(data=dtemp,~thslope+nav) # nothing
+ggplot(data=dtemp,aes(thslope,stepspike)) + theme_bw() + geom_point() # boring (nothing)
+summary(aov(data=dtemp,sbend ~ rostral+medial + thslope)) # Resounding "no" (p=0.3)
+
+# Minimal inflection point:
+ggplot(data=d,aes(group,mininflection)) + theme_bw() + geom_point()
+summary(aov(data=d,mininflection ~ rostral+medial+group)) # no (p=0.7)
