@@ -34,6 +34,7 @@ This Bollmann and Engert reference does not address mechanosensory and auditory 
 shows that the RGC inputs form a topographic map along the proximal-distal axis of individual tectal
 neuron dendrites. This reference should be replaced with an appropriate reference.
 
+
 > Also, how can having different subcellular targets could explain the results? This concept needs to be
 clarified – an example would be helpful.
 
@@ -41,10 +42,12 @@ We replaced this sentence with the following one: "This was not necessarily surp
 
 Here, the actual rationale for the second explanation (a difference in subcellular targets) is that inputs to different parts of the dentritic tree can trigger action potentials of different shape, and differentially affect calcium dynamics in the neuron, which, together with non-linear processing in dendrites may make different types of inputs unequal in terms of their effects on neuronal activity, and neuronal tuning, respectively. Two extreme examples of this effect would be the impact of climbing fibers on the activity of Purkinje cells in the cerebellum, or the impact of inputs to the apical dendrites of pyramidal cells in the cortex. We feel, however, that this topic is very complex, yet somewhat tangential to the main message of the paper, so we tried to limit our exposition into it by a short sentence and a good, recent reference.
 
+
 > Page 13 line 46: The authors use the term “distributed sensory network” . Is a “distributed” network a
 special type of sensory network?
 
-Technically, even two neurons form a network (and a true mathematician would probably argue that even one neuron forms a network!), yet the tectal network is a relatively large one, with broad recurrent excitation, and in which different parts of the sensory input are processed in parallel. To subtly remind the reader about that, we used a word "distributed", as in "distributed computations", as opposed to more local and covergent networks, such as, for example, the Mauthner cell network in the hindbrain. This word is often used in writing (a Google Scholar search for `"distributed network" brain` returns 27000 hits), but admittedly it is not a precisely defined term, but rather a useful qualifier. If you think that this word is not appropriate here, please let us know, and we will remove it.
+Technically, even two neurons form a network (and a true mathematician would probably argue that even one neuron forms a network!), yet the tectal network is a relatively large one, with broad recurrent excitation, and in which different parts of the sensory input are processed in parallel. To subtly remind the reader about that, we used a word "distributed", as in "distributed computations", as opposed to more local and covergent networks, such as, for example, the Mauthner cell network in the hindbrain. This word is often used in writing (a Google Scholar search for `"distributed network" brain` returns 27000 hits), but admittedly it is not a precisely defined term, but rather a useful qualifier. We removed the word "distributed" from this sentence, in the interest of brevity, but retained it in the second paragraph of the Introduction.
+
 
 > Page 3, line 26,27,28: “In the tadpole tectum, looming stimuli are known to elicit stronger responses
 compared to instantaneous inversions, yet the suppression yielded by looming stimuli was weaker”.
@@ -55,6 +58,7 @@ potentials?) than does flashes?
 This was unexpected as intrinsic plasticity is often described as a homeostatic mechanism. Thus a stronger stimulus could, in principle, cause stronger suppression of spiking. To make this point more clear, we now changed this sentence:
 
 "This was likewise unexpected, as compared to flashes, looming stimuli are known to elicit stronger tectal responses (Khakhalin et al., 2014; Khakhalin, 2019), yet their effect on neuronal excitability was weaker, seemingly in contradiction with the principle of homeostatic plasticity (Pratt and Aizenman, 2007; Turrigiano, 2007)."
+
 
 ### Major
 
