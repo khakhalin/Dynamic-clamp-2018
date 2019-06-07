@@ -81,7 +81,7 @@ head(dfull)
 ggplot() + theme_bw() + geom_point(data=dfull,aes(ss,bend)) # Simple bendiness and fancy bendiness correlate well
 
 # Output
-write.csv(d1,"spike shapes.txt",row.names=F)
+# write.csv(d1,"spike shapes.txt",row.names=F)
 
 d2 = inner_join(ds,d1,by="Cell")
 # Plot everything
@@ -121,22 +121,26 @@ ggplot(data=subset(d_diff,Group!="Control"), aes(sn,diff,color=Amp,group=Amp)) +
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
   xlab('Conductance curve length, ms') + ylab('Spike suppression')
 
-# Compare any set of groups to each other
+# --- Compare any set of groups to each other
 # Uncomment any single row among the options below
+
 # ds = subset(d,is.element(Group,c("Control","Flash","Looming")))
 # ds = subset(d,is.element(Group,c("Flash","Sound","Sync","Async")))
 # ds = subset(d,is.element(Group,c("Control","Flash")))
 # ds = subset(d,is.element(Group,c("Control","Looming")))
 # ds = subset(d,is.element(Group,c("Flash","Looming")))
-# ds = subset(d,is.element(Group,c("Control","Async")))
-# ds = subset(d,is.element(Group,c("Control","Sou#nd")))
+# ds = subset(d,is.element(Group,c("Control","Sync"))) # yes aov, yes lmer
+# ds = subset(d,is.element(Group,c("Control","Async"))) # no aov, no lmer
+ds = subset(d,is.element(Group,c("Sync","Async"))) # yes, no
+# ds = subset(d,is.element(Group,c("Control","Sound"))) # no, no
 # ds = subset(d,is.element(Group,c("Flash","Sound")))
-ds = subset(d,is.element(Group,c("Flash","Sync")))
-# ds = subset(d,is.element(Group,c("Flash","Async")))
+# ds = subset(d,is.element(Group,c("Flash","Sync"))) # yes aov, no lmer
+# ds = subset(d,is.element(Group,c("Flash","Async"))) # yes aov, yes lmer
 # ds = d # To compare all
 
 dsflat <- ds %>% group_by(Group,Cell,Amp,Shape) %>% summarize(Spikes=mean(Spikes,na.rm=T))
 summary(aov(data=dsflat,Spikes~Group + Group*Shape + Group*Amp + Cell)) # Repeated measures
+
 # Sense-check:
 anova(lmer(data=ds,Spikes~Group*Shape + Group*Amp + (1+Shape+Amp|Cell),na.action=na.omit)) # Interactions
 # Except that aov is sequential, while lmer is typeIII (marginal with interactions included)
