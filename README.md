@@ -10,8 +10,8 @@ This repository contains all supplementary materials for this paper. Some import
 * [Full list of scripts used in this study](Workflow.md)
 * [LaTeX version of the paper](main.tex)
 
-## Abstract
+## Intrinsic temporal tuning of neurons in the optic tectum is shaped by multisensory experience
 
-Intrinsic temporal tuning of neurons in the optic tectum is shaped by multisensory experience
+#### Abstract
 
 For a biological neural network to be functional, its neurons need to be connected with synapses of appropriate strength, and each neuron needs to appropriately respond to its synaptic inputs. This second aspect of network tuning is maintained by intrinsic plasticity; yet it is often considered secondary to changes in connectivity, and mostly limited to adjustments of overall excitability of each neuron. Here we argue that even non-oscillatory neurons can be tuned to inputs of different temporal dynamics, and that they can routinely adjust this tuning to match the statistics of their synaptic activation. Using the dynamic clamp technique, we show that in the tectum of Xenopus tadpoles, neurons become selective for faster inputs when animals are exposed to fast visual stimuli, but remain responsive to longer inputs in animals exposed to slower, looming or multisensory stimulation. We also report a homeostatic co-tuning between synaptic and intrinsic temporal properties of individual tectal cells. These results expand our understanding of intrinsic plasticity in the brain, and suggest that there may exist an additional dimension of network tuning that has been so far overlooked.
