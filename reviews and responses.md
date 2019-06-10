@@ -127,7 +127,7 @@ stimuli have been described in previous work, this should be included here.
 
 Unfortunately, electrophysiological recording of tectal reponses to sounds in tadpoles does not seem to be technically feasible, not just in our lab (where we don't even have the technical capability to perform in-vivo experiments), but in most labs. From the technical point of view, the problem amounts to two limitations: one, to record from a tadpole, one has to paralyze it with a nicotinic receptor anatagonist, which seems to disrupt hearing. Second, even if this limitation could be overcome, the sounds have to be strong enough to stimulate the inner ear, but weak enough not to mechanically disrupt the recording. Conceivably, both challenges may be circumvented with the use of high speed calcum imaging in freely moving tadpoles, but to our knowledge no lab has attempted these recordings yet.
 
-To show that our statement is just a conjecture, we replaced "suggets" with "may suggest" in this sentence: "This may suggest that acoustic stimuli did not activate tectal circuits strongly enough during conditioning..."
+To show that our statement is just a conjecture, we replaced "suggests" with "may suggest" in this sentence: "This may suggest that acoustic stimuli did not activate tectal circuits strongly enough during conditioning..."
 
 
 > Page 6 line 24: Remove the phrase “are not easily interpretable”. Instead, please interpret your data
